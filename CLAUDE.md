@@ -62,8 +62,20 @@ Todo cliente com projetos entregues deve ter `clientes/[nome-cliente]/historico.
 
 - [x] Google Drive MCP
 - [x] Canva MCP
+- [x] Notion MCP
 - [ ] Vercel CLI (instalar quando necessário)
 - [ ] Netlify CLI (instalar quando necessário)
+
+### Regra: sempre buscar a melhor conexão para o projeto
+
+A cada projeto novo ou tarefa, avaliar se alguma ferramenta disponível pode acelerar ou melhorar o resultado:
+
+- **Google Drive** — o cliente enviou assets? buscar lá antes de pedir
+- **Canva** — precisa de imagem, banner ou mockup? gerar ou buscar no Canva
+- **Notion** — tem briefing ou documentação do projeto no Notion? puxar de lá
+- **Vercel/Netlify** — projeto precisa de deploy? instalar o CLI no momento certo, não antes
+
+Se aparecerem novos MCPs ou ferramentas no ambiente, registrar em `_contexto/memoria.md` e avaliar onde podem ajudar.
 
 ---
 
@@ -74,6 +86,7 @@ No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem
 1. `_contexto/empresa.md` — quem é o usuário, como trabalha, perfil de clientes
 2. `_contexto/preferencias.md` — stack preferida, padrões de código, o que evitar
 3. `_contexto/estrategia.md` — projetos ativos, prioridades, o que tem deadline
+4. `_contexto/memoria.md` — aprendizados acumulados, correções passadas, o que não repetir
 
 Usar essas informações como base pra qualquer resposta. Ao sugerir abordagens ou templates, considerar as preferências registradas.
 
@@ -96,6 +109,7 @@ Se não encontrar, executar a tarefa normalmente.
 | `/novo-projeto [cliente]` | Onboarding completo de um novo cliente/projeto |
 | `/componente [tipo]` | Gerar um bloco de componente isolado (hero, CTA, form, etc.) |
 | `/exportar [cliente/projeto]` | Preparar o projeto para entrega ou deploy |
+| `/atualizar` | Revisar e sincronizar workspace, contexto, projetos e ferramentas |
 
 Ao concluir uma tarefa que não tinha skill mas parece repetível, perguntar:
 
@@ -117,8 +131,13 @@ Se sim, identificar onde faz mais sentido salvar:
 - **Sobre stack e código** → `_contexto/preferencias.md`
 - **Sobre prioridades atuais** → `_contexto/estrategia.md`
 - **Regra de comportamento nessa pasta** → `CLAUDE.md`
+- **Correção técnica ou solução descoberta** → `_contexto/memoria.md` (seção "Correções e aprendizados técnicos")
+- **Preferência de cliente específico** → `_contexto/memoria.md` (seção "Clientes — notas específicas")
 
 Salvar com uma linha nova clara, sem reformatar o arquivo inteiro. Confirmar o que foi salvo mostrando a linha adicionada.
+
+Quando um erro for cometido e corrigido, registrar em `_contexto/memoria.md` **sem perguntar** — no formato:
+`DATA — [o que aconteceu] → [como fazer corretamente]`
 
 ---
 
