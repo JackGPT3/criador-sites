@@ -1,0 +1,39 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+dist/
+build/
+.vercel/
+.netlify/
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+*.code-workspace
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporários
+*.tmp
+*.swp
+*.bak
+
+# Claude Code (local apenas)
+.claude/settings.local.json

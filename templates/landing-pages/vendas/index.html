@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título da página e do produto -->
+  <title>Nome do Produto — Headline Curta</title>
+  <meta name="description" content="Descrição da oferta em 1-2 frases. Aparece no Google e no compartilhamento em redes sociais.">
+  <!-- Open Graph (compartilhamento em redes sociais) -->
+  <meta property="og:title" content="Nome do Produto">
+  <meta property="og:description" content="Descrição da oferta.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- =============================================
+       RASTREAMENTO — descomentar e preencher IDs
+       ============================================= -->
+  <!-- Pixel Meta
+  <script>
+    !function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID_AQUI');
+    fbq('track', 'PageView');
+  </script>
+  -->
+  <!-- Google Tag Manager
+  <script>(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  -->
+
+  <style>
+    /* ==============================
+       VARIÁVEIS — editar aqui
+       ============================== */
+    :root {
+      --cor-primaria: #1a1a2e;       /* cor principal (fundo escuro, cabeçalhos) */
+      --cor-acento: #e94560;         /* cor de destaque (botões, links, destaques) */
+      --cor-acento-hover: #c73652;   /* hover do botão */
+      --cor-fundo: #f8f9fa;          /* fundo geral da página */
+      --cor-fundo-alt: #ffffff;      /* fundo de seções alternadas */
+      --cor-texto: #333333;          /* texto principal */
+      --cor-texto-claro: #666666;    /* texto secundário */
+      --cor-branco: #ffffff;
+
+      --fonte-titulo: 'Georgia', serif;        /* EDITAR: fonte dos títulos */
+      --fonte-corpo: system-ui, sans-serif;    /* EDITAR: fonte do corpo */
+
+      --borda-radius: 8px;
+      --sombra: 0 4px 20px rgba(0,0,0,0.1);
+      --transicao: 0.2s ease;
+    }
+
+    /* ==============================
+       RESET E BASE
+       ============================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--fonte-corpo);
+      color: var(--cor-texto);
+      background: var(--cor-fundo);
+      line-height: 1.6;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--cor-acento); text-decoration: none; }
+
+    /* ==============================
+       UTILITÁRIOS
+       ============================== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .container--estreito { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    .secao { padding: 80px 0; }
+    .secao--escura { background: var(--cor-primaria); color: var(--cor-branco); }
+    .secao--alt { background: var(--cor-fundo-alt); }
+    .texto-centro { text-align: center; }
+    .destaque { color: var(--cor-acento); }
+
+    /* ==============================
+       TIPOGRAFIA
+       ============================== */
+    h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); margin-bottom: 16px; }
+    h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    p { margin-bottom: 16px; }
+    .subtitulo { font-size: clamp(1.1rem, 2.5vw, 1.3rem); opacity: 0.85; }
+
+    /* ==============================
+       BOTÕES
+       ============================== */
+    .btn {
+      display: inline-block;
+      background: var(--cor-acento);
+      color: var(--cor-branco);
+      padding: 16px 36px;
+      border-radius: var(--borda-radius);
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transicao), transform var(--transicao);
+      text-align: center;
+    }
+    .btn:hover { background: var(--cor-acento-hover); transform: translateY(-2px); }
+    .btn--grande { padding: 20px 48px; font-size: 1.2rem; }
+    .btn--contorno {
+      background: transparent;
+      border: 2px solid var(--cor-branco);
+      color: var(--cor-branco);
+    }
+    .btn--contorno:hover { background: var(--cor-branco); color: var(--cor-primaria); }
+
+    /* ==============================
+       HEADER
+       ============================== */
+    .header {
+      background: var(--cor-primaria);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* EDITAR: trocar por <img src="assets/images/logo.svg" alt="Logo"> */
+    .header__logo {
+      color: var(--cor-branco);
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: var(--fonte-titulo);
+    }
+    .header__cta {
+      background: var(--cor-acento);
+      color: var(--cor-branco);
+      padding: 10px 24px;
+      border-radius: var(--borda-radius);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background var(--transicao);
+    }
+    .header__cta:hover { background: var(--cor-acento-hover); }
+
+    /* ==============================
+       HERO
+       ============================== */
+    .hero {
+      background: var(--cor-primaria);
+      color: var(--cor-branco);
+      padding: 100px 0 80px;
+      text-align: center;
+      /* EDITAR: background-image: url('assets/images/hero-bg.jpg'); background-size: cover; */
+    }
+    .hero__tag {
+      display: inline-block;
+      background: var(--cor-acento);
+      color: var(--cor-branco);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 { color: var(--cor-branco); margin-bottom: 20px; }
+    .hero .subtitulo { margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .hero__cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero__prova {
+      margin-top: 48px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* ==============================
+       BENEFÍCIOS
+       ============================== */
+    .beneficios__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .beneficio {
+      background: var(--cor-fundo-alt);
+      padding: 32px;
+      border-radius: var(--borda-radius);
+      box-shadow: var(--sombra);
+      border-top: 3px solid var(--cor-acento);
+    }
+    .beneficio__icone {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    /* ==============================
+       PROVA SOCIAL — DEPOIMENTOS
+       ============================== */
+    .depoimentos__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .depoimento {
+      background: var(--cor-fundo-alt);
+      padding: 28px;
+      border-radius: var(--borda-radius);
+      box-shadow: var(--sombra);
+      position: relative;
+    }
+    .depoimento::before {
+      content: '"';
+      font-size: 4rem;
+      color: var(--cor-acento);
+      position: absolute;
+      top: 8px;
+      left: 20px;
+      line-height: 1;
+      opacity: 0.3;
+    }
+    .depoimento__texto { font-style: italic; margin-bottom: 16px; }
+    .depoimento__autor { font-weight: 700; }
+    .depoimento__cargo { font-size: 0.85rem; color: var(--cor-texto-claro); }
+
+    /* ==============================
+       O QUE ESTÁ INCLUÍDO
+       ============================== */
+    .incluido__lista {
+      list-style: none;
+      max-width: 600px;
+      margin: 32px auto 0;
+    }
+    .incluido__lista li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .incluido__lista li::before {
+      content: '✓';
+      color: var(--cor-acento);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ==============================
+       PREÇO / OFERTA
+       ============================== */
+    .preco {
+      background: var(--cor-fundo-alt);
+      border-radius: var(--borda-radius);
+      padding: 48px;
+      text-align: center;
+      max-width: 500px;
+      margin: 48px auto 0;
+      box-shadow: var(--sombra);
+      border: 2px solid var(--cor-acento);
+    }
+    .preco__de {
+      font-size: 1rem;
+      color: var(--cor-texto-claro);
+      text-decoration: line-through;
+    }
+    .preco__por { font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 4px; }
+    .preco__valor {
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: var(--cor-primaria);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .preco__parcelas { font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 24px; }
+    .preco__garantia { font-size: 0.85rem; color: var(--cor-texto-claro); margin-top: 16px; }
+
+    /* ==============================
+       FAQ
+       ============================== */
+    .faq { max-width: 760px; margin: 48px auto 0; }
+    .faq__item {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .faq__pergunta {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cor-texto);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq__pergunta::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--cor-acento);
+      flex-shrink: 0;
+      transition: transform var(--transicao);
+    }
+    .faq__item.aberto .faq__pergunta::after { transform: rotate(45deg); }
+    .faq__resposta {
+      display: none;
+      padding: 0 0 20px;
+      color: var(--cor-texto-claro);
+    }
+    .faq__item.aberto .faq__resposta { display: block; }
+
+    /* ==============================
+       CTA FINAL
+       ============================== */
+    .cta-final {
+      text-align: center;
+      padding: 100px 0;
+    }
+    .cta-final h2 { margin-bottom: 16px; }
+    .cta-final .subtitulo { margin-bottom: 40px; }
+
+    /* ==============================
+       FOOTER
+       ============================== */
+    .footer {
+      background: var(--cor-primaria);
+      color: var(--cor-branco);
+      padding: 40px 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .footer a { color: rgba(255,255,255,0.6); }
+    .footer a:hover { color: var(--cor-branco); }
+    .footer__links { margin-bottom: 16px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+
+    /* ==============================
+       RESPONSIVO
+       ============================== */
+    @media (max-width: 768px) {
+      .secao { padding: 60px 0; }
+      .hero { padding: 70px 0 60px; }
+      .preco { padding: 32px 20px; }
+      .beneficios__grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <!-- EDITAR: trocar texto pelo logo -->
+        <a href="#" class="header__logo">Nome da Marca</a>
+        <!-- EDITAR: CTA do header — WhatsApp ou âncora para seção de compra -->
+        <a href="#oferta" class="header__cta">Quero comprar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <!-- EDITAR: tag de contexto (opcional) -->
+      <span class="hero__tag">🔥 Oferta por tempo limitado</span>
+
+      <!-- EDITAR: headline principal -->
+      <h1>Transforme [resultado desejado] em [prazo realista]</h1>
+
+      <!-- EDITAR: subtítulo com proposta de valor -->
+      <p class="subtitulo">
+        Descrição do produto/serviço em 1-2 frases. O que é, para quem é e o resultado que entrega.
+      </p>
+
+      <div class="hero__cta-group">
+        <!-- EDITAR: link de WhatsApp ou âncora para oferta -->
+        <a href="https://wa.me/5500000000000?text=Olá%2C+tenho+interesse+no+produto" class="btn btn--grande">
+          Quero saber mais →
+        </a>
+      </div>
+
+      <!-- EDITAR: prova social rápida (opcional) -->
+      <p class="hero__prova">⭐⭐⭐⭐⭐ Mais de 500 clientes satisfeitos</p>
+    </div>
+  </section>
+
+  <!-- ===== BENEFÍCIOS ===== -->
+  <section class="secao">
+    <div class="container">
+      <div class="texto-centro">
+        <!-- EDITAR: título da seção -->
+        <h2>O que você vai <span class="destaque">conquistar</span></h2>
+        <p class="subtitulo">Subtítulo da seção de benefícios.</p>
+      </div>
+
+      <div class="beneficios__grid">
+        <!-- EDITAR: repetir quantos blocos forem necessários (3-6 recomendado) -->
+        <div class="beneficio">
+          <div class="beneficio__icone">🎯</div>
+          <h3>Benefício Um</h3>
+          <p>Descrição do benefício em 2-3 linhas. Foco no resultado que o cliente vai ter, não na feature.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icone">⚡</div>
+          <h3>Benefício Dois</h3>
+          <p>Descrição do benefício em 2-3 linhas.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icone">💡</div>
+          <h3>Benefício Três</h3>
+          <p>Descrição do benefício em 2-3 linhas.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icone">🛡️</div>
+          <h3>Benefício Quatro</h3>
+          <p>Descrição do benefício em 2-3 linhas.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icone">📈</div>
+          <h3>Benefício Cinco</h3>
+          <p>Descrição do benefício em 2-3 linhas.</p>
+        </div>
+        <div class="beneficio">
+          <div class="beneficio__icone">🤝</div>
+          <h3>Benefício Seis</h3>
+          <p>Descrição do benefício em 2-3 linhas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROVA SOCIAL / DEPOIMENTOS ===== -->
+  <section class="secao secao--alt">
+    <div class="container">
+      <div class="texto-centro">
+        <h2>O que dizem quem já <span class="destaque">transformou</span></h2>
+      </div>
+
+      <div class="depoimentos__grid">
+        <!-- EDITAR: substituir por depoimentos reais -->
+        <div class="depoimento">
+          <p class="depoimento__texto">
+            "Depoimento real do cliente aqui. Quanto mais específico e com resultado mensurável, melhor. Ex: Em 30 dias aumentei meu faturamento em 40%."
+          </p>
+          <p class="depoimento__autor">Nome do Cliente</p>
+          <p class="depoimento__cargo">Cargo / Empresa (ou cidade)</p>
+        </div>
+        <div class="depoimento">
+          <p class="depoimento__texto">
+            "Outro depoimento real. Evitar depoimentos genéricos — quanto mais específico o resultado, mais credibilidade."
+          </p>
+          <p class="depoimento__autor">Nome do Cliente 2</p>
+          <p class="depoimento__cargo">Cargo / Empresa</p>
+        </div>
+        <div class="depoimento">
+          <p class="depoimento__texto">
+            "Mais um depoimento. Pode incluir nome completo, foto e resultado concreto."
+          </p>
+          <p class="depoimento__autor">Nome do Cliente 3</p>
+          <p class="depoimento__cargo">Cargo / Empresa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== O QUE ESTÁ INCLUÍDO ===== -->
+  <section class="secao secao--escura" id="oferta">
+    <div class="container">
+      <div class="texto-centro">
+        <h2 style="color: var(--cor-branco)">Tudo que está <span class="destaque">incluído</span></h2>
+        <p class="subtitulo">Subtítulo da seção.</p>
+      </div>
+
+      <ul class="incluido__lista">
+        <!-- EDITAR: listar o que está incluído no produto/serviço -->
+        <li>Item principal do produto ou serviço</li>
+        <li>Segundo item de valor incluído</li>
+        <li>Terceiro item</li>
+        <li>Bônus ou item extra de alto valor</li>
+        <li>Suporte ou atendimento incluso</li>
+        <li>Garantia ou certificado (se aplicável)</li>
+      </ul>
+
+      <!-- Bloco de preço -->
+      <div class="preco">
+        <!-- EDITAR: preço riscado (de) -->
+        <p class="preco__de">De R$ 997</p>
+        <p class="preco__por">Por apenas</p>
+        <!-- EDITAR: preço atual -->
+        <p class="preco__valor">R$ 497</p>
+        <!-- EDITAR: parcelamento -->
+        <p class="preco__parcelas">ou 12x de R$ 46,90 sem juros</p>
+        <!-- EDITAR: CTA principal -->
+        <a href="https://wa.me/5500000000000?text=Quero+comprar" class="btn btn--grande" style="width: 100%; margin-bottom: 8px;">
+          Quero garantir agora →
+        </a>
+        <!-- EDITAR: garantia -->
+        <p class="preco__garantia">🔒 Pagamento seguro · 7 dias de garantia incondicional</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="secao">
+    <div class="container--estreito">
+      <div class="texto-centro">
+        <h2>Perguntas <span class="destaque">frequentes</span></h2>
+      </div>
+
+      <div class="faq">
+        <!-- EDITAR: substituir pelas perguntas reais do produto -->
+        <div class="faq__item">
+          <button class="faq__pergunta">Para quem é esse produto?</button>
+          <div class="faq__resposta">
+            <p>Resposta completa para quem é e para quem não é ideal o produto.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Como funciona o processo após a compra?</button>
+          <div class="faq__resposta">
+            <p>Explicação do passo a passo depois da compra.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Tem garantia?</button>
+          <div class="faq__resposta">
+            <p>Descrever a garantia com clareza. Ex: 7 dias de garantia incondicional — se não gostar, devolvemos 100% do valor.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Quais formas de pagamento?</button>
+          <div class="faq__resposta">
+            <p>Cartão de crédito, débito, PIX, boleto — descrever as opções disponíveis.</p>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Como entro em contato em caso de dúvidas?</button>
+          <div class="faq__resposta">
+            <!-- EDITAR: canal de atendimento -->
+            <p>Pelo WhatsApp <a href="https://wa.me/5500000000000">(00) 00000-0000</a> ou pelo e-mail contato@empresa.com.br</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final secao--escura secao">
+    <div class="container--estreito">
+      <!-- EDITAR: headline de urgência ou reforço de valor -->
+      <h2 style="color: var(--cor-branco)">Pronto para <span class="destaque">[resultado]</span>?</h2>
+      <p class="subtitulo">Frase final reforçando a transformação e criando urgência.</p>
+      <!-- EDITAR: CTA final -->
+      <a href="https://wa.me/5500000000000?text=Quero+garantir+agora" class="btn btn--grande">
+        Garantir minha vaga agora →
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__links">
+        <!-- EDITAR: links do rodapé -->
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <!-- EDITAR: link de WhatsApp para suporte -->
+        <a href="https://wa.me/5500000000000">Suporte</a>
+      </div>
+      <!-- EDITAR: nome da empresa e CNPJ (opcional) -->
+      <p>© 2024 Nome da Empresa — CNPJ: 00.000.000/0000-00</p>
+      <p style="margin-top: 8px; opacity: 0.5; font-size: 0.8rem;">
+        Este produto não garante resultados. Resultados variam conforme o esforço individual.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq__pergunta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const estaAberto = item.classList.contains('aberto');
+        document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('aberto'));
+        if (!estaAberto) item.classList.add('aberto');
+      });
+    });
+  </script>
+
+</body>
+</html>

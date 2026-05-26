@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR: título e descrição -->
+  <title>Nome da Empresa — O que fazem em poucas palavras</title>
+  <meta name="description" content="Descrição da empresa em 1-2 frases para o Google.">
+  <meta property="og:title" content="Nome da Empresa">
+  <meta property="og:description" content="Descrição para redes sociais.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <link rel="canonical" href="https://www.seusite.com.br/">
+
+  <!-- Pixel Meta — descomentar
+  <script>...fbq('init', 'ID')...</script>
+  -->
+  <!-- Google Tag Manager — descomentar
+  <script>...GTM-XXXXXXX...</script>
+  -->
+
+  <!-- EDITAR: fontes do Google Fonts (máx. 2 famílias)
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  -->
+
+  <style>
+    /* ==============================
+       VARIÁVEIS — só editar aqui
+       ============================== */
+    :root {
+      --cor-primaria: #0f172a;       /* EDITAR: cor principal da marca */
+      --cor-acento: #3b82f6;         /* EDITAR: cor de destaque */
+      --cor-acento-hover: #2563eb;
+      --cor-fundo: #ffffff;
+      --cor-fundo-alt: #f8fafc;
+      --cor-texto: #1e293b;
+      --cor-texto-claro: #64748b;
+      --cor-branco: #ffffff;
+      --fonte-titulo: system-ui, -apple-system, sans-serif;  /* EDITAR: nome da fonte */
+      --fonte-corpo: system-ui, -apple-system, sans-serif;
+      --borda-radius: 8px;
+      --sombra: 0 4px 20px rgba(0,0,0,0.06);
+      --transicao: 0.2s ease;
+      --max-width: 1140px;
+    }
+
+    /* ==============================
+       RESET
+       ============================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fonte-corpo); color: var(--cor-texto); background: var(--cor-fundo); line-height: 1.65; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--cor-acento); text-decoration: none; transition: color var(--transicao); }
+    a:hover { color: var(--cor-acento-hover); }
+
+    /* ==============================
+       LAYOUT
+       ============================== */
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+    .secao { padding: 96px 0; }
+    .secao--alt { background: var(--cor-fundo-alt); }
+    .secao__titulo { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 16px; line-height: 1.2; }
+    .secao__sub { font-size: 1.1rem; color: var(--cor-texto-claro); max-width: 560px; }
+    .secao__header { margin-bottom: 56px; }
+    .secao__header--centro { text-align: center; }
+    .secao__header--centro .secao__sub { margin: 0 auto; }
+    .destaque { color: var(--cor-acento); }
+
+    h1, h2, h3, h4 { font-family: var(--fonte-titulo); line-height: 1.2; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
+    p { margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ==============================
+       BOTÕES
+       ============================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cor-acento);
+      color: var(--cor-branco);
+      padding: 14px 28px;
+      border-radius: var(--borda-radius);
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background var(--transicao), transform var(--transicao);
+    }
+    .btn:hover { background: var(--cor-acento-hover); transform: translateY(-1px); color: var(--cor-branco); }
+    .btn--outline {
+      background: transparent;
+      border: 2px solid var(--cor-acento);
+      color: var(--cor-acento);
+    }
+    .btn--outline:hover { background: var(--cor-acento); color: var(--cor-branco); }
+    .btn--escuro { background: var(--cor-primaria); }
+    .btn--escuro:hover { background: #1e293b; }
+    .btn-grupo { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ==============================
+       NAVBAR
+       ============================== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--cor-branco);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0;
+    }
+    .navbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 32px;
+    }
+    /* EDITAR: trocar por <img src="assets/images/logo.svg" alt="Logo Empresa"> */
+    .navbar__logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--cor-primaria);
+      white-space: nowrap;
+    }
+    .navbar__nav {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .navbar__nav a {
+      color: var(--cor-texto);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .navbar__nav a:hover { color: var(--cor-acento); }
+    .navbar__cta { white-space: nowrap; }
+    .navbar__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .navbar__toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cor-primaria);
+      transition: transform var(--transicao), opacity var(--transicao);
+    }
+    .navbar.aberta .navbar__nav {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: var(--cor-branco);
+      padding: 20px 24px 28px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      gap: 20px;
+      box-shadow: var(--sombra);
+    }
+
+    /* ==============================
+       HERO
+       ============================== */
+    .hero {
+      padding: 100px 0 80px;
+    }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero__tag {
+      display: inline-block;
+      background: #dbeafe;
+      color: var(--cor-acento);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 { margin-bottom: 20px; }
+    .hero__sub { font-size: 1.15rem; color: var(--cor-texto-claro); margin-bottom: 32px; }
+    .hero__imagem {
+      background: var(--cor-fundo-alt);
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cor-texto-claro);
+      font-size: 0.9rem;
+      /* EDITAR: trocar por <img src="assets/images/hero.jpg" alt=""> */
+      border: 2px dashed #e2e8f0;
+    }
+
+    /* ==============================
+       CLIENTES / LOGOS
+       ============================== */
+    .logos { padding: 48px 0; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
+    .logos__titulo { text-align: center; font-size: 0.85rem; color: var(--cor-texto-claro); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 32px; }
+    .logos__grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .logo-cliente {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      /* EDITAR: substituir por <img src="assets/images/logos/cliente.svg" alt="Nome do cliente"> */
+    }
+
+    /* ==============================
+       SERVIÇOS
+       ============================== */
+    .servicos__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .servico {
+      padding: 32px;
+      border-radius: var(--borda-radius);
+      border: 1px solid #e2e8f0;
+      transition: box-shadow var(--transicao), transform var(--transicao);
+    }
+    .servico:hover { box-shadow: var(--sombra); transform: translateY(-2px); }
+    .servico__icone { font-size: 2.2rem; margin-bottom: 16px; }
+    .servico h3 { margin-bottom: 8px; }
+    .servico p { color: var(--cor-texto-claro); font-size: 0.95rem; }
+    .servico__link { font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; }
+
+    /* ==============================
+       SOBRE / DIFERENCIAL
+       ============================== */
+    .sobre__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sobre__imagem {
+      background: var(--cor-fundo-alt);
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      border: 2px dashed #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cor-texto-claro);
+      font-size: 0.9rem;
+    }
+    .sobre__lista { list-style: none; margin: 24px 0 32px; }
+    .sobre__lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .sobre__lista li::before {
+      content: '→';
+      color: var(--cor-acento);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ==============================
+       NÚMEROS / RESULTADOS
+       ============================== */
+    .numeros { text-align: center; }
+    .numeros__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .numero h3 { font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--cor-acento); margin-bottom: 4px; }
+    .numero p { color: var(--cor-texto-claro); font-size: 0.95rem; }
+
+    /* ==============================
+       DEPOIMENTOS
+       ============================== */
+    .depoimentos__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .depoimento {
+      background: var(--cor-branco);
+      padding: 28px;
+      border-radius: var(--borda-radius);
+      box-shadow: var(--sombra);
+    }
+    .depoimento__estrelas { color: #f59e0b; margin-bottom: 12px; font-size: 1rem; }
+    .depoimento__texto { font-style: italic; color: var(--cor-texto); margin-bottom: 16px; font-size: 0.95rem; }
+    .depoimento__autor { font-weight: 700; font-size: 0.9rem; }
+    .depoimento__cargo { color: var(--cor-texto-claro); font-size: 0.82rem; }
+
+    /* ==============================
+       CTA FINAL
+       ============================== */
+    .cta-secao {
+      background: var(--cor-primaria);
+      color: var(--cor-branco);
+      text-align: center;
+    }
+    .cta-secao h2 { color: var(--cor-branco); margin-bottom: 16px; }
+    .cta-secao p { color: rgba(255,255,255,0.7); margin-bottom: 36px; font-size: 1.1rem; }
+
+    /* ==============================
+       FOOTER
+       ============================== */
+    .footer { background: var(--cor-primaria); color: rgba(255,255,255,0.6); padding: 60px 0 32px; }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer__marca h3 { color: var(--cor-branco); margin-bottom: 12px; font-size: 1.2rem; }
+    .footer__marca p { font-size: 0.9rem; line-height: 1.7; }
+    .footer__coluna h4 { color: var(--cor-branco); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .footer__links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+    .footer__links a:hover { color: var(--cor-branco); }
+    .footer__base { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; }
+
+    /* ==============================
+       RESPONSIVO
+       ============================== */
+    @media (max-width: 1024px) {
+      .footer__grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .secao { padding: 64px 0; }
+      .hero { padding: 60px 0; }
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__imagem { display: none; }
+      .sobre__grid { grid-template-columns: 1fr; }
+      .sobre__imagem { display: none; }
+      .navbar__nav { display: none; }
+      .navbar__toggle { display: flex; }
+      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer__base { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <!-- EDITAR: logo -->
+        <a href="/" class="navbar__logo">Nome da Empresa</a>
+
+        <!-- EDITAR: links de navegação -->
+        <ul class="navbar__nav" id="nav-menu">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+
+        <!-- EDITAR: CTA da navbar -->
+        <a href="https://wa.me/5500000000000?text=Olá%2C+vim+pelo+site" class="btn navbar__cta">
+          Fale conosco
+        </a>
+
+        <button class="navbar__toggle" id="nav-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div>
+          <!-- EDITAR: tag opcional -->
+          <span class="hero__tag">✨ Especialistas em [segmento]</span>
+          <!-- EDITAR: headline principal -->
+          <h1>[Resultado que o cliente vai ter] com quem <span class="destaque">entende do negócio</span></h1>
+          <!-- EDITAR: subtítulo -->
+          <p class="hero__sub">Descrição em 2 frases sobre o que a empresa faz e para quem. Direto ao ponto.</p>
+          <div class="btn-grupo">
+            <!-- EDITAR: CTAs -->
+            <a href="https://wa.me/5500000000000" class="btn">Falar com especialista</a>
+            <a href="#servicos" class="btn btn--outline">Ver serviços</a>
+          </div>
+        </div>
+        <!-- EDITAR: substituir por imagem real -->
+        <div class="hero__imagem">
+          📷 Imagem hero (ex: equipe, produto, escritório)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOGOS DE CLIENTES (opcional) ===== -->
+  <div class="logos">
+    <div class="container">
+      <p class="logos__titulo">Empresas que confiam em nós</p>
+      <div class="logos__grid">
+        <!-- EDITAR: substituir por logos reais -->
+        <span class="logo-cliente">Cliente 1</span>
+        <span class="logo-cliente">Cliente 2</span>
+        <span class="logo-cliente">Cliente 3</span>
+        <span class="logo-cliente">Cliente 4</span>
+        <span class="logo-cliente">Cliente 5</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="secao" id="servicos">
+    <div class="container">
+      <div class="secao__header">
+        <h2 class="secao__titulo">O que <span class="destaque">oferecemos</span></h2>
+        <!-- EDITAR: subtítulo da seção -->
+        <p class="secao__sub">Subtítulo descrevendo a amplitude dos serviços ou o diferencial.</p>
+      </div>
+
+      <div class="servicos__grid">
+        <!-- EDITAR: repetir blocos conforme os serviços da empresa -->
+        <div class="servico">
+          <div class="servico__icone">🎯</div>
+          <h3>Serviço Um</h3>
+          <p>Descrição do serviço em 2-3 frases. Foco no resultado que o cliente vai ter.</p>
+          <a href="#contato" class="servico__link">Saiba mais →</a>
+        </div>
+        <div class="servico">
+          <div class="servico__icone">⚡</div>
+          <h3>Serviço Dois</h3>
+          <p>Descrição do segundo serviço.</p>
+          <a href="#contato" class="servico__link">Saiba mais →</a>
+        </div>
+        <div class="servico">
+          <div class="servico__icone">📊</div>
+          <h3>Serviço Três</h3>
+          <p>Descrição do terceiro serviço.</p>
+          <a href="#contato" class="servico__link">Saiba mais →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NÚMEROS ===== -->
+  <section class="secao secao--alt numeros">
+    <div class="container">
+      <div class="secao__header secao__header--centro">
+        <h2 class="secao__titulo">Resultados que <span class="destaque">falam por si</span></h2>
+      </div>
+
+      <div class="numeros__grid">
+        <!-- EDITAR: números reais da empresa -->
+        <div class="numero">
+          <h3>+200</h3>
+          <p>Clientes atendidos</p>
+        </div>
+        <div class="numero">
+          <h3>8 anos</h3>
+          <p>de mercado</p>
+        </div>
+        <div class="numero">
+          <h3>98%</h3>
+          <p>de satisfação</p>
+        </div>
+        <div class="numero">
+          <h3>+R$10M</h3>
+          <p>em resultados gerados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="secao" id="sobre">
+    <div class="container">
+      <div class="sobre__grid">
+        <!-- EDITAR: foto ou imagem da empresa/equipe -->
+        <div class="sobre__imagem">
+          📷 Foto da equipe ou do fundador
+        </div>
+        <div>
+          <h2 class="secao__titulo">Quem está por <span class="destaque">trás</span></h2>
+          <!-- EDITAR: história e diferenciais da empresa -->
+          <p>Parágrafo sobre a empresa — história, missão ou o que a diferencia da concorrência.</p>
+          <p>Segundo parágrafo sobre valores ou abordagem.</p>
+          <ul class="sobre__lista">
+            <!-- EDITAR: diferenciais -->
+            <li>Diferencial ou valor da empresa — um por item</li>
+            <li>Segundo diferencial</li>
+            <li>Terceiro diferencial</li>
+          </ul>
+          <a href="#contato" class="btn">Falar com a equipe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOIMENTOS ===== -->
+  <section class="secao secao--alt" id="depoimentos">
+    <div class="container">
+      <div class="secao__header secao__header--centro">
+        <h2 class="secao__titulo">O que dizem <span class="destaque">nossos clientes</span></h2>
+      </div>
+
+      <div class="depoimentos__grid">
+        <!-- EDITAR: depoimentos reais -->
+        <div class="depoimento">
+          <div class="depoimento__estrelas">★★★★★</div>
+          <p class="depoimento__texto">"Depoimento real do cliente, com resultado específico e concreto. Quanto mais detalhado, mais credível."</p>
+          <p class="depoimento__autor">Nome do Cliente</p>
+          <p class="depoimento__cargo">Cargo — Empresa</p>
+        </div>
+        <div class="depoimento">
+          <div class="depoimento__estrelas">★★★★★</div>
+          <p class="depoimento__texto">"Segundo depoimento. Resultado mensurável e específico do negócio."</p>
+          <p class="depoimento__autor">Nome do Cliente 2</p>
+          <p class="depoimento__cargo">Cargo — Empresa</p>
+        </div>
+        <div class="depoimento">
+          <div class="depoimento__estrelas">★★★★★</div>
+          <p class="depoimento__texto">"Terceiro depoimento. Evitar frases genéricas — o específico converte."</p>
+          <p class="depoimento__autor">Nome do Cliente 3</p>
+          <p class="depoimento__cargo">Cargo — Empresa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="secao cta-secao" id="contato">
+    <div class="container" style="max-width: 700px; text-align: center;">
+      <!-- EDITAR: headline do CTA -->
+      <h2>Pronto para [resultado principal]?</h2>
+      <p>Frase de reforço com urgência leve ou proposta de valor. Convide para a ação.</p>
+      <div class="btn-grupo" style="justify-content: center;">
+        <!-- EDITAR: CTAs finais -->
+        <a href="https://wa.me/5500000000000?text=Olá%2C+gostaria+de+saber+mais" class="btn btn--escuro" style="background: var(--cor-acento);">
+          Falar no WhatsApp
+        </a>
+        <a href="mailto:contato@empresa.com.br" class="btn btn--outline" style="border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8);">
+          Enviar e-mail
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__marca">
+          <!-- EDITAR: logo e descrição breve -->
+          <h3>Nome da Empresa</h3>
+          <p>Descrição breve da empresa em 2-3 linhas para o footer.</p>
+          <!-- EDITAR: redes sociais -->
+          <div style="display: flex; gap: 12px; margin-top: 20px;">
+            <a href="#" style="color: rgba(255,255,255,0.6);">Instagram</a>
+            <a href="#" style="color: rgba(255,255,255,0.6);">LinkedIn</a>
+          </div>
+        </div>
+        <!-- EDITAR: colunas de links -->
+        <div class="footer__coluna">
+          <h4>Serviços</h4>
+          <ul class="footer__links">
+            <li><a href="#">Serviço 1</a></li>
+            <li><a href="#">Serviço 2</a></li>
+            <li><a href="#">Serviço 3</a></li>
+          </ul>
+        </div>
+        <div class="footer__coluna">
+          <h4>Empresa</h4>
+          <ul class="footer__links">
+            <li><a href="#">Sobre nós</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__coluna">
+          <h4>Contato</h4>
+          <!-- EDITAR: informações de contato -->
+          <ul class="footer__links">
+            <li><a href="https://wa.me/5500000000000">(00) 00000-0000</a></li>
+            <li><a href="mailto:contato@empresa.com">contato@empresa.com</a></li>
+            <li><span>Cidade — Estado</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__base">
+        <!-- EDITAR: copyright e links legais -->
+        <p>© 2024 Nome da Empresa. Todos os direitos reservados.</p>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== MENU MOBILE =====
+    const navToggle = document.getElementById('nav-toggle');
+    const navbar = document.getElementById('navbar');
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navbar.classList.toggle('aberta');
+      });
+      // Fechar ao clicar em link
+      document.querySelectorAll('.navbar__nav a').forEach(link => {
+        link.addEventListener('click', () => navbar.classList.remove('aberta'));
+      });
+    }
+  </script>
+
+</body>
+</html>

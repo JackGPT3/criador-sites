@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDITAR -->
+  <title>Nome do Produto — Lançamento Especial</title>
+  <meta name="description" content="Descrição do lançamento.">
+  <meta property="og:title" content="Nome do Produto">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+
+  <style>
+    :root {
+      --cor-primaria: #0f0f0f;
+      --cor-acento: #f59e0b;       /* EDITAR: cor de destaque do lançamento */
+      --cor-acento-hover: #d97706;
+      --cor-fundo: #0f0f0f;
+      --cor-fundo-card: #1a1a1a;
+      --cor-texto: #e5e7eb;
+      --cor-texto-claro: #9ca3af;
+      --cor-branco: #ffffff;
+      --fonte-titulo: system-ui, sans-serif;
+      --fonte-corpo: system-ui, sans-serif;
+      --borda-radius: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fonte-corpo); color: var(--cor-texto); background: var(--cor-fundo); line-height: 1.6; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    .container--estreito { max-width: 700px; margin: 0 auto; padding: 0 20px; }
+    .secao { padding: 80px 0; }
+    .texto-centro { text-align: center; }
+    .destaque { color: var(--cor-acento); }
+
+    h1, h2, h3 { font-family: var(--fonte-titulo); line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 5vw, 3.8rem); }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 16px; }
+    p { margin-bottom: 12px; }
+
+    .btn {
+      display: inline-block;
+      background: var(--cor-acento);
+      color: var(--cor-primaria);
+      padding: 18px 40px;
+      border-radius: var(--borda-radius);
+      font-size: 1.1rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn:hover { background: var(--cor-acento-hover); transform: translateY(-2px); }
+
+    /* ===== BARRA SUPERIOR (URGÊNCIA) ===== */
+    .urgencia-bar {
+      background: var(--cor-acento);
+      color: var(--cor-primaria);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header__logo { font-size: 1.3rem; font-weight: 700; color: var(--cor-branco); }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .hero__tag {
+      display: inline-block;
+      border: 1px solid var(--cor-acento);
+      color: var(--cor-acento);
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero h1 { color: var(--cor-branco); margin-bottom: 20px; }
+    .hero__sub { font-size: clamp(1rem, 2.5vw, 1.25rem); color: var(--cor-texto-claro); max-width: 700px; margin: 0 auto 40px; }
+
+    /* ===== COUNTDOWN ===== */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    .countdown__item {
+      background: var(--cor-fundo-card);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--borda-radius);
+      padding: 16px 20px;
+      min-width: 80px;
+      text-align: center;
+    }
+    .countdown__num {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--cor-acento);
+      line-height: 1;
+      display: block;
+    }
+    .countdown__label { font-size: 0.7rem; color: var(--cor-texto-claro); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+    /* ===== PARA QUEM É ===== */
+    .para-quem__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .para-quem__card {
+      background: var(--cor-fundo-card);
+      border-radius: var(--borda-radius);
+      padding: 28px;
+      border-top: 3px solid;
+    }
+    .para-quem__card--sim { border-color: #22c55e; }
+    .para-quem__card--nao { border-color: #ef4444; }
+    .para-quem__titulo { font-weight: 700; margin-bottom: 16px; font-size: 1.1rem; }
+    .para-quem__lista { list-style: none; }
+    .para-quem__lista li {
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: var(--cor-texto-claro);
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .para-quem__lista li:last-child { border-bottom: none; }
+
+    /* ===== MÓDULOS / O QUE VAI APRENDER ===== */
+    .modulos__lista {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .modulo {
+      background: var(--cor-fundo-card);
+      border-radius: var(--borda-radius);
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .modulo__num {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cor-acento);
+      flex-shrink: 0;
+      min-width: 40px;
+    }
+    .modulo h3 { font-size: 1rem; color: var(--cor-branco); margin-bottom: 4px; }
+    .modulo p { font-size: 0.9rem; color: var(--cor-texto-claro); margin: 0; }
+
+    /* ===== BÔNUS ===== */
+    .bonus__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .bonus__card {
+      background: var(--cor-fundo-card);
+      border-radius: var(--borda-radius);
+      padding: 24px;
+      border: 1px solid var(--cor-acento);
+      position: relative;
+    }
+    .bonus__tag {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      background: var(--cor-acento);
+      color: var(--cor-primaria);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .bonus__titulo { font-weight: 700; margin-bottom: 8px; color: var(--cor-branco); }
+    .bonus__valor { font-size: 0.85rem; color: var(--cor-acento); font-weight: 700; }
+
+    /* ===== DEPOIMENTOS ===== */
+    .depoimentos__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .depoimento {
+      background: var(--cor-fundo-card);
+      padding: 24px;
+      border-radius: var(--borda-radius);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .depoimento__texto { font-style: italic; margin-bottom: 16px; font-size: 0.95rem; color: var(--cor-texto-claro); }
+    .depoimento__autor { font-weight: 700; color: var(--cor-branco); }
+
+    /* ===== PREÇO ===== */
+    .preco-section { padding: 100px 0; text-align: center; }
+    .preco-card {
+      background: var(--cor-fundo-card);
+      border: 2px solid var(--cor-acento);
+      border-radius: 16px;
+      padding: 48px;
+      max-width: 500px;
+      margin: 48px auto 0;
+    }
+    .preco__de { text-decoration: line-through; color: var(--cor-texto-claro); margin-bottom: 4px; }
+    .preco__valor {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--cor-acento);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .preco__parcelas { color: var(--cor-texto-claro); font-size: 0.9rem; margin-bottom: 28px; }
+    .preco__garantia { color: var(--cor-texto-claro); font-size: 0.85rem; margin-top: 16px; }
+
+    /* ===== FAQ ===== */
+    .faq { max-width: 700px; margin: 48px auto 0; }
+    .faq__item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .faq__pergunta {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cor-branco);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq__pergunta::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--cor-acento);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq__item.aberto .faq__pergunta::after { transform: rotate(45deg); }
+    .faq__resposta { display: none; padding: 0 0 20px; color: var(--cor-texto-claro); font-size: 0.9rem; }
+    .faq__item.aberto .faq__resposta { display: block; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--cor-texto-claro);
+      font-size: 0.85rem;
+    }
+    .footer a { color: var(--cor-texto-claro); }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 768px) {
+      .para-quem__grid { grid-template-columns: 1fr; }
+      .preco-card { padding: 32px 20px; }
+      .secao { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- EDITAR: barra de urgência -->
+  <div class="urgencia-bar">
+    🔥 Turma abrindo em <strong id="urgencia-texto">48 horas</strong> · Vagas limitadas
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <!-- EDITAR: logo -->
+        <a href="#" class="header__logo">Nome da Marca</a>
+        <a href="#comprar" class="btn" style="padding: 10px 24px; font-size: 0.9rem;">Garantir vaga</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container--estreito">
+      <!-- EDITAR: tag de lançamento -->
+      <span class="hero__tag">🚀 Lançamento — Turma [Número]</span>
+
+      <!-- EDITAR: headline principal -->
+      <h1>O método que vai te fazer <span class="destaque">[resultado principal]</span> em [prazo]</h1>
+
+      <!-- EDITAR: subtítulo -->
+      <p class="hero__sub">
+        Descrição do curso/mentoria/produto em 2-3 frases. Para quem é, o que entrega e por que é diferente.
+      </p>
+
+      <!-- EDITAR: data de abertura das inscrições -->
+      <p style="color: var(--cor-acento); font-weight: 700; margin-bottom: 16px;">
+        Inscrições abertas até: [DATA]
+      </p>
+
+      <!-- COUNTDOWN — EDITAR: data alvo -->
+      <div class="countdown" id="countdown">
+        <div class="countdown__item"><span class="countdown__num" id="cd-dias">00</span><span class="countdown__label">Dias</span></div>
+        <div class="countdown__item"><span class="countdown__num" id="cd-horas">00</span><span class="countdown__label">Horas</span></div>
+        <div class="countdown__item"><span class="countdown__num" id="cd-min">00</span><span class="countdown__label">Min</span></div>
+        <div class="countdown__item"><span class="countdown__num" id="cd-seg">00</span><span class="countdown__label">Seg</span></div>
+      </div>
+
+      <a href="#comprar" class="btn">Quero garantir minha vaga →</a>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="secao">
+    <div class="container">
+      <div class="texto-centro">
+        <h2>Esse programa é pra <span class="destaque">você</span>?</h2>
+      </div>
+
+      <div class="para-quem__grid">
+        <div class="para-quem__card para-quem__card--sim">
+          <p class="para-quem__titulo">✅ É pra você se...</p>
+          <ul class="para-quem__lista">
+            <!-- EDITAR: situações do público ideal -->
+            <li><span>→</span> Situação / problema que a pessoa vive</li>
+            <li><span>→</span> Objetivo que a pessoa quer atingir</li>
+            <li><span>→</span> Perfil de quem vai se beneficiar</li>
+            <li><span>→</span> Nível de experiência esperado</li>
+          </ul>
+        </div>
+        <div class="para-quem__card para-quem__card--nao">
+          <p class="para-quem__titulo">❌ Não é pra você se...</p>
+          <ul class="para-quem__lista">
+            <!-- EDITAR: quem NÃO deve comprar -->
+            <li><span>→</span> Está procurando resultado sem esforço</li>
+            <li><span>→</span> Não tem tempo de implementar</li>
+            <li><span>→</span> Situação que não é o perfil ideal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VAI APRENDER / MÓDULOS -->
+  <section class="secao" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="texto-centro">
+        <h2>O que você vai <span class="destaque">dominar</span></h2>
+        <p style="color: var(--cor-texto-claro);">Conteúdo do programa</p>
+      </div>
+
+      <div class="modulos__lista">
+        <!-- EDITAR: listar os módulos ou pilares do produto -->
+        <div class="modulo">
+          <span class="modulo__num">01</span>
+          <div>
+            <h3>Nome do Módulo 1</h3>
+            <p>Descrição do que será abordado nesse módulo e o resultado que o aluno vai ter.</p>
+          </div>
+        </div>
+        <div class="modulo">
+          <span class="modulo__num">02</span>
+          <div>
+            <h3>Nome do Módulo 2</h3>
+            <p>Descrição do segundo módulo.</p>
+          </div>
+        </div>
+        <div class="modulo">
+          <span class="modulo__num">03</span>
+          <div>
+            <h3>Nome do Módulo 3</h3>
+            <p>Descrição do terceiro módulo.</p>
+          </div>
+        </div>
+        <div class="modulo">
+          <span class="modulo__num">04</span>
+          <div>
+            <h3>Nome do Módulo 4</h3>
+            <p>Descrição do quarto módulo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BÔNUS -->
+  <section class="secao">
+    <div class="container">
+      <div class="texto-centro">
+        <h2>Bônus <span class="destaque">exclusivos</span></h2>
+        <p style="color: var(--cor-texto-claro);">Incluso para quem entrar agora</p>
+      </div>
+
+      <div class="bonus__grid">
+        <!-- EDITAR: bônus reais -->
+        <div class="bonus__card">
+          <span class="bonus__tag">Bônus 1</span>
+          <p class="bonus__titulo">Nome do Bônus</p>
+          <p style="color: var(--cor-texto-claro); font-size: 0.9rem; margin-bottom: 12px;">Descrição do bônus e seu valor para o aluno.</p>
+          <p class="bonus__valor">Valor: R$ 000</p>
+        </div>
+        <div class="bonus__card">
+          <span class="bonus__tag">Bônus 2</span>
+          <p class="bonus__titulo">Segundo Bônus</p>
+          <p style="color: var(--cor-texto-claro); font-size: 0.9rem; margin-bottom: 12px;">Descrição do segundo bônus.</p>
+          <p class="bonus__valor">Valor: R$ 000</p>
+        </div>
+        <div class="bonus__card">
+          <span class="bonus__tag">Bônus 3</span>
+          <p class="bonus__titulo">Terceiro Bônus</p>
+          <p style="color: var(--cor-texto-claro); font-size: 0.9rem; margin-bottom: 12px;">Descrição do terceiro bônus.</p>
+          <p class="bonus__valor">Valor: R$ 000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="secao" style="background: rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="texto-centro">
+        <h2>Quem já <span class="destaque">transformou</span> seus resultados</h2>
+      </div>
+
+      <div class="depoimentos__grid">
+        <!-- EDITAR: depoimentos reais -->
+        <div class="depoimento">
+          <p class="depoimento__texto">"Resultado real e específico que o aluno conseguiu após o programa."</p>
+          <p class="depoimento__autor">Nome do Aluno — Cidade/Profissão</p>
+        </div>
+        <div class="depoimento">
+          <p class="depoimento__texto">"Outro depoimento com resultado mensurável e concreto."</p>
+          <p class="depoimento__autor">Nome do Aluno 2 — Cidade/Profissão</p>
+        </div>
+        <div class="depoimento">
+          <p class="depoimento__texto">"Terceiro depoimento. Quanto mais específico, mais credibilidade."</p>
+          <p class="depoimento__autor">Nome do Aluno 3 — Cidade/Profissão</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREÇO -->
+  <section class="preco-section" id="comprar">
+    <div class="container--estreito">
+      <h2>Invista no seu <span class="destaque">futuro</span></h2>
+      <p style="color: var(--cor-texto-claro);">Uma vez, para sempre.</p>
+
+      <div class="preco-card">
+        <!-- EDITAR: preços -->
+        <p class="preco__de">De R$ 1.997</p>
+        <p class="preco__valor">R$ 997</p>
+        <p class="preco__parcelas">ou 12x de R$ 93,00 sem juros</p>
+        <!-- EDITAR: link de checkout -->
+        <a href="https://link-de-checkout.com" class="btn" style="width: 100%; display: block;">
+          GARANTIR MINHA VAGA AGORA →
+        </a>
+        <p class="preco__garantia">🔒 7 dias de garantia incondicional · Pagamento seguro</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="secao">
+    <div class="container--estreito">
+      <div class="texto-centro">
+        <h2>Perguntas <span class="destaque">frequentes</span></h2>
+      </div>
+
+      <div class="faq">
+        <div class="faq__item">
+          <button class="faq__pergunta">Quando começa o programa?</button>
+          <div class="faq__resposta"><p>EDITAR: data de início e formato.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Por quanto tempo terei acesso?</button>
+          <div class="faq__resposta"><p>EDITAR: prazo de acesso ao conteúdo.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Tem garantia?</button>
+          <div class="faq__resposta"><p>Sim, 7 dias de garantia incondicional. EDITAR com detalhes.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Preciso ter experiência prévia?</button>
+          <div class="faq__resposta"><p>EDITAR: pré-requisitos do programa.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__pergunta">Quais as formas de pagamento?</button>
+          <div class="faq__resposta"><p>Cartão de crédito, débito, PIX e boleto. EDITAR conforme plataforma de checkout.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <!-- EDITAR: nome da empresa e links legais -->
+      <p>© 2024 Nome da Empresa · <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
+      <p style="margin-top: 8px; font-size: 0.75rem; opacity: 0.5;">Este produto não garante resultados específicos. Resultados variam conforme a dedicação de cada participante.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ===== COUNTDOWN =====
+    // EDITAR: data de encerramento das inscrições
+    const dataEncerramento = new Date('2024-12-31T23:59:59');
+
+    function atualizarCountdown() {
+      const agora = new Date();
+      const diff = dataEncerramento - agora;
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = '<p style="color: var(--cor-acento); font-weight: 700;">Inscrições encerradas</p>';
+        return;
+      }
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seg = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById('cd-dias').textContent = String(dias).padStart(2, '0');
+      document.getElementById('cd-horas').textContent = String(horas).padStart(2, '0');
+      document.getElementById('cd-min').textContent = String(min).padStart(2, '0');
+      document.getElementById('cd-seg').textContent = String(seg).padStart(2, '0');
+    }
+    atualizarCountdown();
+    setInterval(atualizarCountdown, 1000);
+
+    // ===== FAQ =====
+    document.querySelectorAll('.faq__pergunta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq__item');
+        const aberto = item.classList.contains('aberto');
+        document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('aberto'));
+        if (!aberto) item.classList.add('aberto');
+      });
+    });
+  </script>
+
+</body>
+</html>
