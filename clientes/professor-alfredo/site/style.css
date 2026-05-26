@@ -151,7 +151,7 @@ a { text-decoration: none; }
 }
 .hero__inner {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   gap: 48px;
   align-items: center;
 }
@@ -169,6 +169,19 @@ a { text-decoration: none; }
   max-width: 580px;
   margin-bottom: 36px;
   line-height: 1.75;
+}
+.hero__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__img img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 0 8px rgba(200,168,75,0.15);
 }
 .hero__badge {
   display: flex;
@@ -274,6 +287,12 @@ a { text-decoration: none; }
   flex-direction: column;
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
+}
+.course-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
 }
 .course-card:hover {
   transform: translateY(-6px);
@@ -484,6 +503,7 @@ a { text-decoration: none; }
 
 @media (max-width: 768px) {
   .hero__inner { grid-template-columns: 1fr; }
+  .hero__img { display: none; }
   .hero__badge { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .badge-card { min-width: 120px; flex: 1; }
   .hero { padding: 60px 0; }
