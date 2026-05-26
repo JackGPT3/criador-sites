@@ -1,10 +1,8 @@
 # Estratégia e Foco Atual
 
-<!-- NOT CONFIGURED — rode /setup para preencher -->
-
 ## Foco atual
 
-(Descrever o que está em andamento agora — ex: "finalizando LP do cliente X", "montando template de vendas reutilizável", "acelerando entregas com automação")
+Workspace configurado e pronto para receber projetos. Objetivo: construir sites e landing pages de forma rápida e com resultado profissional.
 
 ## Projetos ativos
 
@@ -12,18 +10,14 @@
 |---|---|---|---|---|
 | — | — | — | — | — |
 
-## Prioridades da semana
+## Prioridades
 
-1. (preencher)
-2. (preencher)
-3. (preencher)
+1. Atender os projetos que chegarem com agilidade
+2. Usar templates e componentes reutilizáveis para acelerar entregas
+3. Construir biblioteca de componentes conforme os projetos forem sendo feitos
 
 ## Objetivos de médio prazo
 
-- (Ex: montar biblioteca de componentes prontos para acelerar entregas)
-- (Ex: criar template de site institucional reutilizável)
-- (Ex: automatizar processo de setup de novo projeto)
-
-## O que pode esperar
-
-(Projetos previstos, clientes que vão entrar, sazonalidade — ex: "Black Friday se aproximando, foco em LPs de oferta")
+- Acumular componentes prontos (hero, CTA, depoimentos, FAQ, formulários) para reutilizar entre projetos
+- Criar templates base por tipo de projeto (LP de vendas, site institucional, página de captura)
+- Manter processo leve: briefing → build → entrega, sem etapas desnecessárias

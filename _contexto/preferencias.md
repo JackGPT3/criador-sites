@@ -1,46 +1,42 @@
 # Preferências de Trabalho
 
-<!-- NOT CONFIGURED — rode /setup para preencher -->
-
 ## Stack e tecnologia
 
-- **HTML/CSS/JS puro:** para projetos simples, entregas rápidas, clientes sem servidor Node
-- **Tailwind CSS:** preferir via CDN quando não há build step; via npm para projetos maiores
-- **React/Next.js:** para projetos com interatividade complexa ou SEO avançado
-- **Decisão de stack:** perguntar ao usuário se não estiver especificada no briefing
+- **Padrão:** HTML + Tailwind CSS via CDN — entrega rápida, sem build step, funciona em qualquer hospedagem
+- **Quando usar React/Next.js:** projetos com interatividade complexa, blog, e-commerce, ou quando o cliente já tem servidor Node
+- **Decisão de stack:** se não estiver especificada no briefing, usar HTML + Tailwind por padrão
 
 ## Padrões de código
 
 - Arquivos HTML com indentação de 2 espaços
-- CSS organizado por seções: reset → variáveis → base → layout → componentes → utilitários
-- Usar CSS custom properties (variáveis) para cores, fontes e espaçamentos
+- CSS via Tailwind (classes utilitárias), variáveis CSS para cores e tipografia da identidade do cliente
 - Sempre incluir meta tags básicas de SEO (title, description, og:image)
 - Sempre incluir meta viewport para responsividade
-- Comentários em português nos templates
+- Mobile-first por padrão
 
 ## Design e layout
 
-- (Preencher: preferência de paleta de cores padrão, tipografia favorita, estilo visual)
-- Mobile-first por padrão
-- Seções com padding generoso (mínimo 60px vertical)
+- Design profissional incluído na entrega — não depende de designer externo
+- Paleta de cores definida a partir do briefing ou identidade do cliente
+- Tipografia: Google Fonts, máximo 2 famílias por projeto
+- Seções com espaçamento generoso, hierarquia visual clara
 - CTAs bem visíveis e contrastantes
 
 ## Formulários e conversão
 
-- Formulários sempre com validação básica (campos obrigatórios, formato de e-mail)
 - Botão de WhatsApp como CTA principal quando o cliente usa WhatsApp para vendas
 - UTMs nos links de CTA quando o cliente usa rastreamento de anúncios
-- Pixel do Meta e Google Tag por padrão (scripts comentados prontos para ativar)
+- Pixel do Meta e Google Tag: scripts comentados prontos para ativar
 
 ## O que evitar
 
-- Animações excessivas que travam em mobile
-- Carregamento de muitas fontes externas (máximo 2 famílias por página)
-- Dependências desnecessárias (manter simples quando possível)
-- (Adicionar outras preferências)
+- Animações pesadas que travam em mobile
+- Dependências desnecessárias
+- Build steps complexos sem necessidade real
+- Processos lentos — o objetivo é entregar rápido e bem
 
 ## Entrega
 
-- Sempre gerar um `README.md` dentro da pasta do projeto com instruções de uso
-- Código comentado o suficiente para o cliente entender onde alterar textos e imagens
-- (Adicionar: preferência de empacotamento — ZIP, Git repo, etc.)
+- Código comentado onde o cliente pode alterar textos e imagens
+- `README.md` dentro da pasta do projeto com instruções de uso
+- Empacotamento: ZIP ou pasta pronta para upload em hospedagem compartilhada, salvo indicação contrária

@@ -1,18 +1,20 @@
 # Contexto da Empresa
 
-<!-- NOT CONFIGURED — rode /setup para preencher -->
-
-**Nome:** 
+**Nome:** Jacqueline
 **Negócio:** Criação de sites e landing pages
-**O que faz:** Desenvolve sites institucionais, landing pages de vendas e páginas de captura para clientes variados
-**Perfil:** freelancer | agência | in-house (preencher)
-**Atende clientes:** (descrever perfil dos clientes — ex: pequenas empresas, infoprodutores, e-commerces)
-**Stack habitual:** Mista — HTML/CSS/JS, Tailwind, React/Next.js conforme o projeto
-**Ferramentas:** VS Code, Claude Code, Google Drive, Canva, (adicionar outras)
-**Principais entregas:** Landing pages, sites institucionais, páginas de captura
+**O que faz:** Desenvolve sites e landing pages para clientes variados, sem nicho fixo
+**Perfil:** Freelancer
+**Atende clientes:** Variado — sem segmento ou porte definido, atende o que vier
+**Volume:** Baixa recorrência, projetos pontuais
+**Stack habitual:** HTML/Tailwind por padrão (mais rápido), React/Next.js quando o projeto exigir
+**Ferramentas:** VS Code, Claude Code, Google Drive, Canva
+
+## Foco principal
+
+Velocidade de execução com resultado profissional. Claude Code é o braço executor — Jacqueline direciona, Claude constrói.
 
 ## Contexto adicional
 
-- (Adicionar: volume de projetos por mês, prazo médio de entrega, se trabalha com designer ou faz o design também, forma de cobrança, etc.)
-- (Adicionar: nichos ou tipos de cliente que mais atende)
-- (Adicionar: ferramentas de deploy que prefere usar)
+- Não tem designer fixo — o design faz parte da entrega
+- Baixa recorrência: cada projeto tende a ser independente
+- Prioridade: entregar rápido e bem, sem processos pesados
