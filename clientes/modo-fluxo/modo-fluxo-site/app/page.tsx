@@ -15,6 +15,14 @@ export default function HomePage() {
       {/* Hero — full width com gradiente do tema original */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A6E] to-[#159BA8]" />
+        {/* Padrão de pontos sutil, igual ao original */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
         <div className="relative px-4 py-20 sm:py-28 text-center max-w-4xl mx-auto">
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
@@ -96,23 +104,6 @@ export default function HomePage() {
         <section className="mb-10">
           <Newsletter />
         </section>
-
-        {/* Arquivo */}
-        {morePosts.length > 0 && (
-          <section className="mb-10">
-            <h2
-              className="text-xl font-bold text-[#131924] mb-5"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Arquivo
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {morePosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </section>
-        )}
 
         {allPosts.length === 0 && (
           <div className="text-center py-20 text-[#667085]">
