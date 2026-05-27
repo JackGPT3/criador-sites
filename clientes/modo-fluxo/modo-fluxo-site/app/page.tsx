@@ -15,21 +15,19 @@ export default function HomePage() {
       {/* Hero — full width com gradiente do tema original */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A6E] to-[#159BA8]" />
-        {/* Padrão de pontos sutil, igual ao original */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
+        {/* Padrão de circuito tecnológico — igual ao original */}
+        <img
+          src="/hero-pattern.svg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
         />
-        <div className="relative px-4 py-20 sm:py-28 text-center max-w-4xl mx-auto">
+        <div className="relative px-4 py-16 sm:py-24 text-center max-w-4xl mx-auto">
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Domine a Inteligência Artificial<br className="hidden sm:block" />
-            {' '}e Automatize sua Produtividade
+            Domine a Inteligência Artificial e Automatize sua Produtividade
           </h1>
           <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
             Artigos, tutoriais e reviews sobre as melhores ferramentas de IA, automação e produtividade.
