@@ -206,9 +206,9 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
 }
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
   width: 100%;
   margin-top: 24px;
 }
@@ -225,7 +225,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ===== COURSES SECTION ===== */
 .courses-section {
-  background: #fff;
+  background: #dbd3be;
   padding: 63px 24px;
   display: flex;
   flex-direction: column;
@@ -236,35 +236,29 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   gap: 24px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   width: 100%;
   max-width: 1100px;
 }
-.courses-row--3 { }
 .courses-row--2 { max-width: 760px; }
 
 /* COURSE CARD */
 .course-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-radius: 5px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 10px 24px;
-  gap: 10px;
+  padding: 20px 16px 28px;
+  gap: 12px;
   flex: 1;
-  min-height: 800px;
-  position: relative;
-  overflow: visible;
 }
 .course-card__img {
-  width: 80%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 4px;
-  margin-top: -30px;
+  width: 90%;
+  border-radius: 8px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 .course-card__title {
   font-family: var(--font);
@@ -346,7 +340,7 @@ a { text-decoration: none; color: inherit; }
 
 /* ===== FAQ ===== */
 .faq-section {
-  background: #fff;
+  background: #dbd3be;
   padding: 60px 24px;
   display: flex;
   justify-content: center;
@@ -537,8 +531,7 @@ a { text-decoration: none; color: inherit; }
   .section-title-dark { font-size: 26px; }
   .testimonials-grid { flex-direction: column; }
   .courses-row { flex-direction: column; align-items: center; }
-  .course-card { min-height: auto; width: 100%; max-width: 360px; }
-  .course-card__img { margin-top: 0; }
+  .course-card { width: 100%; max-width: 360px; }
   .faq-inner { max-width: 100%; }
   .faq-title { font-size: 25px; }
   .acc-title { font-size: 16px; line-height: 1.8; }
