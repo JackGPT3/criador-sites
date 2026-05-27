@@ -212,6 +212,7 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
   margin-top: 24px;
 }
+.stars { font-size: 20px; margin-bottom: 8px; letter-spacing: 2px; }
 .testimonial {
   font-family: var(--font);
   font-size: 14px;
@@ -240,7 +241,16 @@ a { text-decoration: none; color: inherit; }
   width: 100%;
   max-width: 1100px;
 }
-.courses-row--2 { max-width: 760px; }
+/* scroll animation */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* COURSE CARD */
 .course-card {
@@ -253,6 +263,12 @@ a { text-decoration: none; color: inherit; }
   padding: 20px 16px 28px;
   gap: 12px;
   flex: 1;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
 }
 .course-card__img {
   width: 90%;
@@ -306,6 +322,10 @@ a { text-decoration: none; color: inherit; }
   background: rgba(255,255,255,0.17);
   margin: 4px auto;
 }
+.topic-wip { color: #a89080; font-style: italic; }
+.btn-course--wip { background: #555; cursor: not-allowed; opacity: 0.7; }
+.btn-course--wip:hover { background: #555; transform: none; }
+
 .course-card__topics {
   width: 96%;
   font-family: var(--font);
@@ -398,17 +418,22 @@ a { text-decoration: none; color: inherit; }
 .acc-title[aria-expanded="true"] .icon-down { display: none; }
 .acc-title[aria-expanded="true"] .icon-up { display: block; }
 .acc-content {
-  display: none;
-  background: transparent;
-  border-top: 1px solid rgba(209,209,209,0.22);
-  padding: 15px 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  background: #fff;
+  border-top: 0px solid rgba(209,209,209,0.22);
+  padding: 0 15px;
   font-family: var(--font);
   font-size: 15px;
   font-weight: 400;
   color: var(--faq-title);
-  background: #fff;
 }
-.acc-content.open { display: block; }
+.acc-content.open {
+  max-height: 600px;
+  padding: 15px 15px;
+  border-top: 1px solid rgba(209,209,209,0.22);
+}
 
 /* ===== FOOTER ===== */
 .footer {
