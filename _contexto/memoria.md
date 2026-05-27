@@ -33,6 +33,18 @@ Atualizar sempre que:
 
 2026-05-27 — Conversão WordPress XML → MDX: usar `turndown` para HTML→Markdown. Extrair CDATA com regex. Tratar títulos com aspas escapadas antes de gerar as tags (remover `\"` do título antes de split). Categoria: extrair pelo atributo `nicename` da tag `<category>`, não pelo CDATA (que vem com acentos e pode ter espaço).
 
+2026-05-27 — Imagens de posts WordPress: `_thumbnail_id` no postmeta aponta para o ID de um item de attachment no XML. Fazer lookup attachment_id → `wp:attachment_url` para obter a URL real da imagem. Script em `scripts/add-images.mjs` implementa esse padrão. **⚠️ As URLs apontam para o Hostgator — BAIXAR as imagens antes de migrar o DNS**, senão todas quebram.
+
+2026-05-27 — Segurança Next.js: adicionar headers de segurança via `async headers()` no `next.config.ts` (X-Content-Type-Options, X-Frame-Options, HSTS, Referrer-Policy, Permissions-Policy). Nunca expor variáveis sensíveis sem `NEXT_PUBLIC_` prefix para client-side.
+
+2026-05-27 — AdSense em Next.js: ID do publisher (`ca-pub-XXXX`) deve ficar em `NEXT_PUBLIC_ADSENSE_ID` (variável de ambiente no Vercel). Nunca hardcodar no código. Componente `AdBanner` mostra placeholder visual quando variável ausente.
+
+2026-05-27 — git rm --cached: remove arquivo do tracking do git sem apagar do disco. Usar quando arquivo sensível foi commitado por engano. Depois adicionar ao `.gitignore`. Comando: `git rm --cached nome-do-arquivo`.
+
+2026-05-27 — SVG como background em Next.js: colocar o SVG em `public/` e usar como `<img src="/hero-pattern.svg" />` com `className="absolute inset-0 w-full h-full object-cover"`. Arquivos na raiz do projeto (fora de `public/`) retornam 404 no Vercel — não servem como assets estáticos.
+
+2026-05-27 — next/og ImageResponse: criar `app/opengraph-image.tsx` com `export const runtime = 'edge'`. Roda no Edge Runtime, não no Node. Não usar `fs` ou imports de Node nesse arquivo.
+
 ---
 
 ## Ferramentas configuradas

@@ -9,7 +9,7 @@ Workspace configurado e pronto para receber projetos. Objetivo: construir sites 
 | Cliente | Projeto | Tipo | Deadline | Status |
 |---|---|---|---|---|
 | Professor Alfredo | Site institucional + cursos | Site Institucional / Vendas | — | Em andamento — aguardando deploy Vercel |
-| Modo Fluxo (próprio) | Site publisher de IA | Next.js 16 + MDX + Vercel | — | Deployed — ajustes visuais pendentes. DNS modofluxo.com.br ainda aponta pro Hostgator |
+| Modo Fluxo (próprio) | Site publisher de IA | Next.js 16 + MDX + Vercel | — | **Visual completo.** DNS modofluxo.com.br ainda aponta pro Hostgator. ⚠️ Baixar 27 imagens antes de migrar DNS. |
 
 ## Prioridades
 
