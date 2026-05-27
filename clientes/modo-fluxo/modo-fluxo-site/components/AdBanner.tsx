@@ -6,6 +6,8 @@ interface AdBannerProps {
   className?: string
 }
 
+const ADSENSE_ID = process.env.NEXT_PUBLIC_ADSENSE_ID
+
 export default function AdBanner({ slot = '', format = 'horizontal', className = '' }: AdBannerProps) {
   const sizes = {
     horizontal: 'h-24 sm:h-[90px]',
@@ -13,7 +15,8 @@ export default function AdBanner({ slot = '', format = 'horizontal', className =
     square: 'h-[250px] max-w-[300px]',
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  // Mostra placeholder em dev OU quando o ID do AdSense ainda não foi configurado
+  if (process.env.NODE_ENV === 'development' || !ADSENSE_ID) {
     return (
       <div className={`w-full ${sizes[format]} rounded-lg border border-dashed border-[#DDE3EB] bg-[#F0F3F6] flex items-center justify-center text-[#667085] text-xs gap-2 ${className}`}>
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -30,7 +33,7 @@ export default function AdBanner({ slot = '', format = 'horizontal', className =
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+        data-ad-client={ADSENSE_ID}
         data-ad-slot={slot}
         data-ad-format={format === 'horizontal' ? 'auto' : 'rectangle'}
         data-full-width-responsive="true"

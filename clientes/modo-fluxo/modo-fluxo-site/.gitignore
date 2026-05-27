@@ -40,4 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# exports e backups wordpress — dados sensíveis, não versionar
+*.xml
+*.WordPress.*.xml
+
+# scripts de migração — uso único, não versionar
+scripts/

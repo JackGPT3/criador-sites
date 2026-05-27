@@ -49,8 +49,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable} h-full`}>
       <head>
-        {/* Google AdSense — substituir XXXXXXXXXXXXXXXXX pelo seu publisher ID */}
-        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossOrigin="anonymous" /> */}
+        {/* Google AdSense — adicionar NEXT_PUBLIC_ADSENSE_ID nas variáveis de ambiente do Vercel para ativar */}
+        {process.env.NEXT_PUBLIC_ADSENSE_ID && (
+          <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_ID}`} crossOrigin="anonymous" />
+        )}
       </head>
       <body className="min-h-full flex flex-col bg-[#F7F9FB] text-[#131924] antialiased">
         <Header />
