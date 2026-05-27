@@ -4,6 +4,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getPostBySlug, getAllSlugs, getAllPosts, CATEGORIES, formatDate } from '@/lib/posts'
 import PostCard from '@/components/PostCard'
 import AdBanner from '@/components/AdBanner'
+import Newsletter from '@/components/Newsletter'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -117,6 +118,11 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         <article className="prose max-w-none mb-8">
           <MDXRemote source={content} />
         </article>
+
+        {/* CTA Newsletter inline */}
+        <div className="mb-8">
+          <Newsletter compact />
+        </div>
 
         {/* Mid-article ad */}
         <AdBanner format="rectangle" slot="0987654321" className="mb-10" />

@@ -2,7 +2,11 @@
 
 import { useState } from 'react'
 
-export default function Newsletter() {
+interface NewsletterProps {
+  compact?: boolean
+}
+
+export default function Newsletter({ compact = false }: NewsletterProps) {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
@@ -18,6 +22,56 @@ export default function Newsletter() {
     setEmail('')
   }
 
+  // Versão compacta para dentro dos posts
+  if (compact) {
+    return (
+      <div className="rounded-xl border border-[#DDE3EB] bg-[#F7F9FB] p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="flex-1">
+            <p
+              className="text-base font-semibold text-[#131924] mb-0.5"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              📩 Gostou deste artigo?
+            </p>
+            <p className="text-sm text-[#667085]">
+              Receba conteúdo como este toda semana, direto no seu email.
+            </p>
+          </div>
+
+          {status === 'success' ? (
+            <div className="flex items-center gap-2 text-teal-700 text-sm font-medium whitespace-nowrap">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Inscrição feita! 🎉
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex gap-2 w-full sm:w-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="seu@email.com"
+                required
+                className="flex-1 sm:w-48 px-3 py-2 text-sm rounded-lg border border-[#DDE3EB] bg-white text-[#131924] placeholder-[#667085] focus:outline-none focus:border-[#159BA8] focus:ring-1 focus:ring-[#159BA8]"
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="px-4 py-2 text-sm font-semibold text-white rounded-lg disabled:opacity-60 transition-opacity hover:opacity-90 whitespace-nowrap"
+                style={{ background: 'linear-gradient(135deg, #0E3A6E, #159BA8)', fontFamily: 'var(--font-heading)' }}
+              >
+                {status === 'loading' ? '...' : 'Inscrever'}
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  // Versão completa para homepage
   return (
     <section id="newsletter" className="rounded-xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #0E3A6E, #159BA8)' }}>
       <div className="px-8 py-10 sm:px-12 text-center">
