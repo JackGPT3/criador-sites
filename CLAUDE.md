@@ -87,6 +87,7 @@ No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem
 2. `_contexto/preferencias.md` — stack preferida, padrões de código, o que evitar
 3. `_contexto/estrategia.md` — projetos ativos, prioridades, o que tem deadline
 4. `_contexto/memoria.md` — aprendizados acumulados, correções passadas, o que não repetir
+5. `_contexto/aprendizados.md` — lições operacionais: erros a evitar, padrões validados, atalhos descobertos
 
 Usar essas informações como base pra qualquer resposta. Ao sugerir abordagens ou templates, considerar as preferências registradas.
 
