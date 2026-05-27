@@ -1,12 +1,19 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { Space_Grotesk, Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const geist = Geist({
-  variable: '--font-geist-sans',
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-sg',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+})
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
 })
 
 export const metadata: Metadata = {
@@ -15,7 +22,7 @@ export const metadata: Metadata = {
     template: '%s | Modo Fluxo',
   },
   description:
-    'Agentes, automações e ferramentas de IA para transformar sua produtividade e escalar negócios. Artigos, tutoriais e reviews práticos.',
+    'Artigos, tutoriais e reviews sobre as melhores ferramentas de IA, automação e produtividade.',
   metadataBase: new URL('https://modofluxo.com.br'),
   openGraph: {
     type: 'website',
@@ -24,13 +31,13 @@ export const metadata: Metadata = {
     siteName: 'Modo Fluxo',
     title: 'Modo Fluxo — IA aplicada na prática',
     description:
-      'Agentes, automações e ferramentas de IA para transformar sua produtividade e escalar negócios.',
+      'Artigos, tutoriais e reviews sobre as melhores ferramentas de IA, automação e produtividade.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Modo Fluxo — IA aplicada na prática',
     description:
-      'Agentes, automações e ferramentas de IA para transformar sua produtividade e escalar negócios.',
+      'Artigos, tutoriais e reviews sobre as melhores ferramentas de IA, automação e produtividade.',
   },
   robots: {
     index: true,
@@ -40,12 +47,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${geist.variable} h-full antialiased`}>
+    <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable} h-full`}>
       <head>
         {/* Google AdSense — substituir XXXXXXXXXXXXXXXXX pelo seu publisher ID */}
         {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossOrigin="anonymous" /> */}
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#F7F9FB] text-[#131924] antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

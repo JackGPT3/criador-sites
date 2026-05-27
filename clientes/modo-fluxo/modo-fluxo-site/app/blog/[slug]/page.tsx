@@ -54,18 +54,18 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+        <nav className="flex items-center gap-2 text-sm text-[#667085] mb-8">
+          <Link href="/" className="hover:text-[#131924] transition-colors">Home</Link>
           <span>/</span>
           {category && (
             <>
-              <Link href={`/categoria/${frontmatter.category}`} className="hover:text-white transition-colors">
+              <Link href={`/categoria/${frontmatter.category}`} className="hover:text-[#131924] transition-colors">
                 {category.label}
               </Link>
               <span>/</span>
             </>
           )}
-          <span className="text-slate-400 truncate max-w-[200px]">{frontmatter.title}</span>
+          <span className="text-[#667085] truncate max-w-[200px]">{frontmatter.title}</span>
         </nav>
 
         {/* Header */}
@@ -74,19 +74,22 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
             {category && (
               <Link
                 href={`/categoria/${frontmatter.category}`}
-                className={`text-xs font-semibold px-2.5 py-1 rounded-full ${category.color} hover:opacity-80 transition-opacity`}
+                className={`text-xs font-medium px-2.5 py-1 rounded-full ${category.color} hover:opacity-80 transition-opacity`}
               >
                 {category.emoji} {category.label}
               </Link>
             )}
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
+          <h1
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#131924] leading-tight mb-4"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
             {frontmatter.title}
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed mb-6">
+          <p className="text-[#667085] text-lg leading-relaxed mb-6">
             {frontmatter.description}
           </p>
-          <div className="flex items-center gap-3 text-sm text-slate-500 pb-6 border-b border-white/8">
+          <div className="flex items-center gap-3 text-sm text-[#667085] pb-6 border-b border-[#DDE3EB]">
             <span>{formatDate(frontmatter.date)}</span>
             <span>·</span>
             <span>{readingTime}</span>
@@ -101,7 +104,7 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
 
         {/* Featured image */}
         {frontmatter.image && (
-          <div className="mb-8 rounded-xl overflow-hidden">
+          <div className="mb-8 rounded-xl overflow-hidden border border-[#DDE3EB]">
             <img
               src={frontmatter.image}
               alt={frontmatter.title}
@@ -120,11 +123,11 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
 
         {/* Tags */}
         {frontmatter.tags && frontmatter.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-10 pt-6 border-t border-white/8">
+          <div className="flex flex-wrap gap-2 mb-10 pt-6 border-t border-[#DDE3EB]">
             {frontmatter.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-slate-400 bg-white/5 border border-white/8 px-3 py-1.5 rounded-full"
+                className="text-xs text-[#667085] bg-[#F0F3F6] border border-[#DDE3EB] px-3 py-1.5 rounded-full"
               >
                 #{tag}
               </span>
@@ -135,12 +138,14 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
 
       {/* Related posts */}
       {related.length > 0 && (
-        <section className="mt-12 border-t border-white/8 pt-10">
-          <h2 className="text-lg font-bold text-white mb-5 flex items-center gap-2">
-            <span className="w-1 h-5 bg-blue-500 rounded-full" />
+        <section className="mt-12 border-t border-[#DDE3EB] pt-10">
+          <h2
+            className="text-lg font-bold text-[#131924] mb-5"
+            style={{ fontFamily: 'var(--font-heading)' }}
+          >
             Leia também
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {related.map((p) => (
               <PostCard key={p.slug} post={p} />
             ))}

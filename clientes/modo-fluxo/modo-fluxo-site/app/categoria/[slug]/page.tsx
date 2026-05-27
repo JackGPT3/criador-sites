@@ -33,22 +33,25 @@ export default async function CategoriaPage(props: PageProps<'/categoria/[slug]'
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-slate-500 mb-8">
-        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+      <nav className="flex items-center gap-2 text-sm text-[#667085] mb-8">
+        <Link href="/" className="hover:text-[#131924] transition-colors">Home</Link>
         <span>/</span>
-        <span className="text-slate-400">{category.label}</span>
+        <span className="text-[#131924]">{category.label}</span>
       </nav>
 
       {/* Header */}
       <header className="mb-10">
-        <div className={`inline-flex items-center gap-2 text-sm font-semibold px-3 py-1.5 rounded-full mb-4 ${category.color}`}>
+        <div className={`inline-flex items-center gap-2 text-sm font-medium px-3 py-1.5 rounded-full mb-4 ${category.color}`}>
           <span>{category.emoji}</span>
           <span>{category.label}</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
+        <h1
+          className="text-3xl sm:text-4xl font-bold text-[#131924] mb-3"
+          style={{ fontFamily: 'var(--font-heading)' }}
+        >
           {category.label}
         </h1>
-        <p className="text-slate-400">
+        <p className="text-[#667085]">
           {posts.length} {posts.length === 1 ? 'artigo' : 'artigos'} sobre {category.label.toLowerCase()}
         </p>
       </header>
@@ -65,7 +68,7 @@ export default async function CategoriaPage(props: PageProps<'/categoria/[slug]'
           {posts.length > 3 && (
             <>
               <AdBanner format="horizontal" slot="1111111111" className="mb-8" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {posts.slice(3).map((post) => (
                   <PostCard key={post.slug} post={post} />
                 ))}
@@ -76,17 +79,26 @@ export default async function CategoriaPage(props: PageProps<'/categoria/[slug]'
       ) : (
         <div className="text-center py-20">
           <p className="text-4xl mb-4">{category.emoji}</p>
-          <p className="text-lg font-medium text-slate-400 mb-2">Nenhum artigo ainda</p>
-          <p className="text-sm text-slate-500">Em breve teremos conteúdo sobre {category.label.toLowerCase()}</p>
-          <Link href="/" className="inline-block mt-6 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-xl transition-colors">
+          <p className="text-lg font-medium text-[#131924] mb-2">Nenhum artigo ainda</p>
+          <p className="text-sm text-[#667085]">Em breve teremos conteúdo sobre {category.label.toLowerCase()}</p>
+          <Link
+            href="/"
+            className="inline-block mt-6 px-5 py-2.5 text-white text-sm font-semibold rounded-lg transition-opacity hover:opacity-90"
+            style={{ background: 'linear-gradient(135deg, #0E3A6E, #159BA8)', fontFamily: 'var(--font-heading)' }}
+          >
             Ver todos os artigos
           </Link>
         </div>
       )}
 
       {/* Other categories */}
-      <section className="mt-14 pt-10 border-t border-white/8">
-        <h2 className="text-sm font-semibold text-slate-400 mb-4 uppercase tracking-wider">Outras categorias</h2>
+      <section className="mt-14 pt-10 border-t border-[#DDE3EB]">
+        <h2
+          className="text-sm font-semibold text-[#667085] mb-4 uppercase tracking-wider"
+          style={{ fontFamily: 'var(--font-heading)' }}
+        >
+          Outras categorias
+        </h2>
         <div className="flex flex-wrap gap-2">
           {Object.entries(CATEGORIES)
             .filter(([s]) => s !== slug)
@@ -94,7 +106,7 @@ export default async function CategoriaPage(props: PageProps<'/categoria/[slug]'
               <Link
                 key={s}
                 href={`/categoria/${s}`}
-                className={`text-sm font-medium px-4 py-2 rounded-full border border-white/8 ${cat.color} hover:border-current transition-colors`}
+                className={`text-sm font-medium px-4 py-2 rounded-full border border-[#DDE3EB] ${cat.color} hover:shadow-sm transition-all`}
               >
                 {cat.emoji} {cat.label}
               </Link>
