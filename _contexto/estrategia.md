@@ -8,7 +8,7 @@ Workspace configurado e pronto para receber projetos. Objetivo: construir sites 
 
 | Cliente | Projeto | Tipo | Deadline | Status |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| Professor Alfredo | Site institucional + cursos | Site Institucional / Vendas | — | Em andamento — aguardando deploy Vercel |
 
 ## Prioridades
 
