@@ -10,12 +10,13 @@ interface PostCardProps {
 export default function PostCard({ post, featured = false }: PostCardProps) {
   const { frontmatter, slug, readingTime } = post
   const category = CATEGORIES[frontmatter.category]
+  const placeholderGradient = category?.gradient ?? 'linear-gradient(135deg, #0E3A6E, #159BA8)'
 
   if (featured) {
     return (
       <Link href={`/blog/${slug}`} className="group block">
         <article className="bg-white rounded-xl border border-[#DDE3EB] overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col h-full">
-          <div className="aspect-video overflow-hidden bg-gradient-to-br from-[#0E3A6E]/10 to-[#159BA8]/10 flex items-center justify-center">
+          <div className="aspect-video overflow-hidden relative">
             {frontmatter.image ? (
               <img
                 src={frontmatter.image}
@@ -23,7 +24,15 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             ) : (
-              <span className="text-5xl opacity-30">{category?.emoji ?? '📄'}</span>
+              <div
+                className="w-full h-full flex flex-col items-center justify-center gap-2"
+                style={{ background: placeholderGradient }}
+              >
+                <span className="text-6xl">{category?.emoji ?? '📄'}</span>
+                <span className="text-white/80 text-sm font-medium tracking-wide uppercase">
+                  {category?.label ?? 'Artigo'}
+                </span>
+              </div>
             )}
           </div>
           <div className="p-5 flex flex-col flex-1">
@@ -60,11 +69,16 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   return (
     <Link href={`/blog/${slug}`} className="group block">
       <article className="flex gap-4 p-4 bg-white rounded-xl border border-[#DDE3EB] shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br from-[#0E3A6E]/10 to-[#159BA8]/10 flex items-center justify-center text-2xl overflow-hidden">
+        <div className="shrink-0 w-16 h-16 rounded-lg overflow-hidden flex items-center justify-center">
           {frontmatter.image ? (
             <img src={frontmatter.image} alt="" className="w-full h-full object-cover" />
           ) : (
-            <span className="opacity-50">{category?.emoji ?? '📄'}</span>
+            <div
+              className="w-full h-full flex items-center justify-center"
+              style={{ background: placeholderGradient }}
+            >
+              <span className="text-2xl">{category?.emoji ?? '📄'}</span>
+            </div>
           )}
         </div>
         <div className="min-w-0 flex-1">

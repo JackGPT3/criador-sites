@@ -62,7 +62,13 @@ export default function Footer() {
                 <Link href="/" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Home</Link>
               </li>
               <li>
+                <Link href="/sobre" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Sobre</Link>
+              </li>
+              <li>
                 <Link href="/#newsletter" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Newsletter</Link>
+              </li>
+              <li>
+                <Link href="/politica-de-privacidade" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Política de Privacidade</Link>
               </li>
               <li>
                 <Link href="/sitemap.xml" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Sitemap</Link>
@@ -75,9 +81,10 @@ export default function Footer() {
           <p className="text-xs text-[#667085]">
             © {year} Modo Fluxo. Todos os direitos reservados.
           </p>
-          <p className="text-xs text-[#667085]">
-            Feito com Next.js + Tailwind CSS
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/sobre" className="text-xs text-[#667085] hover:text-[#131924] transition-colors">Sobre</Link>
+            <Link href="/politica-de-privacidade" className="text-xs text-[#667085] hover:text-[#131924] transition-colors">Privacidade</Link>
+          </div>
         </div>
       </div>
     </footer>
