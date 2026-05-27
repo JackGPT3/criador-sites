@@ -140,6 +140,17 @@ Salvar com uma linha nova clara, sem reformatar o arquivo inteiro. Confirmar o q
 Quando um erro for cometido e corrigido, registrar em `_contexto/memoria.md` **sem perguntar** — no formato:
 `DATA — [o que aconteceu] → [como fazer corretamente]`
 
+### Registro proativo em aprendizados.md
+
+Salvar em `_contexto/aprendizados.md` **sem esperar ser pedido** sempre que:
+- Um erro for cometido e corrigido
+- Uma abordagem funcionar melhor do que o esperado
+- Um atalho ou padrão novo for descoberto durante o trabalho
+- Jacqueline validar explicitamente uma forma de fazer
+
+Antes de salvar, avisar em uma linha: "Vou registrar isso em aprendizados.md — [motivo breve]."
+Depois salvar e mostrar a linha adicionada. Não perguntar permissão.
+
 ---
 
 ## Manter contexto atualizado
