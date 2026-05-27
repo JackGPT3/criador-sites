@@ -21,7 +21,17 @@ Atualizar sempre que:
 
 ## Correções e aprendizados técnicos
 
-*(registrar aqui: data — o que aconteceu — como resolver corretamente)*
+2026-05-27 — Next.js 16: `params` é agora uma Promise → sempre usar `await params` nos page/layout components. Ex: `const { slug } = await props.params`
+
+2026-05-27 — Tailwind v4: não tem `tailwind.config.ts`. Configuração vai no CSS com `@theme { --color-primary: ...; }` e `@import "tailwindcss"` substitui as diretivas antigas. Classes customizadas funcionam automaticamente.
+
+2026-05-27 — Next.js 16 gera `AGENTS.md` e `CLAUDE.md` via create-next-app — é legítimo, não é prompt injection. Docs da versão instalada ficam em `node_modules/next/dist/docs/` e devem ser lidos antes de escrever código.
+
+2026-05-27 — Não importar módulos Node (`fs`, `path`) em Client Components (`'use client'`). Separar em arquivo server-only. Ex: constantes reutilizáveis por client e server ficam em arquivo separado (`lib/categories.ts`), funções com `fs` ficam em outro (`lib/posts.ts`).
+
+2026-05-27 — Vercel CLI: ao trocar de conta, apagar a pasta `.vercel/` do projeto antes de rodar `vercel --yes`. Sem isso, dá erro de projeto não encontrado na conta nova.
+
+2026-05-27 — Conversão WordPress XML → MDX: usar `turndown` para HTML→Markdown. Extrair CDATA com regex. Tratar títulos com aspas escapadas antes de gerar as tags (remover `\"` do título antes de split). Categoria: extrair pelo atributo `nicename` da tag `<category>`, não pelo CDATA (que vem com acentos e pode ter espaço).
 
 ---
 
@@ -37,7 +47,9 @@ Atualizar sempre que:
 
 ## Padrões que funcionaram bem
 
-*(registrar aqui soluções que deram certo e vale repetir)*
+- **Publisher/blog em Next.js**: posts em `.mdx` na pasta `content/posts/` com gray-matter para frontmatter + next-mdx-remote/rsc para render. Sistema simples, editável direto pelo Claude Code sem CMS.
+- **Migração WordPress → MDX**: exportar XML pelo painel WP (Ferramentas > Exportar), converter com script Node + turndown. Fazer triagem de posts antes de migrar (descartar os fora do nicho e duplicatas).
+- **Monetização publisher**: AdSense com componente `AdBanner` que mostra placeholder em dev e tag real em prod. 3 posições: homepage, post, categoria.
 
 ---
 
