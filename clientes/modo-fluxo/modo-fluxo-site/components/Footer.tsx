@@ -70,9 +70,6 @@ export default function Footer() {
               <li>
                 <Link href="/politica-de-privacidade" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Política de Privacidade</Link>
               </li>
-              <li>
-                <Link href="/sitemap.xml" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Sitemap</Link>
-              </li>
             </ul>
           </div>
         </div>
