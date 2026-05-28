@@ -16,10 +16,18 @@ export default function Newsletter({ compact = false }: NewsletterProps) {
 
     setStatus('loading')
 
-    // TODO: conectar ao MailerLite/Brevo/ConvertKit
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setStatus('success')
-    setEmail('')
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (!res.ok) throw new Error()
+      setStatus('success')
+      setEmail('')
+    } catch {
+      setStatus('error')
+    }
   }
 
   // Versão compacta para dentro dos posts
@@ -47,7 +55,10 @@ export default function Newsletter({ compact = false }: NewsletterProps) {
               Inscrição feita! 🎉
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex gap-2 w-full sm:w-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full sm:w-auto">
+              {status === 'error' && (
+                <p className="text-xs text-red-500">Erro ao inscrever. Tente novamente.</p>
+              )}
               <input
                 type="email"
                 value={email}
@@ -93,6 +104,10 @@ export default function Newsletter({ compact = false }: NewsletterProps) {
             Inscrição feita! Obrigado 🎉
           </div>
         ) : (
+          <>
+          {status === 'error' && (
+            <p className="text-xs text-red-300 mb-2">Erro ao inscrever. Tente novamente.</p>
+          )}
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input
               type="email"
@@ -111,6 +126,7 @@ export default function Newsletter({ compact = false }: NewsletterProps) {
               {status === 'loading' ? 'Enviando...' : 'Quero receber'}
             </button>
           </form>
+          </>
         )}
 
         <p className="text-xs text-white/50 mt-4">
