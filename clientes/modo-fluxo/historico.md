@@ -23,11 +23,19 @@ Registro de todos os projetos, alterações e aprendizados desse cliente.
 - Placeholders coloridos por categoria nos cards (gradiente da cor da categoria)
 - Auditoria de segurança: XML removido do git, security headers adicionados, AdSense movido para NEXT_PUBLIC_ADSENSE_ID
 
+**Sessão 2026-05-28 — DNS, imagens, e-mail e newsletter:**
+- 27 imagens de capa + 23 imagens do corpo dos posts baixadas do Hostgator e re-hosteadas em public/images/posts/
+- Links internos dos posts corrigidos: formato WordPress → /blog/slug e /categoria/slug
+- Link de sitemap removido do rodapé (invisível para usuários)
+- DNS migrado: nameservers RegistroBR → ns1/ns2.vercel-dns.com. A record 76.76.21.21 adicionado via Vercel CLI
+- E-mail contato@modofluxo.com.br configurado via ImprovMX → encaminha para modofluxo@gmail.com. MX records no Vercel DNS
+- Newsletter integrada ao MailerLite (API v3): API route /api/subscribe, variáveis MAILERLITE_API_KEY + MAILERLITE_GROUP_ID no Vercel
+- Modal de newsletter no header: abre ao clicar no botão, fecha com Esc/backdrop/X
+- Pasta clientes/modo-fluxo/_privado/ criada com credenciais.md (fora do git)
+
 **Pendências:**
-- ⚠️ URGENTE antes do DNS: baixar as 27 imagens dos posts (atualmente em modofluxo.com.br/wp-content/uploads/) — vão quebrar quando DNS mudar para Vercel
-- DNS modofluxo.com.br → Vercel (A: 76.76.21.21 + CNAME www → cname.vercel-dns.com no RegistroBR)
-- Newsletter: conectar plataforma (MailerLite recomendado — variável NEXT_PUBLIC_MAILERLITE_KEY)
-- AdSense: quando aprovada, adicionar NEXT_PUBLIC_ADSENSE_ID no painel Vercel → Environment Variables
+- AdSense: quando aprovada, adicionar NEXT_PUBLIC_ADSENSE_ID=ca-pub-XXXXXXXX nas env vars do Vercel
 - Author box nos posts com nome e foto (melhoria UX pendente)
 - Dropdown "Categorias" no header em vez de links diretos
 - 7 posts marcados para reescrita de qualidade
+- Cancelar plano Hostgator após confirmar migração 100% completa

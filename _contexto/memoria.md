@@ -21,6 +21,16 @@ Atualizar sempre que:
 
 ## Correções e aprendizados técnicos
 
+2026-05-28 — DNS Vercel com nameservers próprios: ao mudar nameservers pro Vercel no RegistroBR, adicionar A record explícito `@ A 76.76.21.21` via `vercel dns add`. Sem ele, o domínio fica sem resolver corretamente mesmo com nameservers certos.
+
+2026-05-28 — Imagens WordPress em MDX: ao migrar, verificar imagens no frontmatter E no corpo dos posts (tags `![]()`). São conjuntos diferentes. Baixar todas antes de migrar o DNS.
+
+2026-05-28 — API key no Next.js: chaves secretas de terceiros (MailerLite, etc.) devem ser variáveis server-side sem prefixo `NEXT_PUBLIC_`. Usar API route `/api/subscribe` como proxy — nunca expor a chave no cliente.
+
+2026-05-28 — ImprovMX: serviço gratuito de email forwarding para domínio próprio. MX records: mx1.improvmx.com (10) + mx2.improvmx.com (20) + TXT SPF `v=spf1 include:spf.improvmx.com ~all`. Adicionar via `vercel dns add`.
+
+
+
 2026-05-27 — Next.js 16: `params` é agora uma Promise → sempre usar `await params` nos page/layout components. Ex: `const { slug } = await props.params`
 
 2026-05-27 — Tailwind v4: não tem `tailwind.config.ts`. Configuração vai no CSS com `@theme { --color-primary: ...; }` e `@import "tailwindcss"` substitui as diretivas antigas. Classes customizadas funcionam automaticamente.
