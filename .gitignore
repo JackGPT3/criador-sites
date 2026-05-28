@@ -37,3 +37,6 @@ npm-debug.log*
 
 # Claude Code (local apenas)
 .claude/settings.local.json
+
+# Dados privados de clientes
+clientes/**/_privado/
