@@ -59,6 +59,9 @@ Atualizar sempre que:
 
 ## Padrões que funcionaram bem
 
+- **Pasta privada por cliente**: `clientes/[cliente]/_privado/credenciais.md` para guardar senhas, API keys e acessos. Protegida pelo `.gitignore` global com padrão `clientes/**/_privado/`. Nunca registrar credenciais em outros arquivos.
+
+
 - **Publisher/blog em Next.js**: posts em `.mdx` na pasta `content/posts/` com gray-matter para frontmatter + next-mdx-remote/rsc para render. Sistema simples, editável direto pelo Claude Code sem CMS.
 - **Migração WordPress → MDX**: exportar XML pelo painel WP (Ferramentas > Exportar), converter com script Node + turndown. Fazer triagem de posts antes de migrar (descartar os fora do nicho e duplicatas).
 - **Monetização publisher**: AdSense com componente `AdBanner` que mostra placeholder em dev e tag real em prod. 3 posições: homepage, post, categoria.

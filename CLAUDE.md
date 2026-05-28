@@ -37,6 +37,7 @@ Evitar: explicações longas sem código, respostas só com sugestões sem imple
 - Assets do cliente (logos, fotos, fontes) em `clientes/[nome-cliente]/assets/`
 - Código do projeto em `clientes/[nome-cliente]/[nome-projeto]/`
 - Ao criar qualquer projeto, sempre registrar em `clientes/[nome-cliente]/historico.md`
+- **Dados privados** (credenciais, senhas, API keys, acessos) em `clientes/[nome-cliente]/_privado/credenciais.md` — nunca em outros arquivos. Essa pasta está no `.gitignore` global e nunca sobe pro git.
 
 ### Histórico de projetos (obrigatório por cliente)
 
