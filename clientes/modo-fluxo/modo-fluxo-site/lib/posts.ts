@@ -26,10 +26,15 @@ export function getAllPosts(): Post[] {
     }
   })
 
-  return posts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
-  )
+  const today = new Date()
+  today.setHours(23, 59, 59, 999)
+
+  return posts
+    .filter((post) => new Date(post.frontmatter.date) <= today)
+    .sort(
+      (a, b) =>
+        new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+    )
 }
 
 export function getPostBySlug(slug: string): PostWithContent {
@@ -52,10 +57,7 @@ export function getPostsByCategory(category: string): Post[] {
 
 export function getAllSlugs(): string[] {
   if (!fs.existsSync(POSTS_DIR)) return []
-  return fs
-    .readdirSync(POSTS_DIR)
-    .filter((f) => f.endsWith('.mdx'))
-    .map((f) => f.replace('.mdx', ''))
+  return getAllPosts().map((p) => p.slug)
 }
 
 export function formatDate(dateStr: string): string {
