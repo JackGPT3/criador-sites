@@ -4,6 +4,20 @@ import PostCard from '@/components/PostCard'
 import Newsletter from '@/components/Newsletter'
 import AdBanner from '@/components/AdBanner'
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Modo Fluxo',
+  url: 'https://modofluxo.com.br',
+  description: 'Artigos, tutoriais e reviews sobre as melhores ferramentas de IA, automação e produtividade.',
+  inLanguage: 'pt-BR',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Modo Fluxo',
+    url: 'https://modofluxo.com.br',
+  },
+}
+
 export default function HomePage() {
   const allPosts = getAllPosts()
   const featuredPosts = allPosts.slice(0, 3)
@@ -12,6 +26,11 @@ export default function HomePage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+
       {/* Hero — full width com gradiente do tema original */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0E3A6E] to-[#159BA8]" />

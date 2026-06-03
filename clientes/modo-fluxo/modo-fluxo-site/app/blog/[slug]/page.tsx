@@ -46,6 +46,32 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
   const { frontmatter, content, readingTime } = post
   const category = CATEGORIES[frontmatter.category]
 
+  const blogPostSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: frontmatter.date,
+    dateModified: frontmatter.date,
+    url: `https://modofluxo.com.br/blog/${slug}`,
+    inLanguage: 'pt-BR',
+    author: {
+      '@type': 'Person',
+      name: frontmatter.author ?? 'Modo Fluxo',
+      url: 'https://modofluxo.com.br/sobre',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Modo Fluxo',
+      url: 'https://modofluxo.com.br',
+    },
+    ...(frontmatter.image && { image: `https://modofluxo.com.br${frontmatter.image}` }),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://modofluxo.com.br/blog/${slug}`,
+    },
+  }
+
   const allPosts = getAllPosts()
   const related = allPosts
     .filter((p) => p.slug !== slug && p.frontmatter.category === frontmatter.category)
@@ -53,6 +79,11 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostSchema) }}
+      />
+
       <div className="max-w-3xl mx-auto">
 
         {/* Breadcrumb */}
