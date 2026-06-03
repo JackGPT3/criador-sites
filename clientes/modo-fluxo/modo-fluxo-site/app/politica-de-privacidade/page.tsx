@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 }
 
 export default function PoliticaPrivacidadePage() {
-  const updated = '27 de maio de 2026'
+  const updated = '3 de junho de 2026'
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -39,8 +39,8 @@ export default function PoliticaPrivacidadePage() {
         <p>Podemos coletar as seguintes informações:</p>
         <ul>
           <li><strong>Endereço de email</strong> — quando você se inscreve na newsletter voluntariamente.</li>
-          <li><strong>Dados de navegação</strong> — via Google Analytics e Google AdSense (páginas visitadas, tempo de visita, origem do tráfego). Esses dados são anonimizados e agregados.</li>
-          <li><strong>Cookies</strong> — utilizados por serviços de publicidade (Google AdSense) e análise (Google Analytics) para personalização e medição de audiência.</li>
+          <li><strong>Dados de navegação</strong> — via Google AdSense (páginas visitadas, tempo de visita, origem do tráfego). Esses dados são anonimizados e agregados.</li>
+          <li><strong>Cookies</strong> — utilizados por serviços de publicidade (Google AdSense) para personalização e medição de audiência.</li>
         </ul>
 
         <h2>2. Como usamos seus dados</h2>
@@ -48,20 +48,19 @@ export default function PoliticaPrivacidadePage() {
           <li>Envio da newsletter, quando solicitado por você</li>
           <li>Melhoria do conteúdo e da experiência do site</li>
           <li>Exibição de anúncios relevantes via Google AdSense</li>
-          <li>Análise de desempenho do site via Google Analytics</li>
         </ul>
 
         <h2>3. Cookies e tecnologias de rastreamento</h2>
         <p>
-          Este site utiliza cookies de terceiros. Os principais são:
+          Este site pode utilizar cookies de terceiros. O principal é:
         </p>
         <ul>
-          <li><strong>Google Analytics</strong> — rastreia o comportamento de navegação de forma anonimizada para fins estatísticos.</li>
           <li><strong>Google AdSense</strong> — exibe anúncios com base em interesses e comportamento de navegação. Para mais informações, consulte a <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a>.</li>
         </ul>
         <p>
-          Você pode desativar os cookies nas configurações do seu navegador, mas isso pode afetar a
-          funcionalidade de algumas partes do site.
+          Você pode rejeitar cookies não essenciais clicando em "Rejeitar não essenciais" no aviso de
+          cookies exibido na sua primeira visita, ou desativá-los nas configurações do seu navegador.
+          Rejeitar cookies de publicidade não afeta o acesso ao conteúdo do site.
         </p>
 
         <h2>4. Compartilhamento de dados</h2>
@@ -92,21 +91,30 @@ export default function PoliticaPrivacidadePage() {
           qualquer momento clicando no link de descadastro presente em todo email enviado.
         </p>
 
-        <h2>7. Links externos</h2>
+        <h2>7. Links de afiliados</h2>
+        <p>
+          Alguns artigos deste site podem conter links de afiliados — ou seja, links para produtos
+          e serviços pelos quais podemos receber uma comissão caso você realize uma compra, sem custo
+          adicional para você. Isso não influencia nossas opiniões ou avaliações: recomendamos apenas
+          ferramentas que usamos ou que avaliamos honestamente. Quando um link é de afiliado, indicamos
+          isso no artigo.
+        </p>
+
+        <h2>8. Links externos</h2>
         <p>
           Este site pode conter links para sites de terceiros. Não nos responsabilizamos pelas
           práticas de privacidade desses sites. Recomendamos que você leia as políticas de
           privacidade de cada site que visitar.
         </p>
 
-        <h2>8. Alterações nesta política</h2>
+        <h2>9. Alterações nesta política</h2>
         <p>
           Esta política pode ser atualizada periodicamente. Alterações significativas serão
           comunicadas no próprio site. O uso continuado do site após as alterações implica
           concordância com a política atualizada.
         </p>
 
-        <h2>9. Contato</h2>
+        <h2>10. Contato</h2>
         <p>
           Dúvidas sobre esta política? Entre em contato:{' '}
           <a href="mailto:contato@modofluxo.com.br">contato@modofluxo.com.br</a>

@@ -13,7 +13,12 @@ export default function CookieBanner() {
   }, [])
 
   function accept() {
-    localStorage.setItem('cookie-consent', '1')
+    localStorage.setItem('cookie-consent', 'all')
+    setVisible(false)
+  }
+
+  function reject() {
+    localStorage.setItem('cookie-consent', 'essential')
     setVisible(false)
   }
 
@@ -23,18 +28,26 @@ export default function CookieBanner() {
     <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-[#DDE3EB] bg-white px-4 py-4 shadow-lg">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         <p className="text-sm text-[#667085] text-center sm:text-left">
-          Usamos cookies para melhorar sua experiência.{' '}
+          Usamos cookies para exibir anúncios e melhorar sua experiência.{' '}
           <Link href="/politica-de-privacidade" className="text-[#0E3A6E] underline underline-offset-2 hover:text-[#159BA8] transition-colors">
             Saiba mais
           </Link>
           .
         </p>
-        <button
-          onClick={accept}
-          className="shrink-0 rounded-lg bg-[#0E3A6E] px-5 py-2 text-sm font-medium text-white hover:bg-[#159BA8] transition-colors cursor-pointer"
-        >
-          Aceitar
-        </button>
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={reject}
+            className="rounded-lg border border-[#DDE3EB] px-4 py-2 text-sm font-medium text-[#667085] hover:bg-[#F0F3F6] transition-colors cursor-pointer"
+          >
+            Rejeitar não essenciais
+          </button>
+          <button
+            onClick={accept}
+            className="rounded-lg bg-[#0E3A6E] px-5 py-2 text-sm font-medium text-white hover:bg-[#159BA8] transition-colors cursor-pointer"
+          >
+            Aceitar todos
+          </button>
+        </div>
       </div>
     </div>
   )
