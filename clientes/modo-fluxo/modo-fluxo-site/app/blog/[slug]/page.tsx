@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getPostBySlug, getAllSlugs, getAllPosts, CATEGORIES, formatDate } from '@/lib/posts'
 import PostCard from '@/components/PostCard'
@@ -106,10 +107,14 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
         {/* Featured image */}
         {frontmatter.image && (
           <div className="mb-8 rounded-xl overflow-hidden border border-[#DDE3EB]">
-            <img
+            <Image
               src={frontmatter.image}
               alt={frontmatter.title}
+              width={1200}
+              height={630}
+              sizes="(min-width: 1024px) 768px, 100vw"
               className="w-full h-auto"
+              priority
             />
           </div>
         )}

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { CATEGORIES, formatDate } from '@/lib/posts'
 import type { Post } from '@/lib/types'
@@ -5,9 +6,10 @@ import type { Post } from '@/lib/types'
 interface PostCardProps {
   post: Post
   featured?: boolean
+  priority?: boolean
 }
 
-export default function PostCard({ post, featured = false }: PostCardProps) {
+export default function PostCard({ post, featured = false, priority = false }: PostCardProps) {
   const { frontmatter, slug, readingTime } = post
   const category = CATEGORIES[frontmatter.category]
   const placeholderGradient = category?.gradient ?? 'linear-gradient(135deg, #0E3A6E, #159BA8)'
@@ -18,10 +20,13 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
         <article className="bg-white rounded-xl border border-[#DDE3EB] overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 flex flex-col h-full">
           <div className="aspect-video overflow-hidden relative">
             {frontmatter.image ? (
-              <img
+              <Image
                 src={frontmatter.image}
                 alt={frontmatter.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                priority={priority}
               />
             ) : (
               <div
@@ -69,12 +74,18 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   return (
     <Link href={`/blog/${slug}`} className="group block">
       <article className="flex gap-4 p-4 bg-white rounded-xl border border-[#DDE3EB] shadow-sm hover:shadow-md transition-all duration-200">
-        <div className="shrink-0 w-16 h-16 rounded-lg overflow-hidden flex items-center justify-center">
+        <div className="shrink-0 w-16 h-16 rounded-lg overflow-hidden relative">
           {frontmatter.image ? (
-            <img src={frontmatter.image} alt="" className="w-full h-full object-cover" />
+            <Image
+              src={frontmatter.image}
+              alt=""
+              fill
+              sizes="64px"
+              className="object-cover"
+            />
           ) : (
             <div
-              className="w-full h-full flex items-center justify-center"
+              className="absolute inset-0 flex items-center justify-center"
               style={{ background: placeholderGradient }}
             >
               <span className="text-2xl">{category?.emoji ?? '📄'}</span>

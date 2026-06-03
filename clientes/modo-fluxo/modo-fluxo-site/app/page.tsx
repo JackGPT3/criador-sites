@@ -20,6 +20,7 @@ export default function HomePage() {
           src="/hero-pattern.svg"
           alt=""
           aria-hidden="true"
+          fetchPriority="low"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
         />
         <div className="relative px-4 py-16 sm:py-24 text-center max-w-4xl mx-auto">
@@ -71,8 +72,8 @@ export default function HomePage() {
               Últimos artigos
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {featuredPosts.map((post) => (
-                <PostCard key={post.slug} post={post} featured />
+              {featuredPosts.map((post, i) => (
+                <PostCard key={post.slug} post={post} featured priority={i === 0} />
               ))}
             </div>
           </section>
