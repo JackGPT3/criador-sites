@@ -15,8 +15,8 @@ export default function AdBanner({ slot = '', format = 'horizontal', className =
     square: 'h-[250px] max-w-[300px]',
   }
 
-  // Mostra placeholder em dev OU quando o ID do AdSense ainda não foi configurado
-  if (process.env.NODE_ENV === 'development' || !ADSENSE_ID) {
+  if (!ADSENSE_ID) {
+    if (process.env.NODE_ENV !== 'development') return null
     return (
       <div className={`w-full ${sizes[format]} rounded-lg border border-dashed border-[#DDE3EB] bg-[#F0F3F6] flex items-center justify-center text-[#667085] text-xs gap-2 ${className}`}>
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
