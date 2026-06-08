@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta — Plataforma White-Label de Clube de Benefícios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:      #0D1B2E;
+            --navy-mid:  #152740;
+            --gold:      #C9A44A;
+            --gold-pale: #FAF5E8;
+            --white:     #FFFFFF;
+            --bg:        #F7F8FA;
+            --text:      #1C2B3A;
+            --muted:     #6B7A8D;
+            --border:    #E8ECF0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        /* ── COVER ──────────────────────────────────── */
+        .cover {
+            background: var(--navy);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 90px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            right: -120px; top: -120px;
+            width: 560px; height: 560px;
+            border-radius: 50%;
+            border: 72px solid rgba(201,164,74,0.07);
+            pointer-events: none;
+        }
+        .cover-circle2 {
+            position: absolute;
+            right: 120px; bottom: -80px;
+            width: 260px; height: 260px;
+            border-radius: 50%;
+            border: 40px solid rgba(201,164,74,0.05);
+            pointer-events: none;
+        }
+        .cover-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 48px;
+        }
+        .cover-title {
+            font-size: 68px;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.04;
+            max-width: 720px;
+        }
+        .cover-title em {
+            font-style: normal;
+            color: var(--gold);
+        }
+        .cover-rule {
+            width: 56px; height: 2px;
+            background: var(--gold);
+            margin: 36px 0;
+        }
+        .cover-desc {
+            font-size: 18px;
+            color: rgba(255,255,255,.6);
+            max-width: 480px;
+            line-height: 1.75;
+            margin-bottom: 80px;
+        }
+        .cover-footer {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .cover-footer-div {
+            width: 1px; height: 36px;
+            background: rgba(255,255,255,.18);
+        }
+        .cover-name  { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.8); }
+        .cover-role  { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 2px; }
+        .cover-year  { font-size: 13px; color: rgba(255,255,255,.35); }
+
+        /* ── SECTIONS ───────────────────────────────── */
+        .section {
+            padding: 100px;
+        }
+        .section-alt  { background: var(--bg); }
+        .section-dark { background: var(--navy); color: var(--white); }
+
+        .s-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+        .s-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.12;
+        }
+        .section-dark .s-title { color: var(--white); }
+        .s-rule {
+            width: 48px; height: 3px;
+            background: var(--gold);
+            margin: 20px 0 52px;
+        }
+        .s-sub {
+            font-size: 17px;
+            color: var(--muted);
+            max-width: 580px;
+            line-height: 1.75;
+        }
+        .section-dark .s-sub { color: rgba(255,255,255,.5); }
+
+        /* ── GRIDS ──────────────────────────────────── */
+        .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+        .g2wide { display: grid; grid-template-columns: 1.1fr .9fr; gap: 80px; align-items: start; }
+
+        /* ── CARDS ──────────────────────────────────── */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .card-dark {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .card-num {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .card-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        .card-dark .card-title { color: var(--white); }
+        .card-text { font-size: 14px; color: var(--muted); line-height: 1.65; }
+        .card-dark .card-text { color: rgba(255,255,255,.45); }
+
+        /* ── ACCENT CARDS ───────────────────────────── */
+        .acard {
+            border-left: 3px solid var(--gold);
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            border-radius: 0 10px 10px 0;
+            padding: 24px 28px;
+        }
+        .acard-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+        .acard-text  { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+        /* ── MODEL FLOW ─────────────────────────────── */
+        .model-flow {
+            display: grid;
+            grid-template-columns: 1fr 2px 1fr 2px 1fr;
+            gap: 0;
+            margin-bottom: 48px;
+        }
+        .model-div { background: var(--gold); }
+        .model-item {
+            padding: 40px 36px;
+            border: 1px solid var(--border);
+            border-radius: 0;
+        }
+        .model-item:first-child  { border-radius: 12px 0 0 12px; background: var(--navy); border-color: var(--navy); }
+        .model-item:last-child   { border-radius: 0 12px 12px 0; }
+        .model-num   { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+        .model-title { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .model-item:first-child .model-title { color: var(--white); }
+        .model-item:not(:first-child) .model-title { color: var(--navy); }
+        .model-text  { font-size: 14px; line-height: 1.65; }
+        .model-item:first-child .model-text { color: rgba(255,255,255,.5); }
+        .model-item:not(:first-child) .model-text { color: var(--muted); }
+
+        /* ── CALLOUT ────────────────────────────────── */
+        .callout {
+            background: var(--gold-pale);
+            border-left: 4px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            padding: 24px 28px;
+        }
+        .callout-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+        .callout-text  { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+        /* ── PRICING ────────────────────────────────── */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .pricing-card {
+            border-radius: 16px;
+            padding: 52px 48px;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+        .pricing-card.featured {
+            background: var(--navy);
+            border-color: var(--navy);
+        }
+        .p-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+        .pricing-card.featured .p-label { color: var(--gold); }
+        .p-amount {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .pricing-card.featured .p-amount { color: var(--white); }
+        .p-note {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 36px;
+        }
+        .pricing-card.featured .p-note { color: rgba(255,255,255,.4); }
+        .p-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 32px 0;
+        }
+        .pricing-card.featured .p-divider { background: rgba(255,255,255,.1); }
+        .checklist { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .pricing-card.featured .checklist li { color: rgba(255,255,255,.8); }
+        .checklist li::before {
+            content: '✓';
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+        .p-insight {
+            margin-top: 28px;
+            padding: 20px 22px;
+            background: var(--gold-pale);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--navy);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .footnote { font-size: 12px; color: var(--muted); margin-top: 24px; font-style: italic; }
+
+        /* ── TIMELINE ───────────────────────────────── */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 31px;
+            left: 8%;
+            right: 8%;
+            height: 2px;
+            background: var(--border);
+            z-index: 0;
+        }
+        .tl-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .tl-dot {
+            width: 62px; height: 62px;
+            border-radius: 50%;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+        .tl-dot.light {
+            background: var(--white);
+            border: 2px solid var(--border);
+            color: var(--muted);
+        }
+        .tl-week  { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+        .tl-title { font-size: 16px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+        .tl-text  { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+        /* ── STEPS ──────────────────────────────────── */
+        .steps { display: flex; flex-direction: column; }
+        .step {
+            display: flex;
+            gap: 36px;
+            padding: 36px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            min-width: 56px;
+            opacity: .8;
+        }
+        .step-title { font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+        .step-text  { font-size: 15px; color: var(--muted); line-height: 1.65; }
+
+        /* ── CTA ────────────────────────────────────── */
+        .cta {
+            background: var(--gold);
+            padding: 90px 100px;
+            text-align: center;
+        }
+        .cta-title { font-size: 38px; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+        .cta-sub   { font-size: 16px; color: rgba(13,27,46,.65); }
+
+        /* ── TECH INFO BOX ──────────────────────────── */
+        .tech-note {
+            margin-top: 44px;
+            padding: 28px 32px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 10px;
+            font-size: 14px;
+            color: rgba(255,255,255,.5);
+            line-height: 1.75;
+        }
+        .tech-note strong { color: rgba(255,255,255,.8); }
+
+        /* ── PRINT ──────────────────────────────────── */
+        @media print {
+            .section { padding: 60px; break-inside: avoid; }
+            .cover   { min-height: 100vh; }
+        }
+
+        @media (max-width: 900px) {
+            .section  { padding: 60px 32px; }
+            .cover    { padding: 56px 32px; }
+            .cover-title { font-size: 44px; }
+            .g2, .g3, .g2wide, .pricing-grid, .timeline { grid-template-columns: 1fr; }
+            .model-flow { grid-template-columns: 1fr; }
+            .model-div  { display: none; }
+            .model-item { border-radius: 8px; margin-bottom: 8px; }
+            .cta { padding: 60px 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     CAPA
+══════════════════════════════════════════════════════════ -->
+<section class="cover">
+    <div class="cover-circle2"></div>
+    <div class="cover-label">Proposta Comercial · 2026</div>
+    <h1 class="cover-title">
+        Plataforma<br>
+        <em>White-Label</em><br>
+        de Clube de<br>Benefícios
+    </h1>
+    <div class="cover-rule"></div>
+    <p class="cover-desc">
+        Uma plataforma construída uma vez. Entregue para cada empresa contratante com a identidade visual dela.
+    </p>
+    <div class="cover-footer">
+        <div>
+            <div class="cover-name">Jacque</div>
+            <div class="cover-role">Gestora de Tráfego & Projetos Digitais</div>
+        </div>
+        <div class="cover-footer-div"></div>
+        <div class="cover-year">2026</div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SOBRE O PROJETO
+══════════════════════════════════════════════════════════ -->
+<section class="section">
+    <div class="s-label">Contexto</div>
+    <h2 class="s-title">O problema que este projeto resolve</h2>
+    <div class="s-rule"></div>
+    <div class="g2wide">
+        <div>
+            <p style="font-size: 17px; line-height: 1.85; color: var(--muted); margin-bottom: 24px;">
+                Empresas querem oferecer benefícios exclusivos para funcionários. O mercado já prova que o modelo funciona. O que faltava era uma infraestrutura própria — flexível o suficiente para ser entregue com a identidade de cada cliente contratante.
+            </p>
+            <p style="font-size: 17px; line-height: 1.85; color: var(--muted); margin-bottom: 40px;">
+                Esta proposta cobre o desenvolvimento de uma plataforma <strong style="color:var(--navy)">white-label</strong>: construída uma vez, configurada rapidamente para cada novo cliente — sem reescrever código a cada venda.
+            </p>
+            <div class="callout">
+                <div class="callout-title">Sem transação financeira</div>
+                <div class="callout-text">A plataforma não processa pagamentos. Ela exibe o cupom e redireciona o usuário ao site da marca parceira. A compra acontece fora — sem carrinho, sem checkout, sem complexidade de e-commerce.</div>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="acard">
+                <div class="acard-title">Empresa Contratante</div>
+                <div class="acard-text">Ex: uma empresa de RH contrata o clube e disponibiliza aos funcionários com a própria marca — logo, cores, nome do clube.</div>
+            </div>
+            <div class="acard">
+                <div class="acard-title">Acesso por Login</div>
+                <div class="acard-text">Funcionários se cadastram e acessam a área exclusiva com as ofertas do clube da empresa deles.</div>
+            </div>
+            <div class="acard">
+                <div class="acard-title">Cupons & Descontos</div>
+                <div class="acard-text">Usuário copia o cupom, é redirecionado ao site da marca e conclui a compra por lá. Simples e direto.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     MODELO DE NEGÓCIO
+══════════════════════════════════════════════════════════ -->
+<section class="section section-alt">
+    <div class="s-label">Modelo de Negócio</div>
+    <h2 class="s-title">Como funciona na prática</h2>
+    <div class="s-rule"></div>
+
+    <div class="model-flow">
+        <div class="model-item">
+            <div class="model-num">01 · Você</div>
+            <div class="model-title">Detentora da plataforma e das marcas</div>
+            <div class="model-text">Você gerencia os acordos com as marcas parceiras (Stanley, Domino's, Integralmédica etc.) e vende o acesso ao clube para empresas contratantes.</div>
+        </div>
+        <div class="model-div"></div>
+        <div class="model-item">
+            <div class="model-num">02 · Empresa Contratante</div>
+            <div class="model-title">Recebe o clube com a identidade dela</div>
+            <div class="model-text">O RH ou empresa contrata e disponibiliza para os funcionários. Eles veem a própria logo, cores e nome — não os seus.</div>
+        </div>
+        <div class="model-div"></div>
+        <div class="model-item">
+            <div class="model-num">03 · Funcionário</div>
+            <div class="model-title">Acessa os benefícios da empresa</div>
+            <div class="model-text">Loga, navega pelas marcas, copia o cupom e vai direto ao site da loja para finalizar a compra.</div>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-title">Por que isso escala</div>
+        <div class="callout-text">A plataforma é construída uma vez. Cada novo cliente contratante recebe uma versão configurada com a identidade dele — logo, cores e URL própria — em poucos dias, sem novo desenvolvimento. O investimento inicial amortiza a cada novo cliente fechado.</div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     ESCOPO
+══════════════════════════════════════════════════════════ -->
+<section class="section">
+    <div class="s-label">O que será entregue</div>
+    <h2 class="s-title">Escopo da Plataforma</h2>
+    <div class="s-rule"></div>
+    <div class="g2" style="gap: 20px;">
+        <div class="card">
+            <div class="card-num">01</div>
+            <div class="card-title">Sistema de Login & Acesso</div>
+            <div class="card-text">Cadastro com e-mail ou CPF, autenticação por empresa e recuperação de senha. Cada funcionário acessa apenas o clube da empresa dele.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">02</div>
+            <div class="card-title">Home com Banners Rotativos</div>
+            <div class="card-text">Carrossel de banners dos parceiros em destaque. Abaixo, grade de marcas navegável por categoria.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">03</div>
+            <div class="card-title">Categorias & Busca</div>
+            <div class="card-text">Filtro por categorias (alimentação, saúde, moda, eletrônicos) e campo de busca para localizar marcas rapidamente.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">04</div>
+            <div class="card-title">Página da Marca Parceira</div>
+            <div class="card-text">Banner, descrição da oferta, regras e cupom exclusivo. Botão de redirecionamento direto ao site da loja.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">05</div>
+            <div class="card-title">Pop-up de Cupom</div>
+            <div class="card-text">Ao clicar na oferta, o cupom aparece em destaque para o usuário copiar antes de ser redirecionado.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">06</div>
+            <div class="card-title">Painel Administrativo</div>
+            <div class="card-text">Gerenciamento de parceiros, cupons, banners e usuários. Operação do dia a dia sem precisar de código.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">07</div>
+            <div class="card-title">White-Label por Cliente</div>
+            <div class="card-text">Logo, cores, nome do clube e URL própria configuráveis por empresa. Cada contratante enxerga um produto com a identidade dele.</div>
+        </div>
+        <div class="card">
+            <div class="card-num">08</div>
+            <div class="card-title">Design Responsivo</div>
+            <div class="card-text">Funciona em celular, tablet e desktop. Interface fluida para uso cotidiano sem fricção para o funcionário.</div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TECNOLOGIA
+══════════════════════════════════════════════════════════ -->
+<section class="section section-dark">
+    <div class="s-label">Tecnologia</div>
+    <h2 class="s-title">Como a plataforma é construída</h2>
+    <div class="s-rule"></div>
+    <p class="s-sub">Stack moderna, testada em produção, com o menor custo operacional possível por cliente.</p>
+    <div class="g3" style="margin-top: 48px;">
+        <div class="card-dark">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Frontend</div>
+            <div class="card-title">Next.js + Tailwind</div>
+            <div class="card-text">Interface rápida e responsiva. O tema de cores e logo de cada cliente é configurado via variáveis — sem tocar no código a cada novo contrato.</div>
+        </div>
+        <div class="card-dark">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Backend & Autenticação</div>
+            <div class="card-title">Supabase</div>
+            <div class="card-text">Login, banco de dados e storage integrados. Gerencia o acesso por empresa sem precisar de servidor dedicado.</div>
+        </div>
+        <div class="card-dark">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Deploy & Infra</div>
+            <div class="card-title">Vercel</div>
+            <div class="card-text">Deploy automático via GitHub. Cada cliente recebe sua própria URL configurada e publicada em minutos.</div>
+        </div>
+    </div>
+    <div class="tech-note">
+        <strong>Custo operacional estimado por cliente:</strong> R$50–150/mês em hospedagem + R$60/ano por domínio. Valores não incluídos no investimento de desenvolvimento.
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     INVESTIMENTO
+══════════════════════════════════════════════════════════ -->
+<section class="section section-alt">
+    <div class="s-label">Investimento</div>
+    <h2 class="s-title">Uma plataforma. Uma vez.</h2>
+    <div class="s-rule"></div>
+    <p class="s-sub" style="margin-bottom: 52px;">A plataforma é desenvolvida uma única vez. Cada novo cliente contratante entra com um custo de configuração — não de desenvolvimento.</p>
+
+    <div class="pricing-grid">
+        <div class="pricing-card featured">
+            <div class="p-label">Desenvolvimento da Plataforma Base</div>
+            <div class="p-amount">R$ 10.000</div>
+            <div class="p-note">pagamento único · à vista ou parcelado</div>
+            <div class="p-divider"></div>
+            <ul class="checklist">
+                <li>Codebase completo e white-label</li>
+                <li>Sistema de login por empresa</li>
+                <li>Home com banners rotativos</li>
+                <li>Página de cada parceiro com cupons</li>
+                <li>Pop-up de cupom exclusivo</li>
+                <li>Filtro por categorias e busca</li>
+                <li>Painel administrativo completo</li>
+                <li>Design responsivo (mobile, tablet, desktop)</li>
+                <li>Deploy configurado na Vercel</li>
+                <li>Primeiro cliente configurado incluído</li>
+                <li>Suporte 30 dias pós-entrega</li>
+            </ul>
+        </div>
+        <div class="pricing-card">
+            <div class="p-label">Configuração por Novo Cliente</div>
+            <div class="p-amount" style="font-size:44px;">R$ 1.500</div>
+            <div class="p-note">por empresa contratante · a partir do 2º cliente</div>
+            <div class="p-divider"></div>
+            <ul class="checklist">
+                <li>Personalização com logo, cores e nome do clube</li>
+                <li>URL própria configurada e publicada</li>
+                <li>Cadastro inicial de parceiros e cupons</li>
+                <li>Deploy do ambiente do cliente</li>
+                <li>Entrega em até 5 dias úteis</li>
+            </ul>
+            <div class="p-insight">
+                A partir do 4º cliente contratante, o investimento na plataforma se paga. Cada novo contrato depois disso é margem pura de configuração.
+            </div>
+        </div>
+    </div>
+    <p class="footnote">* Hospedagem mensal e domínio não incluídos no investimento. Estimativa: R$50–150/mês + R$60/ano por cliente contratante.</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     PRAZO
+══════════════════════════════════════════════════════════ -->
+<section class="section">
+    <div class="s-label">Prazo de Entrega</div>
+    <h2 class="s-title">6 a 7 semanas para o produto no ar</h2>
+    <div class="s-rule"></div>
+
+    <div class="timeline">
+        <div class="tl-item">
+            <div class="tl-dot">1</div>
+            <div class="tl-week">Semana 1–2</div>
+            <div class="tl-title">Briefing & Design</div>
+            <div class="tl-text">Escopo, identidade visual, wireframes e aprovação do layout.</div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-dot">2</div>
+            <div class="tl-week">Semana 3–4</div>
+            <div class="tl-title">Desenvolvimento</div>
+            <div class="tl-text">Plataforma base, login, painel admin e cadastro de parceiros.</div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-dot">3</div>
+            <div class="tl-week">Semana 5–6</div>
+            <div class="tl-title">Conteúdo & Testes</div>
+            <div class="tl-text">Parceiros reais inseridos, testes em mobile e desktop, ajustes finos.</div>
+        </div>
+        <div class="tl-item">
+            <div class="tl-dot light">4</div>
+            <div class="tl-week">Semana 7</div>
+            <div class="tl-title">Lançamento</div>
+            <div class="tl-text">Publicação, configuração de hospedagem, DNS e entrega do 1º cliente.</div>
+        </div>
+    </div>
+
+    <div style="margin-top:60px;padding:28px 32px;background:var(--bg);border-radius:10px;text-align:center;font-size:14px;color:var(--muted);">
+        Prazo conta a partir da aprovação da proposta e pagamento de 50% de entrada.
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     PRÓXIMOS PASSOS
+══════════════════════════════════════════════════════════ -->
+<section class="section section-alt">
+    <div class="s-label">Para começar</div>
+    <h2 class="s-title">Próximos passos</h2>
+    <div class="s-rule"></div>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">01</div>
+            <div>
+                <div class="step-title">Aprovação da Proposta</div>
+                <div class="step-text">Confirme o escopo e tire qualquer dúvida antes de fechar. Podemos ajustar o que for necessário.</div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <div>
+                <div class="step-title">Contrato & Entrada</div>
+                <div class="step-text">Assinatura do contrato e pagamento de 50% para início do desenvolvimento.</div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <div>
+                <div class="step-title">Reunião de Briefing</div>
+                <div class="step-text">Alinhamos cores, logo, parceiros iniciais, categorias e o primeiro cliente que receberá a plataforma.</div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-num">04</div>
+            <div>
+                <div class="step-title">Início do Desenvolvimento</div>
+                <div class="step-text">Kickoff com prazo e entregas acordados. Você acompanha o progresso em cada etapa.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CTA FINAL
+══════════════════════════════════════════════════════════ -->
+<section class="cta">
+    <div class="cta-title">Vamos construir isso juntos?</div>
+    <div class="cta-sub">Proposta preparada por Jacque · Gestora de Tráfego & Projetos Digitais · 2026</div>
+</section>
+
+</body>
+</html>
