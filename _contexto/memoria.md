@@ -80,7 +80,34 @@ Atualizar sempre que:
 
 ## O que não fazer
 
-*(registrar aqui erros cometidos ou abordagens que Jacqueline não quer)*
+2026-06-08 — NUNCA rodar `vercel --prod` sem `--token` em projetos de clientes. O CLI usa a sessão global de login e deploy vai pra conta errada. Sempre usar `deploy.ps1` ou `vercel --token TOKEN --prod`.
+
+2026-06-08 — NUNCA apagar a pasta `.vercel/` de um projeto de cliente sem antes checar qual conta ela aponta. O `project.json` dentro dela guarda o vínculo correto com a conta e projeto do Vercel.
+
+---
+
+## Processo de Deploy — Multi-conta Vercel
+
+Cada cliente tem conta Vercel própria. Confundir contas = publicar no site errado.
+
+**Regra:** sempre usar `deploy.ps1` do projeto. Nunca `vercel --prod` direto.
+
+| Cliente | Conta Vercel | Email | Script |
+|---|---|---|---|
+| Modo Fluxo | modofluxo-6433 | jack.chica01@gmail.com | `clientes/modo-fluxo/modo-fluxo-site/deploy.ps1` |
+| Prof. Alfredo | professoralfredo | oprofessoralfredo@gmail.com | `clientes/professor-alfredo/site/deploy.ps1` |
+
+**Setup inicial por cliente:**
+1. Logar na conta do cliente: `vercel login`
+2. Gerar token em vercel.com/account/tokens
+3. Salvar token em `clientes/[cliente]/_privado/credenciais.md`
+4. Definir variável de ambiente: `$env:VERCEL_TOKEN_[CLIENTE] = 'token'`
+5. Rodar `deploy.ps1` — ele valida o token antes de deployar
+
+**Verificar conta ativa antes de qualquer deploy:**
+```
+vercel whoami
+```
 
 ---
 
