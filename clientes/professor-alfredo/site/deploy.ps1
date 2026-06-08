@@ -11,4 +11,4 @@ if (-not $token) {
 }
 
 Write-Host "Deployando na conta do Professor Alfredo..." -ForegroundColor Cyan
-vercel --token $token --prod
+vercel --token $token --prod --yes --scope professoralfredo
