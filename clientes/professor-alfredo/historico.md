@@ -16,11 +16,28 @@
 
 **Pendências:**
 - Confirmar número de WhatsApp do professor
-- Confirmar links Hotmart de cada curso
 - Adicionar foto/imagem do professor (hero ou seção dedicada)
-- Confirmar preços dos cursos 3, 4 e 5 (Nariz, Cavidade Nasal, Orelha Externa)
-- Fazer deploy no Vercel e configurar domínio personalizado (se quiser)
 
 **Preferências do cliente:**
 - Quer manter controle pelo Claude Code (não quer mexer no WordPress)
 - Hospedagem gratuita preferida
+
+---
+
+### 2026-06-08 — Adição de 3 novos cursos (Sistemas)
+
+**Tipo:** Atualização de conteúdo
+**Status:** Código pronto, deploy pendente na conta correta
+
+**O que foi feito:**
+- Adicionados 3 cards de cursos na Linha 3 da seção de produtos:
+  - SISTEMA CIRCULATÓRIO — R$450,00 — 6 aulas — Hotmart: /anatomia-geral-do-sistema-circulatorio/R105987238I
+  - SISTEMA DIGESTÓRIO — R$450,00 — 6 aulas — Hotmart: /anatomia-geral-do-sistema-digestorio/M106035788T
+  - SISTEMA RESPIRATÓRIO — R$300,00 — 4 aulas — Hotmart: /anatomia-geral-do-sistema-respiratorio/A106035808A
+- Imagens adicionadas em images/ (sistema-circulatorio.jpg, sistema-digestorio.jpg, sistema-respiratorio.jpg)
+
+**ATENÇÃO — Deploy:**
+- O domínio oprofessoralfredo.com está em uma conta Vercel DIFERENTE da conta do Modo Fluxo
+- NUNCA usar `vercel --prod` nesta pasta sem antes confirmar que o CLI está autenticado na conta correta
+- Verificar conta ativa com `vercel whoami` antes de qualquer deploy
+- A conta correta é a que tem o projeto vinculado a oprofessoralfredo.com
