@@ -35,6 +35,25 @@
 - Build steps complexos sem necessidade real
 - Processos lentos — o objetivo é entregar rápido e bem
 
+## Hospedagem de clientes
+
+Regra definida em 2026-06-08 com base na política oficial do Vercel:
+
+| Tipo de projeto | Hospedagem | Custo |
+|---|---|---|
+| Sites HTML/CSS estáticos de clientes | **Cloudflare Pages** | Grátis, sem restrição comercial |
+| Sites Next.js de clientes | Vercel Pro (conta do cliente) | US$20/mês |
+| Projetos próprios (Modo Fluxo, testes, portfólio) | Vercel Hobby (conta própria) | Grátis |
+
+**Por quê Cloudflare Pages para clientes:**
+- Vercel Hobby proíbe uso comercial (sites de clientes pagos violam os ToS)
+- Cloudflare Pages gratuito não tem restrição comercial
+- Performance equivalente (CDN global, HTTPS automático, domínio customizado grátis)
+
+**Deploy no Cloudflare Pages:**
+- CLI: `npx wrangler pages deploy ./` ou pelo dashboard em dash.cloudflare.com
+- Cada cliente tem sua própria conta Cloudflare ou deploy feito pela conta da Jacqueline (sem restrição comercial no free tier)
+
 ## Entrega
 
 - Código comentado onde o cliente pode alterar textos e imagens

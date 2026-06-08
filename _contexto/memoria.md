@@ -86,6 +86,17 @@ Atualizar sempre que:
 
 ---
 
+## Hospedagem — decisão definitiva (2026-06-08)
+
+Vercel Hobby proíbe uso comercial — sites de clientes pagos violam os ToS e podem ser derrubados sem aviso.
+
+**Regra:**
+- Clientes com sites HTML estáticos → **Cloudflare Pages** (grátis, sem restrição comercial)
+- Clientes com Next.js → Vercel Pro na conta do cliente (US$20/mês deles)
+- Projetos próprios (Modo Fluxo) → Vercel Hobby da Jacqueline, sem problema
+
+---
+
 ## Processo de Deploy — Multi-conta Vercel
 
 Cada cliente tem conta Vercel própria. Confundir contas = publicar no site errado.
