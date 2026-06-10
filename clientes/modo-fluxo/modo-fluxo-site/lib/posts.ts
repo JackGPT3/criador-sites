@@ -29,11 +29,16 @@ export function getAllPosts(): Post[] {
   const today = new Date()
   today.setHours(23, 59, 59, 999)
 
+  const parseLocalDate = (dateStr: string) => {
+    const [y, m, d] = dateStr.split('-').map(Number)
+    return new Date(y, m - 1, d)
+  }
+
   return posts
-    .filter((post) => new Date(post.frontmatter.date) <= today)
+    .filter((post) => parseLocalDate(post.frontmatter.date) <= today)
     .sort(
       (a, b) =>
-        new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+        parseLocalDate(b.frontmatter.date).getTime() - parseLocalDate(a.frontmatter.date).getTime()
     )
 }
 
@@ -61,7 +66,8 @@ export function getAllSlugs(): string[] {
 }
 
 export function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('pt-BR', {
+  const [year, month, day] = dateStr.split('-').map(Number)
+  return new Date(year, month - 1, day).toLocaleDateString('pt-BR', {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
