@@ -33,8 +33,17 @@ Registro de todos os projetos, alterações e aprendizados desse cliente.
 - Modal de newsletter no header: abre ao clicar no botão, fecha com Esc/backdrop/X
 - Pasta clientes/modo-fluxo/_privado/ criada com credenciais.md (fora do git)
 
+**Sessão 2026-06-10 — Organização editorial e sistema de imagens:**
+- Criada pasta `clientes/modo-fluxo/conteudo/` com calendário completo e processo documentado
+- Script de imagem Pexels recriado em `modo-fluxo-site/scripts/pexels-image.mjs`
+- Processo: buscar imagem com script → criar MDX → atualizar calendario.md → deploy
+- API Key Pexels em `_privado/credenciais.md` (variável local PEXELS_API_KEY, não vai pro Vercel)
+- Post criado: NotebookLM (12/06) — imagem baixada via Pexels
+- ads.txt confirmado no ar desde 03/06 — AdSense não recrawleou ainda, status "Preparando"
+
 **Pendências:**
-- AdSense: quando aprovada, adicionar NEXT_PUBLIC_ADSENSE_ID=ca-pub-XXXXXXXX nas env vars do Vercel
+- AdSense: quando aprovada, adicionar NEXT_PUBLIC_ADSENSE_ID=ca-pub-6429977563082146 nas env vars do Vercel
+- Forçar re-crawl do ads.txt no painel AdSense (Conteúdo > ads.txt > Atualizar)
 - Author box nos posts com nome e foto (melhoria UX pendente)
 - Dropdown "Categorias" no header em vez de links diretos
 - 7 posts marcados para reescrita de qualidade
