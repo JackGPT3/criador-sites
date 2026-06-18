@@ -57,11 +57,11 @@ Próximo slot disponível: verificar última data + 2 dias
 | 04/06 | 20 Prompts Prontos para o WhatsApp da Sua Empresa | tutoriais | ✓ |
 | 06/06 | Como Criar um Funil de Vendas Automático no Manychat do Zero | tutoriais | ✓ |
 | 09/06 | As 5 Melhores Ferramentas de IA para Criar Conteúdo no Instagram em 2026 | ferramentas | ✓ |
-| 11/06 | Como Usar o Notion AI para Organizar o Seu Negócio | ferramentas | 📅 |
-| 12/06 | NotebookLM: O que É e Como Usar a IA do Google para Organizar Seu Negócio | ferramentas | 📅 |
-| 13/06 | Checklist: 30 Tarefas do Seu Negócio que Você Pode Automatizar Hoje | automacao | 📅 |
-| 16/06 | Brevo vs Mailchimp: Qual Plataforma de Email Marketing Escolher em 2026 | ferramentas | 📅 |
-| 18/06 | Como Configurar o HeyGen para Criar um Apresentador Virtual da Sua Marca | tutoriais | 📅 |
+| 11/06 | Como Usar o Notion AI para Organizar o Seu Negócio | ferramentas | ✓ |
+| 12/06 | NotebookLM: O que É e Como Usar a IA do Google para Organizar Seu Negócio | ferramentas | ✓ |
+| 13/06 | Checklist: 30 Tarefas do Seu Negócio que Você Pode Automatizar Hoje | automacao | ✓ |
+| 16/06 | Brevo vs Mailchimp: Qual Plataforma de Email Marketing Escolher em 2026 | ferramentas | ✓ |
+| 18/06 | Como Configurar o HeyGen para Criar um Apresentador Virtual da Sua Marca | tutoriais | ✓ |
 | 20/06 | O que Mudou no Claude Opus 4 e o que Isso Muda para Quem Usa IA | noticias | 📅 |
 | 23/06 | Wati vs Manychat: Qual Chatbot de WhatsApp Escolher para Começar | ferramentas | 📅 |
 | 25/06 | Kit de Automação para a Primeira Semana | tutoriais | 📅 |
