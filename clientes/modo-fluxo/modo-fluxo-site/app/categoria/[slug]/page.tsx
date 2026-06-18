@@ -5,6 +5,8 @@ import PostCard from '@/components/PostCard'
 import AdBanner from '@/components/AdBanner'
 import Link from 'next/link'
 
+export const revalidate = 86400
+
 export function generateStaticParams() {
   return Object.keys(CATEGORIES).map((slug) => ({ slug }))
 }

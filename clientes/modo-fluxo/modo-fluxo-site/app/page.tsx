@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { getAllPosts, CATEGORIES } from '@/lib/posts'
+
+export const revalidate = 86400
 import PostCard from '@/components/PostCard'
 import Newsletter from '@/components/Newsletter'
 import AdBanner from '@/components/AdBanner'
