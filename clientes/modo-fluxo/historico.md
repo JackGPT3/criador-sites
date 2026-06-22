@@ -48,3 +48,40 @@ Registro de todos os projetos, alterações e aprendizados desse cliente.
 - Dropdown "Categorias" no header em vez de links diretos
 - 7 posts marcados para reescrita de qualidade
 - Cancelar plano Hostgator após confirmar migração 100% completa
+
+---
+
+### 2026-06-22 — Pivot estratégico + Diretório de Ferramentas (pSEO)
+**Tipo:** Expansão de produto — blog + diretório pSEO
+**Stack:** mesma (Next.js 16 + Vercel), novo módulo em JSON
+**Status:** No ar em produção
+
+**Decisão estratégica:**
+Modelo híbrido: blog editorial (autoridade/E-E-A-T) + diretório de ferramentas SaaS em português (pSEO + afiliados). O diretório escala via JSON — cada ferramenta é uma entrada de dados que gera páginas estáticas automaticamente no build. Sem banco de dados, sem CMS.
+
+**O que foi construído:**
+- `content/ferramentas/tools.json` — banco de dados com 10 ferramentas seed (Make, n8n, Zapier, Activepieces, Pabbly, ManyChat, WATI, Notion AI, Jasper, HeyGen)
+- `lib/tools.ts` — funções de leitura + `TOOL_CATEGORIES` (5 categorias: automacao, criacao-conteudo, atendimento, produtividade, analise-dados)
+- `lib/types.ts` — interfaces `Tool` e `ToolPricing` adicionadas
+- `components/ToolCard.tsx` — card com variante featured e compacta, logo com fallback em emoji
+- `app/ferramentas/page.tsx` — home do diretório
+- `app/ferramentas/[categoria]/page.tsx` — listagem por categoria
+- `app/ferramentas/[categoria]/[slug]/page.tsx` — página individual com pros/cons, casos de uso, para quem é, preços, schema.org SoftwareApplication, posts relacionados, ferramentas similares
+- `public/images/tools/` — logos locais baixados via Google favicon service (curl)
+- Header: link "Diretório" adicionado (desktop e mobile)
+
+**Afiliados ativos:**
+- Make: https://www.make.com/en/register?pc=modofluxo (campo `affiliateUrl` no JSON)
+
+**Para adicionar nova ferramenta:**
+1. Adicionar objeto no `tools.json` seguindo o schema existente
+2. Baixar logo: `curl -sL "https://www.google.com/s2/favicons?domain=DOMINIO&sz=256" -o public/images/tools/SLUG.png`
+3. `vercel --prod` na pasta do projeto
+
+**Pendências do diretório:**
+- Validar visualmente os logos no ar (especialmente pabbly-connect)
+- Cadastrar afiliados: n8n, HeyGen, ManyChat
+- Expandir para 30-50 ferramentas (analise-dados e produtividade estão vazias)
+- Cross-links blog → diretório nos posts que citam ferramentas
+- Preencher campo `relatedPosts` nas entradas do JSON
+- Monitorar indexação no Search Console

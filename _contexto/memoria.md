@@ -78,6 +78,17 @@ Atualizar sempre que:
 
 ---
 
+## Diretório pSEO — padrões estabelecidos (2026-06-22)
+
+- **Dados em JSON, não banco**: `content/ferramentas/tools.json` com `resolveJsonModule: true` no tsconfig. Funciona com SSG sem servidor. Migrar para banco só quando passar de 500 ferramentas e o build ficar lento.
+- **Logos locais, não CDN externo**: Clearbit Logo API foi descontinuada após aquisição pela HubSpot — não usar. Baixar logos com `curl -sL "https://www.google.com/s2/favicons?domain=DOMINIO&sz=256" -o public/images/tools/SLUG.png`. Armazenar em `public/images/tools/`.
+- **Fallback de logo**: ToolCard renderiza emoji sobre gradiente colorido por trás da `<img>`. Se a imagem falhar no browser, o emoji aparece. Sem necessidade de client component para tratar erro.
+- **Schema.org**: páginas de ferramenta usam `SoftwareApplication`. Páginas de categoria usam `CollectionPage`. Ambos no `<script type="application/ld+json">`.
+- **PageProps em rotas novas**: Next.js 16 gera os tipos de `PageProps<'/rota/[param]'>` durante o build. Rotas recém-criadas ainda não têm esses tipos — usar tipagem explícita: `{ params: Promise<{ slug: string }> }` até o primeiro build.
+- **Afiliados no JSON**: campo `affiliateUrl` opcional. CTA da ferramenta usa `affiliateUrl` se existir, senão cai para `websiteUrl`. Adicionar aviso `(link afiliado)` ao lado do botão quando presente.
+
+---
+
 ## O que não fazer
 
 2026-06-08 — NUNCA rodar `vercel --prod` sem `--token` em projetos de clientes. O CLI usa a sessão global de login e deploy vai pra conta errada. Sempre usar `deploy.ps1` ou `vercel --token TOKEN --prod`.

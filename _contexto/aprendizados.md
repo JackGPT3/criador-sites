@@ -15,6 +15,10 @@ Formato de cada entrada:
 
 2026-06-10 — Modo Fluxo — `new Date("AAAA-MM-DD")` em JavaScript interpreta a string como UTC meia-noite. No fuso GMT-3, isso vira o dia anterior às 21h, causando datas erradas na exibição e posts aparecendo cedo demais no filtro. Sempre parsear datas de frontmatter MDX manualmente: `const [y, m, d] = dateStr.split('-').map(Number); new Date(y, m-1, d)` — isso cria uma data local sem ajuste de timezone.
 
+2026-06-22 — Diretório pSEO — Clearbit Logo API não funciona mais (descontinuada após aquisição pela HubSpot). Usar `curl -sL "https://www.google.com/s2/favicons?domain=DOMINIO&sz=256"` para baixar logos e hospedar em `public/images/tools/`. Arquivos ficam pequenos (1-6KB) mas suficientes para exibição em cards de até 56px.
+
+2026-06-22 — Diretório pSEO — PowerShell falha ao baixar PNGs binários com `Invoke-WebRequest` (trata binário como texto). Para download de imagens, sempre usar Bash com `curl -sL -A "Mozilla/5.0"`.
+
 ---
 
 ## Caminhos que funcionam
