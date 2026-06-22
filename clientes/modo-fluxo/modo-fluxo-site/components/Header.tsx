@@ -43,7 +43,7 @@ export default function Header() {
                 href="/ferramentas"
                 className="px-3 py-2 text-sm font-medium text-[#667085] hover:text-[#131924] hover:bg-[#E6EBF0] rounded-lg transition-colors"
               >
-                Ferramentas
+                Diretório
               </Link>
               <button
                 onClick={() => setModalOpen(true)}
@@ -92,7 +92,7 @@ export default function Header() {
               onClick={() => setMobileOpen(false)}
             >
               <span>🛠️</span>
-              <span>Ferramentas</span>
+              <span>Diretório de Ferramentas</span>
             </Link>
             <div className="mt-3 pt-3 border-t border-[#DDE3EB]">
               <button

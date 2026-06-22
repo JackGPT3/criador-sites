@@ -101,6 +101,22 @@ export default async function ToolPage({ params }: ToolParams) {
 
         {/* Header */}
         <header className="mb-10">
+          {/* Logo */}
+          {tool.logoUrl && (
+            <div
+              className="w-20 h-20 rounded-2xl border border-[#DDE3EB] overflow-hidden shadow-sm mb-6 flex items-center justify-center p-3 bg-white"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={tool.logoUrl}
+                alt={tool.name}
+                width={56}
+                height={56}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          )}
+
           <div className="flex items-center gap-2 mb-4 flex-wrap">
             {cat && (
               <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${cat.color}`}>

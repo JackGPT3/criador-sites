@@ -30,7 +30,8 @@
       "model": "freemium"
     },
     "websiteUrl": "https://make.com",
-    "affiliateUrl": "",
+    "affiliateUrl": "https://www.make.com/en/register?pc=modofluxo",
+    "logoUrl": "https://logo.clearbit.com/make.com",
     "tags": ["automacao", "no-code", "integracao", "workflow"],
     "lastUpdated": "2026-06-22",
     "featured": true
@@ -67,6 +68,7 @@
     },
     "websiteUrl": "https://n8n.io",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/n8n.io",
     "tags": ["automacao", "open-source", "self-hosted", "no-code"],
     "lastUpdated": "2026-06-22",
     "featured": true
@@ -103,6 +105,7 @@
     },
     "websiteUrl": "https://zapier.com",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/zapier.com",
     "tags": ["automacao", "no-code", "integracao", "workflow"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -139,6 +142,7 @@
     },
     "websiteUrl": "https://activepieces.com",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/activepieces.com",
     "tags": ["automacao", "open-source", "no-code", "workflow"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -174,6 +178,7 @@
     },
     "websiteUrl": "https://pabbly.com/connect",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/pabbly.com",
     "tags": ["automacao", "no-code", "integracao", "ilimitado"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -210,6 +215,7 @@
     },
     "websiteUrl": "https://manychat.com",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/manychat.com",
     "tags": ["chatbot", "instagram", "whatsapp", "automacao", "atendimento"],
     "lastUpdated": "2026-06-22",
     "featured": true
@@ -245,6 +251,7 @@
     },
     "websiteUrl": "https://wati.io",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/wati.io",
     "tags": ["whatsapp", "chatbot", "atendimento", "crm", "equipe"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -280,6 +287,7 @@
     },
     "websiteUrl": "https://notion.so/product/ai",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/notion.so",
     "tags": ["produtividade", "ia", "notas", "gestao", "escrita"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -315,6 +323,7 @@
     },
     "websiteUrl": "https://jasper.ai",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/jasper.ai",
     "tags": ["copywriting", "conteudo", "marketing", "ia", "escrita"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -351,6 +360,7 @@
     },
     "websiteUrl": "https://heygen.com",
     "affiliateUrl": "",
+    "logoUrl": "https://logo.clearbit.com/heygen.com",
     "tags": ["video", "avatar-ia", "conteudo", "producao", "dubagem"],
     "lastUpdated": "2026-06-22",
     "featured": true
