@@ -5,33 +5,15 @@
     "category": "automacao",
     "tagline": "A plataforma de automação visual mais poderosa para conectar qualquer app sem código",
     "description": "Make (antigo Integromat) é a plataforma de automação visual que permite conectar centenas de aplicativos e criar fluxos complexos sem escrever uma linha de código. Diferente de outras ferramentas, o Make usa uma interface visual baseada em cenários onde você arrasta e conecta módulos — ideal para automações com lógica condicional, loops e transformações de dados. É a escolha padrão de quem precisa de mais controle do que o Zapier oferece, com um custo muito menor. Muito usado por freelancers, agências e pequenas empresas que automatizam vendas, atendimento, geração de leads e relatórios.",
-    "pros": [
-      "Interface visual intuitiva com arrastar e soltar",
-      "Suporta lógica condicional e loops complexos",
-      "Plano gratuito generoso (1.000 operações/mês)",
-      "Custo muito menor que Zapier para o mesmo volume"
-    ],
-    "cons": [
-      "Curva de aprendizado maior do que Zapier para iniciantes",
-      "Documentação em inglês na maior parte",
-      "Suporte por e-mail pode ser lento no plano gratuito"
-    ],
-    "useCases": [
-      "Automatizar o cadastro de leads do Instagram direto no CRM",
-      "Enviar relatórios semanais por e-mail com dados do Google Sheets",
-      "Integrar loja virtual com WhatsApp para confirmações de pedido"
-    ],
+    "pros": ["Interface visual intuitiva com arrastar e soltar", "Suporta lógica condicional e loops complexos", "Plano gratuito generoso (1.000 operações/mês)", "Custo muito menor que Zapier para o mesmo volume"],
+    "cons": ["Curva de aprendizado maior do que Zapier para iniciantes", "Documentação em inglês na maior parte", "Suporte por e-mail pode ser lento no plano gratuito"],
+    "useCases": ["Automatizar o cadastro de leads do Instagram direto no CRM", "Enviar relatórios semanais por e-mail com dados do Google Sheets", "Integrar loja virtual com WhatsApp para confirmações de pedido"],
     "whoFor": "Para quem precisa de automações com lógica complexa e quer pagar menos do que o Zapier cobra pelo mesmo volume de tarefas.",
     "whoNotFor": "Para quem quer a solução mais simples possível e não tem tempo para aprender uma nova ferramenta — nesse caso, o Zapier é mais direto.",
-    "pricing": {
-      "hasFree": true,
-      "freeTier": "1.000 operações/mês, 2 cenários ativos",
-      "startingPrice": "A partir de US$9/mês",
-      "model": "freemium"
-    },
+    "pricing": { "hasFree": true, "freeTier": "1.000 operações/mês, 2 cenários ativos", "startingPrice": "A partir de US$9/mês", "model": "freemium" },
     "websiteUrl": "https://make.com",
     "affiliateUrl": "https://www.make.com/en/register?pc=modofluxo",
-    "logoUrl": "https://logo.clearbit.com/make.com",
+    "logoUrl": "/images/tools/make.png",
     "tags": ["automacao", "no-code", "integracao", "workflow"],
     "lastUpdated": "2026-06-22",
     "featured": true
@@ -42,33 +24,15 @@
     "category": "automacao",
     "tagline": "Automação open source: instale no seu servidor e pague zero de mensalidade",
     "description": "n8n é uma plataforma de automação open source que você pode hospedar no seu próprio servidor — o que significa custo zero de mensalidade e controle total sobre os seus dados. Tem interface visual semelhante ao Make, com suporte a mais de 400 integrações nativas e a possibilidade de criar nodes personalizados com JavaScript. Para negócios que lidam com dados sensíveis ou querem eliminar o custo de plataformas SaaS, o n8n é a alternativa mais poderosa. Existe também uma versão cloud (n8n.io) com plano pago, para quem não quer gerenciar servidor.",
-    "pros": [
-      "Open source — pode hospedar gratuitamente no seu servidor",
-      "Suporte a código JavaScript para lógicas customizadas",
-      "Mais de 400 integrações nativas",
-      "Controle total sobre dados (ideal para compliance)"
-    ],
-    "cons": [
-      "Auto-hospedagem exige conhecimento técnico mínimo",
-      "Interface menos polida que Make e Zapier",
-      "Comunidade menor do que as alternativas pagas"
-    ],
-    "useCases": [
-      "Automatizar fluxos com dados sensíveis de clientes sem enviar para terceiros",
-      "Criar pipelines de enriquecimento de leads com chamadas a APIs externas",
-      "Monitorar preços de concorrentes e notificar via Telegram"
-    ],
+    "pros": ["Open source — pode hospedar gratuitamente no seu servidor", "Suporte a código JavaScript para lógicas customizadas", "Mais de 400 integrações nativas", "Controle total sobre dados (ideal para compliance)"],
+    "cons": ["Auto-hospedagem exige conhecimento técnico mínimo", "Interface menos polida que Make e Zapier", "Comunidade menor do que as alternativas pagas"],
+    "useCases": ["Automatizar fluxos com dados sensíveis de clientes sem enviar para terceiros", "Criar pipelines de enriquecimento de leads com chamadas a APIs externas", "Monitorar preços de concorrentes e notificar via Telegram"],
     "whoFor": "Para quem tem algum conhecimento técnico e quer eliminar o custo mensal de plataformas de automação ou precisa de controle total sobre os dados.",
     "whoNotFor": "Para quem não quer gerenciar infraestrutura ou precisa de uma solução pronta sem configuração técnica.",
-    "pricing": {
-      "hasFree": true,
-      "freeTier": "Self-hosted gratuito (open source)",
-      "startingPrice": "Cloud a partir de €20/mês",
-      "model": "freemium"
-    },
+    "pricing": { "hasFree": true, "freeTier": "Self-hosted gratuito (open source)", "startingPrice": "Cloud a partir de €20/mês", "model": "freemium" },
     "websiteUrl": "https://n8n.io",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/n8n.io",
+    "logoUrl": "/images/tools/n8n.png",
     "tags": ["automacao", "open-source", "self-hosted", "no-code"],
     "lastUpdated": "2026-06-22",
     "featured": true
@@ -79,33 +43,15 @@
     "category": "automacao",
     "tagline": "A plataforma de automação mais fácil de usar — e a mais cara",
     "description": "Zapier é a referência em automação para quem quer simplicidade máxima. Com mais de 6.000 integrações, é a plataforma com o maior catálogo de apps conectados do mercado. A curva de aprendizado é mínima: em menos de 10 minutos você cria um fluxo funcional. O ponto fraco é o preço — para volumes maiores, o custo sobe rápido e fica bem acima do Make ou Pabbly. Ideal para equipes não técnicas ou para testar uma automação rapidamente antes de migrar para uma solução mais barata.",
-    "pros": [
-      "Interface mais simples e intuitiva do mercado",
-      "Mais de 6.000 integrações disponíveis",
-      "Ideal para testar automações rapidamente",
-      "Suporte e documentação excelentes em inglês"
-    ],
-    "cons": [
-      "Preço alto comparado com Make e Pabbly",
-      "Plano gratuito muito limitado (100 tarefas/mês)",
-      "Lógica condicional avançada exige plano pago"
-    ],
-    "useCases": [
-      "Conectar formulário do site ao CRM automaticamente",
-      "Postar no Twitter quando publicar um novo artigo no blog",
-      "Salvar anexos de e-mail direto no Google Drive"
-    ],
+    "pros": ["Interface mais simples e intuitiva do mercado", "Mais de 6.000 integrações disponíveis", "Ideal para testar automações rapidamente", "Suporte e documentação excelentes em inglês"],
+    "cons": ["Preço alto comparado com Make e Pabbly", "Plano gratuito muito limitado (100 tarefas/mês)", "Lógica condicional avançada exige plano pago"],
+    "useCases": ["Conectar formulário do site ao CRM automaticamente", "Postar no Twitter quando publicar um novo artigo no blog", "Salvar anexos de e-mail direto no Google Drive"],
     "whoFor": "Para quem prioriza simplicidade e velocidade de implementação acima de custo, ou para equipes não técnicas.",
     "whoNotFor": "Para quem precisa de alto volume de automações — o custo fica proibitivo. Make ou Pabbly são melhores nesse caso.",
-    "pricing": {
-      "hasFree": true,
-      "freeTier": "100 tarefas/mês, 5 Zaps ativos",
-      "startingPrice": "A partir de US$19,99/mês",
-      "model": "freemium"
-    },
+    "pricing": { "hasFree": true, "freeTier": "100 tarefas/mês, 5 Zaps ativos", "startingPrice": "A partir de US$19,99/mês", "model": "freemium" },
     "websiteUrl": "https://zapier.com",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/zapier.com",
+    "logoUrl": "/images/tools/zapier.png",
     "tags": ["automacao", "no-code", "integracao", "workflow"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -116,33 +62,15 @@
     "category": "automacao",
     "tagline": "Alternativa open source ao Make com foco em facilidade de uso",
     "description": "Activepieces é uma plataforma de automação open source que combina a facilidade de uso do Zapier com a possibilidade de auto-hospedagem do n8n. Lançada em 2022, cresceu rápido por oferecer uma experiência visual polida sem o custo das alternativas consolidadas. Tem suporte nativo a mais de 100 integrações e permite criar automações personalizadas com TypeScript. Para agências e desenvolvedores que querem oferecer automação aos seus clientes com marca própria (white-label), é uma das opções mais interessantes do mercado.",
-    "pros": [
-      "Open source com opção de self-hosted gratuito",
-      "Interface mais moderna e intuitiva que o n8n",
-      "Suporte a white-label para agências",
-      "Comunidade ativa e crescimento rápido"
-    ],
-    "cons": [
-      "Catálogo de integrações menor que Make e Zapier",
-      "Projeto mais jovem — menos documentação em português",
-      "Alguns conectores ainda em fase beta"
-    ],
-    "useCases": [
-      "Agências que querem oferecer automação aos clientes com marca própria",
-      "Substituir Make ou Zapier sem custo mensal com self-hosting",
-      "Criar fluxos de onboarding automatizados para novos clientes"
-    ],
+    "pros": ["Open source com opção de self-hosted gratuito", "Interface mais moderna e intuitiva que o n8n", "Suporte a white-label para agências", "Comunidade ativa e crescimento rápido"],
+    "cons": ["Catálogo de integrações menor que Make e Zapier", "Projeto mais jovem — menos documentação em português", "Alguns conectores ainda em fase beta"],
+    "useCases": ["Agências que querem oferecer automação aos clientes com marca própria", "Substituir Make ou Zapier sem custo mensal com self-hosting", "Criar fluxos de onboarding automatizados para novos clientes"],
     "whoFor": "Para desenvolvedores, agências e profissionais técnicos que querem uma alternativa open source com visual moderno.",
     "whoNotFor": "Para quem precisa de integrações específicas que só existem no Zapier ou Make — o catálogo ainda é menor.",
-    "pricing": {
-      "hasFree": true,
-      "freeTier": "Self-hosted gratuito",
-      "startingPrice": "Cloud a partir de US$9/mês",
-      "model": "freemium"
-    },
+    "pricing": { "hasFree": true, "freeTier": "Self-hosted gratuito", "startingPrice": "Cloud a partir de US$9/mês", "model": "freemium" },
     "websiteUrl": "https://activepieces.com",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/activepieces.com",
+    "logoUrl": "/images/tools/activepieces.png",
     "tags": ["automacao", "open-source", "no-code", "workflow"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -153,32 +81,15 @@
     "category": "automacao",
     "tagline": "Automação ilimitada por um preço fixo — sem cobrar por tarefa",
     "description": "Pabbly Connect é a única plataforma de automação que não cobra por número de tarefas ou operações — você paga um valor fixo e pode rodar quantas automações quiser. Para negócios com alto volume de fluxos automatizados, isso representa uma economia enorme comparado com Make e Zapier. Tem mais de 1.000 integrações e suporte a multi-step workflows. A interface é funcional mas menos polida que os concorrentes, e o suporte pode ser lento. Muito popular entre infoprodutores e e-commerces brasileiros que precisam de volume alto sem custo variável.",
-    "pros": [
-      "Tarefas ilimitadas por preço fixo mensal",
-      "Mais de 1.000 integrações disponíveis",
-      "Plano vitalício disponível (pagamento único)",
-      "Melhor custo-benefício para alto volume"
-    ],
-    "cons": [
-      "Interface menos polida que Make e Zapier",
-      "Velocidade de execução mais lenta em alguns fluxos",
-      "Suporte técnico pode demorar"
-    ],
-    "useCases": [
-      "E-commerce com alto volume de pedidos que precisa automatizar confirmações",
-      "Infoprodutores que querem integrar checkout com área de membros",
-      "Agências que gerenciam múltiplos clientes com fluxos repetitivos"
-    ],
+    "pros": ["Tarefas ilimitadas por preço fixo mensal", "Mais de 1.000 integrações disponíveis", "Plano vitalício disponível (pagamento único)", "Melhor custo-benefício para alto volume"],
+    "cons": ["Interface menos polida que Make e Zapier", "Velocidade de execução mais lenta em alguns fluxos", "Suporte técnico pode demorar"],
+    "useCases": ["E-commerce com alto volume de pedidos que precisa automatizar confirmações", "Infoprodutores que querem integrar checkout com área de membros", "Agências que gerenciam múltiplos clientes com fluxos repetitivos"],
     "whoFor": "Para quem tem alto volume de automações e quer pagar um valor fixo sem surpresas na fatura mensal.",
     "whoNotFor": "Para quem prioriza interface polida e suporte ágil — Make ou Zapier entregam melhor experiência de uso.",
-    "pricing": {
-      "hasFree": false,
-      "startingPrice": "A partir de US$19/mês (tarefas ilimitadas)",
-      "model": "subscription"
-    },
+    "pricing": { "hasFree": false, "startingPrice": "A partir de US$19/mês (tarefas ilimitadas)", "model": "subscription" },
     "websiteUrl": "https://pabbly.com/connect",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/pabbly.com",
+    "logoUrl": "/images/tools/pabbly-connect.png",
     "tags": ["automacao", "no-code", "integracao", "ilimitado"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -189,33 +100,15 @@
     "category": "atendimento",
     "tagline": "Chatbots para Instagram e WhatsApp que vendem no automático",
     "description": "ManyChat é a plataforma líder em automação de conversas para Instagram, WhatsApp e Messenger. Permite criar fluxos de atendimento, qualificação de leads e vendas automatizadas sem código. Muito usado por infoprodutores e e-commerces para responder comentários do Instagram automaticamente, enviar links de checkout por DM e criar sequências de follow-up. A integração com Instagram é nativa e foi pioneira no mercado — quem quer automação nessa rede social começa pelo ManyChat.",
-    "pros": [
-      "Melhor integração nativa com Instagram do mercado",
-      "Interface visual para criar fluxos sem código",
-      "Plano gratuito funcional para até 1.000 contatos",
-      "Templates prontos para e-commerce e infoprodutos"
-    ],
-    "cons": [
-      "WhatsApp exige aprovação da Meta que pode demorar",
-      "Preço sobe rápido conforme a base de contatos cresce",
-      "Funcionalidades avançadas de IA ainda limitadas"
-    ],
-    "useCases": [
-      "Responder comentários do Instagram com DM automático contendo o link do produto",
-      "Qualificar leads via perguntas no chat antes de passar para o vendedor",
-      "Criar sequência de follow-up pós-compra via WhatsApp"
-    ],
+    "pros": ["Melhor integração nativa com Instagram do mercado", "Interface visual para criar fluxos sem código", "Plano gratuito funcional para até 1.000 contatos", "Templates prontos para e-commerce e infoprodutos"],
+    "cons": ["WhatsApp exige aprovação da Meta que pode demorar", "Preço sobe rápido conforme a base de contatos cresce", "Funcionalidades avançadas de IA ainda limitadas"],
+    "useCases": ["Responder comentários do Instagram com DM automático contendo o link do produto", "Qualificar leads via perguntas no chat antes de passar para o vendedor", "Criar sequência de follow-up pós-compra via WhatsApp"],
     "whoFor": "Para infoprodutores, e-commerces e criadores de conteúdo que querem automatizar vendas e atendimento no Instagram e WhatsApp.",
     "whoNotFor": "Para quem precisa de atendimento no WhatsApp com número próprio sem burocracia da Meta — o WATI é mais prático nesse caso.",
-    "pricing": {
-      "hasFree": true,
-      "freeTier": "Até 1.000 contatos",
-      "startingPrice": "A partir de US$15/mês",
-      "model": "freemium"
-    },
+    "pricing": { "hasFree": true, "freeTier": "Até 1.000 contatos", "startingPrice": "A partir de US$15/mês", "model": "freemium" },
     "websiteUrl": "https://manychat.com",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/manychat.com",
+    "logoUrl": "/images/tools/manychat.png",
     "tags": ["chatbot", "instagram", "whatsapp", "automacao", "atendimento"],
     "lastUpdated": "2026-06-22",
     "featured": true
@@ -226,32 +119,15 @@
     "category": "atendimento",
     "tagline": "WhatsApp Business API com automação, CRM e chatbot em uma plataforma",
     "description": "WATI é uma plataforma de atendimento e automação construída sobre a API oficial do WhatsApp Business. Diferente do ManyChat, o WATI foca exclusivamente no WhatsApp e oferece uma caixa de entrada compartilhada para equipes, funis de vendas e chatbot com IA. Muito usado por negócios locais, clínicas, imobiliárias e e-commerces brasileiros que usam o WhatsApp como canal principal de vendas. A aprovação para usar a API oficial é mais rápida pelo WATI do que por outras plataformas.",
-    "pros": [
-      "API oficial do WhatsApp — sem risco de banimento",
-      "Caixa de entrada compartilhada para equipes",
-      "Chatbot com fluxos visuais sem código",
-      "Aprovação mais rápida que concorrentes"
-    ],
-    "cons": [
-      "Foca só em WhatsApp — sem suporte a Instagram ou Messenger",
-      "Preço mais alto que soluções não-oficiais",
-      "Funcionalidades avançadas só nos planos mais caros"
-    ],
-    "useCases": [
-      "Clínica que quer confirmar consultas automaticamente via WhatsApp",
-      "E-commerce que quer enviar rastreamento de pedido pelo WhatsApp",
-      "Imobiliária com equipe de corretores compartilhando uma caixa de entrada"
-    ],
+    "pros": ["API oficial do WhatsApp — sem risco de banimento", "Caixa de entrada compartilhada para equipes", "Chatbot com fluxos visuais sem código", "Aprovação mais rápida que concorrentes"],
+    "cons": ["Foca só em WhatsApp — sem suporte a Instagram ou Messenger", "Preço mais alto que soluções não-oficiais", "Funcionalidades avançadas só nos planos mais caros"],
+    "useCases": ["Clínica que quer confirmar consultas automaticamente via WhatsApp", "E-commerce que quer enviar rastreamento de pedido pelo WhatsApp", "Imobiliária com equipe de corretores compartilhando uma caixa de entrada"],
     "whoFor": "Para negócios que usam WhatsApp como canal principal de vendas e atendimento e precisam de solução oficial para equipes.",
     "whoNotFor": "Para quem precisa de automação em múltiplos canais além do WhatsApp — o ManyChat cobre mais plataformas.",
-    "pricing": {
-      "hasFree": false,
-      "startingPrice": "A partir de US$49/mês",
-      "model": "subscription"
-    },
+    "pricing": { "hasFree": false, "startingPrice": "A partir de US$49/mês", "model": "subscription" },
     "websiteUrl": "https://wati.io",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/wati.io",
+    "logoUrl": "/images/tools/wati.png",
     "tags": ["whatsapp", "chatbot", "atendimento", "crm", "equipe"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -262,32 +138,15 @@
     "category": "produtividade",
     "tagline": "IA integrada ao seu espaço de trabalho para escrever, resumir e organizar",
     "description": "Notion AI é o assistente de inteligência artificial integrado ao Notion, o popular app de notas e gestão de projetos. Permite gerar textos, resumir documentos, traduzir conteúdo e criar tabelas diretamente dentro do workspace sem sair da plataforma. Para quem já usa Notion no dia a dia, é a forma mais fluida de ter IA no fluxo de trabalho sem precisar alternar entre ferramentas. O custo é adicional ao plano do Notion (US$10/membro/mês), o que pode pesar para equipes maiores.",
-    "pros": [
-      "Integração nativa com o workspace do Notion",
-      "Resumo automático de documentos longos",
-      "Geração de tabelas e checklists a partir de texto",
-      "Sem necessidade de alternar entre ferramentas"
-    ],
-    "cons": [
-      "Custo adicional de US$10/membro por mês",
-      "Só funciona para quem já usa Notion",
-      "Menos poderoso que GPT-4 para tarefas de escrita complexa"
-    ],
-    "useCases": [
-      "Resumir atas de reunião automaticamente",
-      "Gerar rascunhos de propostas comerciais a partir de tópicos",
-      "Traduzir documentos internos sem sair do Notion"
-    ],
+    "pros": ["Integração nativa com o workspace do Notion", "Resumo automático de documentos longos", "Geração de tabelas e checklists a partir de texto", "Sem necessidade de alternar entre ferramentas"],
+    "cons": ["Custo adicional de US$10/membro por mês", "Só funciona para quem já usa Notion", "Menos poderoso que GPT-4 para tarefas de escrita complexa"],
+    "useCases": ["Resumir atas de reunião automaticamente", "Gerar rascunhos de propostas comerciais a partir de tópicos", "Traduzir documentos internos sem sair do Notion"],
     "whoFor": "Para equipes e profissionais que já usam Notion e querem IA no fluxo de trabalho sem trocar de ferramenta.",
     "whoNotFor": "Para quem não usa Notion ou quer uma IA de escrita mais poderosa — ChatGPT Plus ou Claude entregam mais capacidade.",
-    "pricing": {
-      "hasFree": false,
-      "startingPrice": "US$10/membro/mês (adicional ao plano Notion)",
-      "model": "subscription"
-    },
+    "pricing": { "hasFree": false, "startingPrice": "US$10/membro/mês (adicional ao plano Notion)", "model": "subscription" },
     "websiteUrl": "https://notion.so/product/ai",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/notion.so",
+    "logoUrl": "/images/tools/notion-ai.png",
     "tags": ["produtividade", "ia", "notas", "gestao", "escrita"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -298,32 +157,15 @@
     "category": "criacao-conteudo",
     "tagline": "IA de copywriting para equipes de marketing que precisam de volume e consistência",
     "description": "Jasper é uma das plataformas de geração de conteúdo com IA mais antigas e consolidadas do mercado, focada em equipes de marketing. Oferece templates prontos para artigos, e-mails, posts de redes sociais e páginas de vendas, além de um editor de longa duração com assistente de IA. Tem recursos de brand voice que permitem treinar a IA para escrever no tom específico da empresa — diferencial importante para marcas com identidade verbal forte. Para freelancers e criadores solos, o custo pode ser alto; o foco real da ferramenta é em times.",
-    "pros": [
-      "Brand voice treinável para consistência de comunicação",
-      "Templates para todos os formatos de marketing",
-      "Integração com SurferSEO para otimização on-page",
-      "Modo campanha para criar múltiplas peças de uma vez"
-    ],
-    "cons": [
-      "Preço alto — a partir de US$49/mês",
-      "Para textos simples, o ChatGPT Plus entrega resultado similar por menos",
-      "Interface pode ser complexa para usuários novos"
-    ],
-    "useCases": [
-      "Equipes de conteúdo que precisam produzir 20+ artigos por mês",
-      "Agências que gerenciam comunicação de múltiplos clientes",
-      "Empresas que querem padronizar o tom de voz em todos os canais"
-    ],
+    "pros": ["Brand voice treinável para consistência de comunicação", "Templates para todos os formatos de marketing", "Integração com SurferSEO para otimização on-page", "Modo campanha para criar múltiplas peças de uma vez"],
+    "cons": ["Preço alto — a partir de US$49/mês", "Para textos simples, o ChatGPT Plus entrega resultado similar por menos", "Interface pode ser complexa para usuários novos"],
+    "useCases": ["Equipes de conteúdo que precisam produzir 20+ artigos por mês", "Agências que gerenciam comunicação de múltiplos clientes", "Empresas que querem padronizar o tom de voz em todos os canais"],
     "whoFor": "Para equipes de marketing e agências que precisam de volume de conteúdo com consistência de marca.",
     "whoNotFor": "Para freelancers ou criadores solos — o custo não se justifica. ChatGPT Plus ou Claude são alternativas mais econômicas.",
-    "pricing": {
-      "hasFree": false,
-      "startingPrice": "A partir de US$49/mês",
-      "model": "subscription"
-    },
+    "pricing": { "hasFree": false, "startingPrice": "A partir de US$49/mês", "model": "subscription" },
     "websiteUrl": "https://jasper.ai",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/jasper.ai",
+    "logoUrl": "/images/tools/jasper.png",
     "tags": ["copywriting", "conteudo", "marketing", "ia", "escrita"],
     "lastUpdated": "2026-06-22",
     "featured": false
@@ -334,33 +176,15 @@
     "category": "criacao-conteudo",
     "tagline": "Crie vídeos com apresentadores de IA sem câmera, estúdio ou edição",
     "description": "HeyGen é uma plataforma de geração de vídeo com avatares de IA que permite criar vídeos profissionais sem câmera, estúdio ou habilidades de edição. Você escreve o roteiro, escolhe um avatar (ou cria o seu próprio a partir do seu rosto) e a IA gera o vídeo com narração sincronizada em mais de 40 idiomas. Muito usado para criar vídeos de produto, tutoriais corporativos, conteúdo de treinamento e apresentações de vendas em escala. A qualidade dos avatares evoluiu muito em 2024-2025 e hoje passa por apresentadores humanos em contextos corporativos.",
-    "pros": [
-      "Avatares realistas com sincronização labial precisa",
-      "Suporte a mais de 40 idiomas com clonagem de voz",
-      "Crie um avatar personalizado a partir da sua própria imagem",
-      "Produção de vídeo em escala sem custo de estúdio"
-    ],
-    "cons": [
-      "Plano gratuito muito limitado (1 minuto de vídeo por mês)",
-      "Avatares apresentam artefatos em movimentos muito rápidos",
-      "Qualidade das vozes em português ainda inferior ao inglês"
-    ],
-    "useCases": [
-      "Criar vídeos de onboarding de produto sem aparecer em câmera",
-      "Traduzir e dublar conteúdo de vídeo para múltiplos idiomas",
-      "Produzir vídeos de vendas em escala para campanhas de e-mail"
-    ],
+    "pros": ["Avatares realistas com sincronização labial precisa", "Suporte a mais de 40 idiomas com clonagem de voz", "Crie um avatar personalizado a partir da sua própria imagem", "Produção de vídeo em escala sem custo de estúdio"],
+    "cons": ["Plano gratuito muito limitado (1 minuto de vídeo por mês)", "Avatares apresentam artefatos em movimentos muito rápidos", "Qualidade das vozes em português ainda inferior ao inglês"],
+    "useCases": ["Criar vídeos de onboarding de produto sem aparecer em câmera", "Traduzir e dublar conteúdo de vídeo para múltiplos idiomas", "Produzir vídeos de vendas em escala para campanhas de e-mail"],
     "whoFor": "Para criadores de conteúdo, empresas e profissionais de marketing que precisam de vídeos profissionais em volume sem produção cara.",
     "whoNotFor": "Para quem precisa de vídeos com emoção e dinamismo intensos — avatares ainda não replicam bem expressões muito expressivas.",
-    "pricing": {
-      "hasFree": true,
-      "freeTier": "1 minuto de vídeo por mês",
-      "startingPrice": "A partir de US$29/mês",
-      "model": "freemium"
-    },
+    "pricing": { "hasFree": true, "freeTier": "1 minuto de vídeo por mês", "startingPrice": "A partir de US$29/mês", "model": "freemium" },
     "websiteUrl": "https://heygen.com",
     "affiliateUrl": "",
-    "logoUrl": "https://logo.clearbit.com/heygen.com",
+    "logoUrl": "/images/tools/heygen.png",
     "tags": ["video", "avatar-ia", "conteudo", "producao", "dubagem"],
     "lastUpdated": "2026-06-22",
     "featured": true
