@@ -60,6 +60,43 @@ author: "Modo Fluxo"
 
 **Tamanho:** 600-900 palavras. Suficiente para SEO, sem enrolar.
 
+---
+
+## Qualidade do texto — o que evitar
+
+### Travessão (—)
+Usar com moderação. Usos aceitáveis: separador em heading de seção (`### Ferramenta — subtítulo`), aposto intercalado em par (`— como "exemplo" —`), contraste direto (`não é X — é Y`). Evitar como substituto de vírgula ou dois-pontos no meio de frases corridas.
+
+### Linguagem de IA
+Frases e padrões que denunciam texto gerado sem revisão — banir completamente:
+
+**Aberturas e transições vazias:**
+- "É importante ressaltar que" / "Vale destacar que" / "Vale ressaltar que"
+- "Além disso" como conector automático de parágrafo
+- "Portanto" / "Sendo assim" / "Dessa forma" no início de frase sem necessidade
+- "A partir disso" / "Com base nisso"
+- "Em suma" / "Em conclusão" / "Em resumo" — post nunca termina com conclusão formal
+
+**Frases de impacto vazio:**
+- "No mundo atual" / "No cenário atual" / "Em um mundo cada vez mais [adjetivo]"
+- "É fundamental" / "É essencial" / "É crucial" / "É indispensável"
+- "Transformar [negócio/vida/rotina]" como clichê genérico
+- "Potencializar" / "alavancar" / "otimizar" quando a frase não diz nada concreto
+- "De forma eficiente" / "de forma eficaz" — dizer o que é eficiente, não que é eficiente
+- "Cada vez mais" como intensificador genérico
+
+**Estruturas repetitivas:**
+- "Não apenas X, mas também Y" em excesso
+- "Seja [X] ou [Y]" em excesso
+- Três ou mais parágrafos seguidos começando com "O" + substantivo
+- Parágrafo que reformula o anterior sem adicionar nada novo
+
+**Tom a manter:**
+- Direto, como alguém que entende do assunto explicando para um amigo
+- Frase curta quando possível. Parágrafo curto por padrão
+- Concreto: exemplos, números, ferramentas reais, em vez de afirmações vagas
+- Sem "Conclusão" — terminar com próximo passo ou CTA direto
+
 ### 4. Atualizar o calendário e fazer deploy
 
 1. Adicionar o post na tabela do mês correto em `conteudo/calendario.md`
@@ -88,6 +125,7 @@ cd "clientes/modo-fluxo/modo-fluxo-site"
 - [ ] Descrição com 150-160 chars para SEO
 - [ ] 4-5 tags focadas em busca
 - [ ] Link interno para pelo menos 1 post relacionado
+- [ ] **Revisão editorial:** sem travessão excessivo, sem frases de IA (ver seção "Qualidade do texto")
 - [ ] Calendário atualizado
 - [ ] Deploy feito
 

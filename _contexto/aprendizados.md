@@ -9,6 +9,10 @@ Formato de cada entrada:
 
 ## Erros a não repetir
 
+2026-06-22 — Modo Fluxo (posts MDX) — Tabelas Markdown não renderizavam porque `remark-gfm` não estava configurado no `MDXRemote`. Solução: instalar `remark-gfm` e passar `options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}` no componente MDXRemote de `app/blog/[slug]/page.tsx`. Sempre verificar isso ao adicionar tabelas nos posts.
+
+2026-06-22 — Modo Fluxo (posts MDX) — Posts acumularam linguagem de IA e excesso de travessões (47 removidos em 11 arquivos). Regras editoriais completas salvas em `clientes/modo-fluxo/conteudo/processo.md` na seção "Qualidade do texto". Ler antes de escrever qualquer post. Checklist de revisão adicionado ao final do processo.
+
 2026-06-10 — Modo Fluxo — `new Date("AAAA-MM-DD")` em JavaScript interpreta a string como UTC meia-noite. No fuso GMT-3, isso vira o dia anterior às 21h, causando datas erradas na exibição e posts aparecendo cedo demais no filtro. Sempre parsear datas de frontmatter MDX manualmente: `const [y, m, d] = dateStr.split('-').map(Number); new Date(y, m-1, d)` — isso cria uma data local sem ajuste de timezone.
 
 ---
