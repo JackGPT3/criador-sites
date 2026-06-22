@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { getPostBySlug, getAllSlugs, getAllPosts, CATEGORIES, formatDate } from '@/lib/posts'
 import PostCard from '@/components/PostCard'
 import AdBanner from '@/components/AdBanner'
@@ -152,7 +153,7 @@ export default async function BlogPostPage(props: PageProps<'/blog/[slug]'>) {
 
         {/* Content */}
         <article className="prose max-w-none mb-8">
-          <MDXRemote source={content} />
+          <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
         </article>
 
         {/* CTA Newsletter inline */}
