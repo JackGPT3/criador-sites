@@ -39,6 +39,12 @@ export default function Header() {
                   {cat.label}
                 </Link>
               ))}
+              <Link
+                href="/ferramentas"
+                className="px-3 py-2 text-sm font-medium text-[#667085] hover:text-[#131924] hover:bg-[#E6EBF0] rounded-lg transition-colors"
+              >
+                Ferramentas
+              </Link>
               <button
                 onClick={() => setModalOpen(true)}
                 className="ml-3 px-4 py-2 text-sm font-semibold bg-gradient-to-r from-[#0E3A6E] to-[#159BA8] text-white rounded-lg hover:opacity-90 transition-opacity"
@@ -80,6 +86,14 @@ export default function Header() {
                 <span>{cat.label}</span>
               </Link>
             ))}
+            <Link
+              href="/ferramentas"
+              className="flex items-center gap-2 px-3 py-2.5 text-sm text-[#667085] hover:text-[#131924]"
+              onClick={() => setMobileOpen(false)}
+            >
+              <span>🛠️</span>
+              <span>Ferramentas</span>
+            </Link>
             <div className="mt-3 pt-3 border-t border-[#DDE3EB]">
               <button
                 onClick={() => { setMobileOpen(false); setModalOpen(true) }}
