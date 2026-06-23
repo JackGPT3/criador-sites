@@ -14,39 +14,101 @@ A solução não é um chatbot (que exige configuração). É ter textos prontos
 
 ![Atendimento via WhatsApp com IA](/images/posts/celular-automatizado-whatsapp.webp)
 
-### O que está no pack
+## Os 20 prompts organizados por categoria
 
-O pack de 20 prompts cobre as situações mais frequentes no atendimento via WhatsApp de pequenos negócios:
+Cada mensagem tem campos entre colchetes — `[nome do cliente]`, `[nome do produto]`, `[prazo]` — que você preenche antes de enviar. Em 10 segundos a mensagem está personalizada e pronta.
 
-**Abertura e qualificação**
-- Saudação inicial para cliente novo
-- Resposta fora do horário comercial
-- Pergunta para entender a necessidade do cliente
+### Atendimento — abertura e qualificação
 
-**Orçamento e proposta**
-- Apresentação de preço com contexto
-- Resposta para "tá caro" ou "vi mais barato"
-- Follow-up após enviar orçamento sem resposta
+**1. Saudação inicial para cliente novo**
+> "Oi, [nome]! Tudo bem? Aqui é [seu nome], da [nome da empresa]. Vi que você entrou em contato. Como posso te ajudar hoje?"
 
-**Fechamento**
-- Oferta de condição especial com prazo
-- Confirmação de pedido
-- Instruções de pagamento
+**2. Resposta fora do horário comercial**
+> "Oi! Obrigado pela mensagem. Nosso atendimento funciona de [horário] a [horário], de [dias]. Vou registrar sua dúvida aqui e te retorno assim que abrirmos. Se precisar de algo urgente, manda um e-mail para [e-mail]."
 
-**Pós-venda e fidelização**
-- Mensagem de acompanhamento após entrega
-- Pedido de avaliação ou depoimento
-- Reativação de cliente que sumiu
+**3. Pergunta para entender a necessidade**
+> "Para te ajudar melhor: você está buscando [produto/serviço] para uso pessoal ou empresarial? E tem algum prazo ou orçamento em mente?"
 
-### Como usar
+**4. Qualificação antes do orçamento**
+> "Antes de montar o orçamento, me conta um pouco mais: qual é o principal resultado que você espera com [produto/serviço]? Assim consigo indicar a opção que faz mais sentido para o seu caso."
 
-Não copie e cole direto. Cada prompt tem campos entre colchetes — `[nome do cliente]`, `[nome do produto]`, `[prazo]` — que você preenche antes de enviar. Em 10 segundos a mensagem está personalizada e pronta.
+**5. Confirmação de recebimento com prazo de retorno**
+> "Recebi! Vou verificar a disponibilidade e te retorno com as informações completas em até [prazo]. Se tiver mais alguma dúvida enquanto isso, pode mandar aqui."
 
-Se você usa o WhatsApp Business, pode salvar os principais como **Respostas Rápidas** (atalho `/`) e acionar com dois toques sem nem abrir o ChatGPT.
+### Vendas — orçamento e proposta
 
-### Por que isso funciona melhor do que improvisar
+**6. Apresentação de preço com contexto**
+> "O valor do [produto/serviço] é R$ [valor]. Esse preço inclui [o que está incluso]. O prazo de entrega/execução é de [prazo]. Quer que eu te mande mais detalhes ou já avançamos?"
 
-Quando você improvisa cada resposta, o texto reflete o seu estado de espírito do momento. Quando você tem um template de qualidade, a mensagem que sai às 19h de sexta tem o mesmo padrão da que sai às 9h de segunda. Para o cliente, a percepção é de profissionalismo consistente, não de tamanho da empresa.
+**7. Resposta para 'tá caro' ou 'vi mais barato'**
+> "Entendo! Vou ser direto: o preço reflete [diferencial real — ex: material premium, garantia de X meses, atendimento pós-venda incluso]. Se encontrou mais barato, vale checar se o escopo é o mesmo. Posso te ajudar a comparar se quiser."
+
+**8. Follow-up após enviar orçamento sem resposta (2-3 dias)**
+> "Oi, [nome]! Tudo bem? Passei para ver se o orçamento que te enviei ficou com alguma dúvida. Se precisar de algum ajuste ou quiser conversar sobre o prazo de pagamento, só falar."
+
+**9. Follow-up final (7 dias sem resposta)**
+> "Oi, [nome]! Passando uma última vez para ver se ainda faz sentido avançar com [produto/serviço]. Se mudou algo na sua necessidade ou no prazo, sem problema — pode me avisar. Vou deixar o orçamento em aberto por mais [X dias]."
+
+**10. Proposta com condição especial por prazo**
+> "Posso te oferecer [desconto/condição especial] se fecharmos até [data]. Depois disso, volto ao valor cheio. Quer que eu confirme os detalhes?"
+
+### Fechamento
+
+**11. Confirmação de pedido**
+> "Fechado! Vou anotar o pedido: [produto/serviço], [quantidade se aplicável], entrega para [endereço/data]. Para confirmar, me manda os seus dados completos [ou: o comprovante de pagamento]."
+
+**12. Instruções de pagamento**
+> "Para finalizar, o pagamento pode ser feito via Pix ([chave Pix]) ou [outra forma]. Assim que confirmar, já ativo o pedido. Alguma dúvida sobre o processo?"
+
+**13. Confirmação de agendamento**
+> "Perfeito! Agendado para [data] às [horário], [endereço ou 'online via Google Meet']. Te mando um lembrete um dia antes. Pode aparecer!"
+
+### Pós-venda e fidelização
+
+**14. Acompanhamento após entrega/serviço**
+> "Oi, [nome]! Passando para saber como ficou [produto/serviço]. Ficou como esperado? Qualquer coisa que precise ajustar, é só falar — estou aqui."
+
+**15. Pedido de avaliação ou depoimento**
+> "Oi, [nome]! Se o [produto/serviço] atendeu bem, ficaria muito feliz com uma avaliação no [Google/Instagram]. Leva 1 minuto e ajuda muito a empresa a crescer. Aqui o link: [link]."
+
+**16. Indicação de outro cliente**
+> "Oi, [nome]! Se você conhece alguém que poderia se beneficiar de [produto/serviço], adoraria ser apresentado. Toda indicação que resulta em negócio fechado, ofereço [benefício] pra você como agradecimento."
+
+### Recuperação de carrinho e reativação
+
+**17. Reativação de cliente que sumiu (3+ meses sem comprar)**
+> "Oi, [nome]! Faz um tempo que não nos falamos. Temos [novidade/promoção/produto novo] que acho que pode te interessar. Posso te contar mais?"
+
+**18. Recuperação de lead que pediu orçamento mas não fechou**
+> "Oi, [nome]! Você chegou a pedir um orçamento lá em [mês]. Queria saber se a necessidade ainda existe ou se resolveu de outra forma. Se ainda estiver avaliando, posso rever as condições."
+
+**19. Resposta a reclamação**
+> "Oi, [nome]. Lamento muito pelo ocorrido com [problema]. Entendo a frustração e quero resolver isso. Me conta exatamente o que aconteceu para eu verificar a melhor solução — pode ser [troca/reembolso/ajuste]?"
+
+**20. Encerramento de conversa com porta aberta**
+> "Fico feliz em ter ajudado! Se surgir qualquer dúvida ou nova necessidade, pode mandar mensagem à vontade. Até a próxima, [nome]!"
+
+## Como adaptar esses prompts para o seu negócio
+
+Copiar e colar como estão funciona — mas os resultados melhoram quando você personaliza alguns elementos-chave.
+
+**Defina o tom de voz da sua marca antes de sair adaptando.** Sua empresa é mais formal ou informal? Usa "você" ou "tu"? Usa emojis ou prefere só texto? Decida isso uma vez e aplique em todos os textos. Consistência cria reconhecimento.
+
+**Substitua os genéricos pelos específicos do seu setor.** "Produto/serviço" é um placeholder — troque por "corte feminino", "consultoria de marketing", "entrega de marmitas" ou o que for. Quanto mais específico, mais natural soa.
+
+**Ajuste o prazo de follow-up para a realidade do seu ciclo de venda.** Para compras por impulso (delivery, beleza), follow-up em 24h faz sentido. Para serviços de ticket mais alto (reforma, consultoria), 3-5 dias é mais adequado.
+
+**Salve os mais usados como Respostas Rápidas no WhatsApp Business.** Vá em Configurações > Ferramentas Comerciais > Respostas Rápidas, adicione o atalho `/saudacao`, `/orcamento`, `/followup` e acione com dois toques durante a conversa. Você nem abre o ChatGPT.
+
+## Sobre tom de voz nas mensagens automáticas
+
+O maior risco de usar textos prontos é soar como um robô ou uma empresa grande tentando parecer próxima. Dois ajustes simples resolvem isso:
+
+**Use o nome do cliente sempre que possível.** Não exagere — não precisa aparecer em toda frase — mas na saudação e no encerramento faz diferença.
+
+**Adicione uma frase que só você diria.** Algo característico do seu negócio, do seu setor ou da sua cidade. Uma loja de roupas em Fortaleza tem um jeito diferente de falar de uma em Porto Alegre. Esse detalhe é o que transforma um template em uma conversa real.
+
+Para conectar esses textos a um chatbot que responde automaticamente, sem você precisar digitar, veja o post **[Como Usar o ChatGPT no WhatsApp da Sua Empresa](/blog/como-usar-o-chatgpt-no-whatsapp-da-sua-empresa-para-atender-mais-rapido)**.
 
 **Baixe o pack completo gratuitamente:**
 
