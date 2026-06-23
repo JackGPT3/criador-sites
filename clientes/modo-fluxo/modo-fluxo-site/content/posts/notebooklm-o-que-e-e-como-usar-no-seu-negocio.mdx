@@ -47,6 +47,36 @@ Uma das funcionalidades mais específicas do NotebookLM é o **Audio Overview**.
 
 É útil quando você tem um documento longo e quer absorver o conteúdo enquanto dirige ou faz outra atividade. O áudio é gerado em inglês por padrão, mas o modelo processa documentos em português normalmente: a transcrição das fontes funciona bem, só a narração sai em inglês.
 
+### 3 casos de uso práticos para pequenos negócios
+
+**1. Treinar o atendimento com base no manual do produto**
+
+Se você vende um produto com especificações técnicas — aparelho estético, equipamento, software — o manual costuma ter dezenas de páginas que ninguém lê. Sobe esse manual no NotebookLM e cria um caderno de atendimento. Quando o cliente fizer uma pergunta técnica, você ou sua equipe consultam em segundos: "O equipamento XY funciona em voltagem 110V?" ou "Qual é o ciclo de manutenção recomendado?" A resposta vem com a citação exata do manual, sem risco de dar informação errada.
+
+**2. Organizar atas de reunião e histórico de decisões**
+
+Monta um caderno com as atas das reuniões dos últimos 6 meses. Quando surgir a dúvida "decidimos mudar a política de frete em qual reunião?" ou "qual foi o feedback do cliente X na reunião de março?", você pergunta diretamente ao NotebookLM em vez de vasculhar e-mails ou pastas no Drive. É especialmente útil para negócios com sócios ou equipes pequenas, onde as decisões ficam espalhadas em mensagens e anotações diversas.
+
+**3. Criar base de conhecimento para novos colaboradores**
+
+Reúne em um caderno: o manual de processos da empresa, os scripts de atendimento, as políticas comerciais e as perguntas frequentes dos clientes. Quando contratar alguém novo, você compartilha esse caderno. O colaborador faz as perguntas diretamente ao NotebookLM — "qual é o prazo de troca?", "como funciona o parcelamento?" — em vez de te interromper durante o dia. O onboarding fica mais rápido e o colaborador ganha autonomia mais cedo.
+
+### NotebookLM vs ChatGPT: quando usar cada um
+
+Essas duas ferramentas não competem — elas se complementam. A diferença prática é esta:
+
+| Situação | Use o NotebookLM | Use o ChatGPT |
+|---|---|---|
+| Pesquisar dentro dos seus próprios documentos | Sim | Não (não lê seus arquivos por padrão) |
+| Criar textos, posts, e-mails do zero | Não | Sim |
+| Responder perguntas sobre seu contrato específico | Sim | Não |
+| Gerar ideias criativas para campanha | Não | Sim |
+| Treinar equipe com base nos seus materiais | Sim | Depende (precisa de plugins) |
+| Resumir um PDF longo | Sim | Sim (com limitações no plano gratuito) |
+| Conversar sobre um tema amplo sem documento de referência | Não | Sim |
+
+**Regra simples:** quando o conteúdo está nos seus documentos e você quer respostas baseadas neles, use o NotebookLM. Quando você precisa criar conteúdo novo ou explorar um tema sem referência específica, use o ChatGPT.
+
 ### Limites do plano gratuito
 
 O plano gratuito suporta até 50 fontes por caderno e até 25 cadernos por conta. Para a maioria dos usos no pequeno negócio, isso é suficiente. A versão Plus (disponível via Google One AI Premium, a partir de R$ 96/mês) dobra os limites e inclui funcionalidades extras, mas só faz sentido se você precisar trabalhar com volumes grandes de documentação.
@@ -56,3 +86,14 @@ O plano gratuito suporta até 50 fontes por caderno e até 25 cadernos por conta
 Acessa **notebooklm.google.com** com qualquer conta Google: é gratuito e não precisa instalar nada. Para começar: cria um caderno novo, sobe um ou dois documentos do seu negócio e testa com perguntas diretas sobre o conteúdo. A curva de aprendizado é praticamente zero.
 
 Se você já usa o **[Notion AI](/blog/como-usar-o-notion-ai-para-organizar-o-seu-negocio)** para gestão de tarefas, o NotebookLM complementa bem: o Notion organiza o fluxo de trabalho, o NotebookLM serve como repositório consultável de documentos e conhecimento acumulado.
+
+### Perguntas frequentes
+
+**O NotebookLM funciona com documentos em português?**
+Sim. Você pode subir documentos em português e fazer perguntas em português. A ferramenta processa o conteúdo normalmente. A única exceção é o Audio Overview, que gera a narração em inglês por padrão — mas o conteúdo discutido é baseado nos seus documentos, mesmo que em português.
+
+**Minhas informações ficam seguras? O Google usa meus documentos para treinar o modelo?**
+O Google afirma que os documentos carregados no NotebookLM não são usados para treinar os modelos do Google. Cada caderno é privado e acessível apenas pela sua conta. Para documentos com informações sensíveis — contratos com clientes, dados financeiros — avalie se faz sentido subir na ferramenta ou manter apenas offline.
+
+**Qual é a diferença entre o NotebookLM e o Google Drive com IA?**
+O Google Drive com IA (Gemini) permite perguntas sobre arquivos do Drive, mas é mais limitado na profundidade de análise e na capacidade de cruzar informações entre vários documentos ao mesmo tempo. O NotebookLM foi construído especificamente para ser uma base de conhecimento consultável, com melhor desempenho em perguntas detalhadas e síntese de múltiplas fontes.
