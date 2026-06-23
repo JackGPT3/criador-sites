@@ -4,8 +4,6 @@ import tools from '@/content/ferramentas/tools.json'
 
 const BASE_URL = 'https://modofluxo.com.br'
 
-const TOOL_CATEGORIES = ['automacao', 'criacao-conteudo', 'atendimento', 'produtividade', 'analise-dados']
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
 
@@ -23,7 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  const toolCategoryEntries = TOOL_CATEGORIES.map((slug) => ({
+  const toolCategories = [...new Set(tools.map((t) => t.category))]
+
+  const toolCategoryEntries = toolCategories.map((slug) => ({
     url: `${BASE_URL}/ferramentas/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
