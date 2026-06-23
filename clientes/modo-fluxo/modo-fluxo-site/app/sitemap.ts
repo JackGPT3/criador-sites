@@ -1,7 +1,10 @@
 import type { MetadataRoute } from 'next'
 import { getAllPosts, CATEGORIES } from '@/lib/posts'
+import tools from '@/content/ferramentas/tools.json'
 
 const BASE_URL = 'https://modofluxo.com.br'
+
+const TOOL_CATEGORIES = ['automacao', 'criacao-conteudo', 'atendimento', 'produtividade', 'analise-dados']
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
@@ -20,6 +23,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  const toolCategoryEntries = TOOL_CATEGORIES.map((slug) => ({
+    url: `${BASE_URL}/ferramentas/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  const toolEntries = tools.map((tool) => ({
+    url: `${BASE_URL}/ferramentas/${tool.category}/${tool.slug}`,
+    lastModified: new Date(tool.lastUpdated),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
   return [
     {
       url: BASE_URL,
@@ -27,7 +44,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 1,
     },
+    {
+      url: `${BASE_URL}/ferramentas`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
     ...categoryEntries,
+    ...toolCategoryEntries,
+    ...toolEntries,
     ...postEntries,
   ]
 }
