@@ -68,6 +68,9 @@ export default function Footer() {
                 <Link href="/#newsletter" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Newsletter</Link>
               </li>
               <li>
+                <Link href="/contato" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Contato</Link>
+              </li>
+              <li>
                 <Link href="/politica-de-privacidade" className="text-sm text-[#667085] hover:text-[#131924] transition-colors">Política de Privacidade</Link>
               </li>
             </ul>
@@ -80,6 +83,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <Link href="/sobre" className="text-xs text-[#667085] hover:text-[#131924] transition-colors">Sobre</Link>
+            <Link href="/contato" className="text-xs text-[#667085] hover:text-[#131924] transition-colors">Contato</Link>
             <Link href="/politica-de-privacidade" className="text-xs text-[#667085] hover:text-[#131924] transition-colors">Privacidade</Link>
           </div>
         </div>
