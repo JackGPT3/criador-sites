@@ -35,6 +35,18 @@ export function getAllSlugs(): string[] {
     .map((f) => f.replace('.mdx', ''))
 }
 
+export async function getAllRecipesWithImages(): Promise<RecipeMeta[]> {
+  const recipes = getAllRecipes()
+  return Promise.all(
+    recipes.map(async (recipe) => {
+      if (recipe.imagem) return recipe
+      const query = `${recipe.titulo} ${recipe.aparelho} food recipe`
+      const imagem = await getRecipeImage(recipe.slug, query)
+      return { ...recipe, imagem: imagem ?? undefined }
+    })
+  )
+}
+
 export async function getRecipeBySlugWithImage(
   slug: string
 ): Promise<{ meta: RecipeMeta; content: string } | null> {
