@@ -25,9 +25,22 @@ Registro de todos os projetos, alterações e aprendizados desse projeto.
 - Favicon programático via app/icon.tsx (ImageResponse)
 - Páginas /sobre e /politica-de-privacidade criadas (E-E-A-T + AdSense compliance)
 
+**Expansão de conteúdo (2026-06-24):**
+- 19 receitas novas adicionadas → total: 20 receitas em content/receitas/
+- Aparelhos cobertos: Air Fryer, Micro-ondas, Panela de Pressão Elétrica, Panela Elétrica de Arroz, Grill/Sanduicheira
+- Objetivos cobertos: Alta Proteína, Low Carb, Snacks, Meal Prep
+- Todas as receitas com imagens Unsplash via image-cache.json (committable)
+
+**SEO completo (2026-06-24):**
+- sitemap.xml e robots.txt via MetadataRoute
+- OG image programático via app/opengraph-image.tsx (edge runtime)
+- Metadata enriquecida: keywords por página, canonical, openGraph, twitter card
+- Schema.org/Recipe JSON-LD em cada receita, Organization na /sobre
+- Google Search Console verificado (tag HTML adicionada ao layout.tsx)
+- Sitemap submetido: https://fryerfit.com.br/sitemap.xml
+
 **Próximos passos:**
 - Adicionar record www A → 76.76.21.21 no Registro.br (Modo Avançado)
-- Solicitar aprovação no AdSense com o domínio fryerfit.com.br
-- Após aprovação: substituir NEXT_PUBLIC_ADSENSE_PUBLISHER_ID e slots reais no Vercel
-- Commitar image-cache.json após primeiro build com imagens no Vercel
-- Adicionar mais receitas em content/receitas/
+- Solicitar aprovação no AdSense em adsense.google.com com fryerfit.com.br
+- Após aprovação: adicionar NEXT_PUBLIC_ADSENSE_PUBLISHER_ID no Vercel e substituir slots placeholder
+- Continuar adicionando receitas em content/receitas/

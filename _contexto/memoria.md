@@ -141,6 +141,6 @@ vercel whoami
 
 ## Configurações de ambiente
 
-- Workspace: `c:\Users\noteb\Projetos\Sites e landingpages`
-- Shell: PowerShell (Windows 11)
+- Workspace: `/Users/mariana/Desktop/Projetos/Sites-LandingPages/Sites e landingpages`
+- Shell: zsh (macOS)
 - IDE: VS Code com Claude Code

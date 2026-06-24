@@ -30,7 +30,7 @@ O Modo Fluxo deixou de ser só um blog. A estratégia agora é híbrida:
 |---|---|---|---|---|
 | Professor Alfredo | Site institucional + cursos | Site Institucional / Vendas | — | Em andamento — deploy pendente (conta Vercel separada: oprofessoralfredo@gmail.com) |
 | Modo Fluxo (próprio) | Blog + Diretório pSEO | Next.js 16 + MDX + Vercel | — | **No ar.** 40 posts + 10 ferramentas no diretório. |
-| FryerFit (próprio) | Blog fitness de receitas | Next.js 16 + MDX + Vercel | — | **No ar.** DNS propagado (76.76.21.21). Aguardando AdSense. |
+| FryerFit (próprio) | Blog fitness de receitas | Next.js 16 + MDX + Vercel | — | **No ar.** 20 receitas. SEO completo. Search Console verificado. Aguardando AdSense. |
 
 ---
 
