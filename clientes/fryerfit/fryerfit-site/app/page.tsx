@@ -1,11 +1,24 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import { getAllRecipesWithImages } from '@/lib/recipes'
 import { APARELHOS, OBJETIVOS } from '@/lib/categories'
 import { getImage } from '@/lib/images'
 import { RecipeCard } from '@/components/RecipeCard'
 import { Logo } from '@/components/Logo'
 import { AdBanner } from '@/components/AdBanner'
+
+export const metadata: Metadata = {
+  title: 'FryerFit — Receitas fitness sem fogão',
+  description: 'Receitas fitness para air fryer, micro-ondas, panela de pressão elétrica e grill. Tabela nutricional com calorias, proteínas, carboidratos e gorduras em cada receita.',
+  alternates: { canonical: 'https://fryerfit.com.br' },
+  openGraph: {
+    title: 'FryerFit — Receitas fitness sem fogão',
+    description: 'Receitas fitness para air fryer, micro-ondas, panela de pressão elétrica e grill. Tabela nutricional completa em cada receita.',
+    url: 'https://fryerfit.com.br',
+    type: 'website',
+  },
+}
 
 const websiteSchema = {
   '@context': 'https://schema.org',

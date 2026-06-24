@@ -17,13 +17,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const recipe = await getRecipeBySlugWithImage(slug)
   if (!recipe) return {}
+  const { meta } = recipe
+  const url = `https://fryerfit.com.br/receitas/${slug}`
+  const description = `${meta.descricao} ${meta.calorias} kcal, ${meta.proteina}g de proteína por porção. Receita feita ${meta.aparelho === 'Air Fryer' ? 'na' : 'no'} ${meta.aparelho}.`
+  const keywords = [
+    meta.titulo.toLowerCase(),
+    `receita ${meta.aparelho.toLowerCase()}`,
+    `${meta.aparelho.toLowerCase()} fitness`,
+    `receita ${meta.objetivo.toLowerCase()}`,
+    ...(meta.tags ?? []),
+  ]
   return {
-    title: recipe.meta.titulo,
-    description: recipe.meta.descricao,
+    title: meta.titulo,
+    description,
+    keywords,
+    alternates: { canonical: url },
     openGraph: {
-      title: recipe.meta.titulo,
-      description: recipe.meta.descricao,
-      images: recipe.meta.imagem ? [recipe.meta.imagem] : [],
+      title: meta.titulo,
+      description,
+      type: 'article',
+      url,
+      images: meta.imagem ? [{ url: meta.imagem, width: 1200, height: 630, alt: meta.titulo }] : [],
+      siteName: 'FryerFit',
+      locale: 'pt_BR',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.titulo,
+      description,
+      images: meta.imagem ? [meta.imagem] : [],
     },
   }
 }

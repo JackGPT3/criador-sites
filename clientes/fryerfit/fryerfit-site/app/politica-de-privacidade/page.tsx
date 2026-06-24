@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Política de Privacidade',
   description: 'Como o FryerFit coleta, usa e protege suas informações pessoais.',
+  robots: { index: false, follow: false },
 }
 
 export default function PoliticaPrivacidadePage() {

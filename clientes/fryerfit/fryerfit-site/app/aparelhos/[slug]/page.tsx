@@ -18,13 +18,53 @@ export async function generateStaticParams() {
   return Object.keys(APARELHOS).map((slug) => ({ slug }))
 }
 
+const META: Record<string, { title: string; description: string; keywords: string[] }> = {
+  'air-fryer': {
+    title: 'Receitas para Air Fryer',
+    description: 'Receitas fitness feitas na air fryer com tabela nutricional completa. Frango, peixe, vegetais e snacks crocantes sem óleo. Calorias, proteínas e macros em cada receita.',
+    keywords: ['receitas air fryer', 'air fryer fitness', 'receitas air fryer saudáveis', 'air fryer sem óleo', 'receitas air fryer com tabela nutricional'],
+  },
+  'micro-ondas': {
+    title: 'Receitas fitness para Micro-ondas',
+    description: 'Receitas fitness rápidas feitas no micro-ondas com tabela nutricional. Omelete proteico, mug cake, batata doce e mais — prontas em menos de 10 minutos.',
+    keywords: ['receitas micro-ondas fitness', 'micro-ondas receitas saudáveis', 'receitas rápidas fitness', 'micro-ondas tabela nutricional'],
+  },
+  'panela-pressao-eletrica': {
+    title: 'Receitas para Panela de Pressão Elétrica',
+    description: 'Receitas fitness na panela de pressão elétrica — frango desfiado, feijão, carne e meal prep em menos de 40 minutos. Com tabela nutricional completa em cada receita.',
+    keywords: ['receitas panela de pressão elétrica', 'panela elétrica fitness', 'meal prep panela de pressão', 'frango panela de pressão elétrica'],
+  },
+  'panela-arroz': {
+    title: 'Receitas para Panela Elétrica de Arroz',
+    description: 'Receitas fitness feitas na panela elétrica de arroz. Arroz com legumes, mingau proteico e meal prep fácil. Tabela nutricional completa por porção.',
+    keywords: ['receitas panela elétrica arroz', 'panela de arroz fitness', 'arroz fitness nutricional', 'mingau proteico panela elétrica'],
+  },
+  'grill-sanduicheira': {
+    title: 'Receitas para Grill e Sanduicheira Elétrica',
+    description: 'Receitas fitness no grill e sanduicheira elétrica — wraps, sanduíches proteicos, legumes grelhados e tapioca. Com tabela nutricional completa.',
+    keywords: ['receitas grill elétrico', 'sanduicheira fitness', 'wrap proteico grill', 'receitas grill saudáveis'],
+  },
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const nome = APARELHOS[slug]
   if (!nome) return {}
-  return {
+  const m = META[slug] ?? {
     title: `Receitas para ${nome}`,
-    description: `Receitas fitness feitas no ${nome}. Tabela nutricional em cada receita.`,
+    description: `Receitas fitness feitas no ${nome} com tabela nutricional completa — calorias, proteínas, carboidratos e gorduras por porção.`,
+    keywords: [`receitas ${nome.toLowerCase()}`, 'receitas fitness', 'tabela nutricional'],
+  }
+  return {
+    title: m.title,
+    description: m.description,
+    keywords: m.keywords,
+    openGraph: {
+      title: m.title,
+      description: m.description,
+      url: `https://fryerfit.com.br/aparelhos/${slug}`,
+    },
+    alternates: { canonical: `https://fryerfit.com.br/aparelhos/${slug}` },
   }
 }
 

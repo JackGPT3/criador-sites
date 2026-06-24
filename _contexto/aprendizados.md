@@ -17,6 +17,8 @@ Formato de cada entrada:
 
 2026-06-24 — FryerFit (Next.js) — `vercel` sem `--prod` cria preview, não atualiza produção. Sempre usar `vercel --prod` para atualizar o site no ar.
 
+2026-06-24 — MDX — Comparações com `<` seguidas de número (ex: `<1,5cm`) são interpretadas como tag JSX pelo compilador MDX e causam erro de build. Substituir por texto descritivo: "menos de 1,5cm". Verificar com `grep -rn "<[0-9]"` antes de fazer deploy.
+
 
 
 2026-06-22 — Modo Fluxo (posts MDX) — Tabelas Markdown não renderizavam porque `remark-gfm` não estava configurado no `MDXRemote`. Solução: instalar `remark-gfm` e passar `options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}` no componente MDXRemote de `app/blog/[slug]/page.tsx`. Sempre verificar isso ao adicionar tabelas nos posts.

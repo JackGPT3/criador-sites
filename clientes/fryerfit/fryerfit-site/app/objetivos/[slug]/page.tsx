@@ -17,13 +17,48 @@ export async function generateStaticParams() {
   return Object.keys(OBJETIVOS).map((slug) => ({ slug }))
 }
 
+const META: Record<string, { title: string; description: string; keywords: string[] }> = {
+  'alta-proteina': {
+    title: 'Receitas Alta Proteína para Eletrodomésticos',
+    description: 'Receitas fitness de alta proteína feitas em air fryer, micro-ondas e panela elétrica. Ideais para hipertrofia e manutenção de massa magra. Tabela nutricional completa em cada receita.',
+    keywords: ['receitas alta proteína', 'receitas hipertrofia', 'receitas proteicas fitness', 'air fryer alta proteína', 'receitas musculação'],
+  },
+  'low-carb': {
+    title: 'Receitas Low Carb para Eletrodomésticos',
+    description: 'Receitas low carb e cetogênicas feitas em air fryer, grill e panela de pressão elétrica. Poucas calorias, poucos carboidratos, sabor de verdade. Macros completos por porção.',
+    keywords: ['receitas low carb', 'receitas keto fitness', 'low carb eletrodomésticos', 'receitas sem carboidrato', 'dieta low carb receitas'],
+  },
+  'snacks': {
+    title: 'Snacks Fitness Rápidos para Eletrodomésticos',
+    description: 'Snacks e lanches fitness prontos em menos de 15 minutos no micro-ondas, air fryer e grill elétrico. Tabela nutricional completa para cada lanche.',
+    keywords: ['snacks fitness', 'lanches saudáveis', 'snacks air fryer', 'lanche proteico rápido', 'snack fitness receitas'],
+  },
+  'meal-prep': {
+    title: 'Receitas de Meal Prep para Eletrodomésticos',
+    description: 'Receitas de meal prep feitas em air fryer, panela de pressão elétrica e panela de arroz. Cozinhe uma vez, coma a semana toda. Porções calculadas com tabela nutricional.',
+    keywords: ['meal prep receitas', 'marmita fitness', 'meal prep eletrodomésticos', 'marmita saudável', 'meal prep panela elétrica'],
+  },
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const nome = OBJETIVOS[slug]
   if (!nome) return {}
-  return {
+  const m = META[slug] ?? {
     title: `Receitas ${nome}`,
-    description: `Receitas fitness ${nome} para eletrodomésticos. Tabela nutricional em cada receita.`,
+    description: `Receitas fitness ${nome} para eletrodomésticos com tabela nutricional completa — calorias, proteínas, carboidratos e gorduras por porção.`,
+    keywords: [`receitas ${nome.toLowerCase()}`, 'receitas fitness', 'tabela nutricional'],
+  }
+  return {
+    title: m.title,
+    description: m.description,
+    keywords: m.keywords,
+    openGraph: {
+      title: m.title,
+      description: m.description,
+      url: `https://fryerfit.com.br/objetivos/${slug}`,
+    },
+    alternates: { canonical: `https://fryerfit.com.br/objetivos/${slug}` },
   }
 }
 

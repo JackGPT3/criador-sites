@@ -16,6 +16,7 @@ export type RecipeMeta = {
   imagem?: string
   dificuldade?: string
   porcoes?: number
+  tags?: string[]
 }
 
 export function RecipeCard({ recipe }: { recipe: RecipeMeta }) {
