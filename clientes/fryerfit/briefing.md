@@ -67,7 +67,7 @@ Exemplo: "Frango na Air Fryer", "Ovo no Micro-ondas", "Batata Doce na Panela El�
 - Suporte nativo a dark mode
 - Passa a ideia de: cozinha inteligente, eficiente e moderna, mas acessível
 
-**Logo:** A criar
+**Logo:** Definido — Tigela + Raio. Tigela = refeição. Raio verde sobe onde sairia a chama do fogão (sem gás = elétrico). Arquivo: fryerfit-logo.html
 **Cores:** A definir (referência: paleta clean com acento vibrante — sugestão: verde musgo ou laranja queimado sobre fundo neutro escuro/claro)
 **Fontes:** A definir (2 famílias máximo — 1 serifada moderna para títulos + 1 sans-serif clean para corpo)
 **Referências visuais:** —
