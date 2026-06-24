@@ -17,22 +17,16 @@ const websiteSchema = {
 
 async function getCategoryImages() {
   const aparelhoImages: Record<string, string | null> = {}
-  const objetivoImages: Record<string, string | null> = {}
-
-  await Promise.all([
-    ...Object.entries(APARELHOS).map(async ([slug, cat]) => {
+  await Promise.all(
+    Object.entries(APARELHOS).map(async ([slug, cat]) => {
       aparelhoImages[slug] = await getImage(`aparelho-${slug}`, cat.imageQuery)
-    }),
-    ...Object.entries(OBJETIVOS).map(async ([slug, obj]) => {
-      objetivoImages[slug] = await getImage(`objetivo-${slug}`, obj.imageQuery)
-    }),
-  ])
-
-  return { aparelhoImages, objetivoImages }
+    })
+  )
+  return aparelhoImages
 }
 
 export default async function Home() {
-  const [recipes, { aparelhoImages, objetivoImages }] = await Promise.all([
+  const [recipes, aparelhoImages] = await Promise.all([
     getAllRecipesWithImages(),
     getCategoryImages(),
   ])
@@ -57,9 +51,9 @@ export default async function Home() {
                               radial-gradient(circle at 75% 20%, #5C9E67 0%, transparent 40%)`,
           }}
         />
-        <div className="relative px-4 py-16 sm:py-24 text-center max-w-3xl mx-auto">
-          <div className="flex justify-center mb-6">
-            <Logo size={52} />
+        <div className="relative px-4 py-14 sm:py-20 text-center max-w-3xl mx-auto">
+          <div className="flex justify-center mb-5">
+            <Logo size={48} />
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
             Receitas fitness{' '}
@@ -78,11 +72,10 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Conteúdo */}
       <div className="max-w-5xl mx-auto px-4 py-10">
 
-        {/* Aparelhos */}
-        <section className="mb-10">
+        {/* Aparelhos — cards compactos */}
+        <section className="mb-12">
           <h2 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--subtle)' }}>
             Por aparelho
           </h2>
@@ -94,7 +87,7 @@ export default async function Home() {
                   key={slug}
                   href={`/aparelhos/${slug}`}
                   className="group relative rounded-xl overflow-hidden no-underline block"
-                  style={{ height: '110px' }}
+                  style={{ height: '90px' }}
                 >
                   {img ? (
                     <Image
@@ -107,8 +100,11 @@ export default async function Home() {
                   ) : (
                     <div className="absolute inset-0" style={{ background: cat.gradient }} />
                   )}
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,20,16,0.82) 0%, rgba(15,20,16,0.25) 60%, transparent 100%)' }} />
-                  <span className="absolute bottom-0 left-0 right-0 px-3 pb-3 text-sm font-semibold text-white leading-tight">
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to top, rgba(15,20,16,0.82) 0%, rgba(15,20,16,0.2) 60%, transparent 100%)' }}
+                  />
+                  <span className="absolute bottom-0 left-0 right-0 px-3 pb-2.5 text-xs font-semibold text-white leading-tight">
                     {cat.label}
                   </span>
                 </Link>
@@ -117,51 +113,31 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Objetivos */}
-        <section className="mb-10">
-          <h2 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--subtle)' }}>
-            Por objetivo
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {Object.entries(OBJETIVOS).map(([slug, obj]) => {
-              const img = objetivoImages[slug]
-              return (
+        {/* Receitas com filtro por objetivo */}
+        <section id="receitas">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
+            <h2 className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--subtle)' }}>
+              Receitas recentes
+            </h2>
+            {/* Chips de objetivo */}
+            <div className="flex flex-wrap gap-2">
+              {Object.entries(OBJETIVOS).map(([slug, obj]) => (
                 <Link
                   key={slug}
                   href={`/objetivos/${slug}`}
-                  className="group relative rounded-xl overflow-hidden no-underline block"
-                  style={{ height: '140px' }}
+                  className="text-xs font-medium px-3 py-1.5 rounded-full no-underline transition-all hover:opacity-80"
+                  style={{
+                    background: 'color-mix(in srgb, var(--accent) 10%, var(--surface))',
+                    border: '1px solid color-mix(in srgb, var(--accent) 25%, transparent)',
+                    color: 'var(--accent)',
+                  }}
                 >
-                  {img ? (
-                    <Image
-                      src={img}
-                      alt={obj.label}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(min-width: 640px) 25vw, 50vw"
-                    />
-                  ) : (
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: 'linear-gradient(135deg, #1C2B1E, #3A7D44)' }}
-                    />
-                  )}
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,20,16,0.88) 0%, rgba(15,20,16,0.3) 55%, transparent 100%)' }} />
-                  <div className="absolute bottom-0 left-0 right-0 px-3 pb-3">
-                    <span className="block text-sm font-bold text-white mb-0.5">{obj.label}</span>
-                    <span className="block text-xs leading-snug" style={{ color: 'rgba(255,255,255,0.65)' }}>{obj.descricao}</span>
-                  </div>
+                  {obj.label}
                 </Link>
-              )
-            })}
+              ))}
+            </div>
           </div>
-        </section>
 
-        {/* Receitas */}
-        <section id="receitas">
-          <h2 className="text-xs font-semibold uppercase tracking-widest mb-6" style={{ color: 'var(--subtle)' }}>
-            Receitas recentes
-          </h2>
           {recipes.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {recipes.map((r) => (
@@ -170,7 +146,6 @@ export default async function Home() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-4xl mb-4">🍳</p>
               <p className="text-base font-medium mb-1" style={{ color: 'var(--fg)' }}>Nenhuma receita ainda</p>
               <p className="text-sm" style={{ color: 'var(--subtle)' }}>
                 Adicione arquivos .mdx em <code>content/receitas/</code>
