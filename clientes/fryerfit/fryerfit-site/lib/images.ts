@@ -18,7 +18,7 @@ function saveCache(cache: Record<string, string>) {
   fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2))
 }
 
-export async function getRecipeImage(
+export async function getImage(
   cacheKey: string,
   query: string
 ): Promise<string | null> {
@@ -46,4 +46,11 @@ export async function getRecipeImage(
   } catch {
     return null
   }
+}
+
+export async function getRecipeImage(
+  cacheKey: string,
+  query: string
+): Promise<string | null> {
+  return getImage(cacheKey, query)
 }

@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { getAllRecipesWithImages } from '@/lib/recipes'
 import { APARELHOS, OBJETIVOS } from '@/lib/categories'
+import { getImage } from '@/lib/images'
 import { RecipeCard } from '@/components/RecipeCard'
 import { Logo } from '@/components/Logo'
 
@@ -13,8 +15,27 @@ const websiteSchema = {
   inLanguage: 'pt-BR',
 }
 
+async function getCategoryImages() {
+  const aparelhoImages: Record<string, string | null> = {}
+  const objetivoImages: Record<string, string | null> = {}
+
+  await Promise.all([
+    ...Object.entries(APARELHOS).map(async ([slug, cat]) => {
+      aparelhoImages[slug] = await getImage(`aparelho-${slug}`, cat.imageQuery)
+    }),
+    ...Object.entries(OBJETIVOS).map(async ([slug, obj]) => {
+      objetivoImages[slug] = await getImage(`objetivo-${slug}`, obj.imageQuery)
+    }),
+  ])
+
+  return { aparelhoImages, objetivoImages }
+}
+
 export default async function Home() {
-  const recipes = await getAllRecipesWithImages()
+  const [recipes, { aparelhoImages, objetivoImages }] = await Promise.all([
+    getAllRecipesWithImages(),
+    getCategoryImages(),
+  ])
 
   return (
     <div>
@@ -29,7 +50,6 @@ export default async function Home() {
           className="absolute inset-0"
           style={{ background: 'linear-gradient(135deg, #0F1410 0%, #1C2B1E 50%, #2D4A32 100%)' }}
         />
-        {/* Padrão decorativo */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -46,7 +66,7 @@ export default async function Home() {
             <span style={{ color: '#5C9E67' }}>sem fogão</span>
           </h1>
           <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
-            Air fryer, micro-ondas e panelas elétricas. Toda receita com tabela nutricional completa — calorias, proteínas, carbs e gorduras.
+            Air fryer, micro-ondas e panelas elétricas. Toda receita com tabela nutricional completa.
           </p>
           <Link
             href="#receitas"
@@ -67,17 +87,33 @@ export default async function Home() {
             Por aparelho
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-            {Object.entries(APARELHOS).map(([slug, cat]) => (
-              <Link
-                key={slug}
-                href={`/aparelhos/${slug}`}
-                className="rounded-xl p-4 text-center border transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 no-underline"
-                style={{ background: 'var(--surface)', borderColor: 'var(--divider)' }}
-              >
-                <span className="text-3xl block mb-2">{cat.emoji}</span>
-                <span className="text-sm font-medium" style={{ color: 'var(--fg)' }}>{cat.label}</span>
-              </Link>
-            ))}
+            {Object.entries(APARELHOS).map(([slug, cat]) => {
+              const img = aparelhoImages[slug]
+              return (
+                <Link
+                  key={slug}
+                  href={`/aparelhos/${slug}`}
+                  className="group relative rounded-xl overflow-hidden no-underline block"
+                  style={{ height: '110px' }}
+                >
+                  {img ? (
+                    <Image
+                      src={img}
+                      alt={cat.label}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(min-width: 768px) 20vw, 50vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0" style={{ background: cat.gradient }} />
+                  )}
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,20,16,0.82) 0%, rgba(15,20,16,0.25) 60%, transparent 100%)' }} />
+                  <span className="absolute bottom-0 left-0 right-0 px-3 pb-3 text-sm font-semibold text-white leading-tight">
+                    {cat.label}
+                  </span>
+                </Link>
+              )
+            })}
           </div>
         </section>
 
@@ -87,25 +123,37 @@ export default async function Home() {
             Por objetivo
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {Object.entries(OBJETIVOS).map(([slug, obj]) => (
-              <Link
-                key={slug}
-                href={`/objetivos/${slug}`}
-                className="rounded-xl p-4 border transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 no-underline"
-                style={{
-                  background: 'color-mix(in srgb, var(--accent) 6%, var(--surface))',
-                  borderColor: 'color-mix(in srgb, var(--accent) 20%, transparent)',
-                }}
-              >
-                <span className="text-2xl block mb-1.5">{obj.emoji}</span>
-                <span className="text-sm font-semibold block mb-0.5" style={{ color: 'var(--fg)' }}>
-                  {obj.label}
-                </span>
-                <span className="text-xs leading-snug" style={{ color: 'var(--subtle)' }}>
-                  {obj.descricao}
-                </span>
-              </Link>
-            ))}
+            {Object.entries(OBJETIVOS).map(([slug, obj]) => {
+              const img = objetivoImages[slug]
+              return (
+                <Link
+                  key={slug}
+                  href={`/objetivos/${slug}`}
+                  className="group relative rounded-xl overflow-hidden no-underline block"
+                  style={{ height: '140px' }}
+                >
+                  {img ? (
+                    <Image
+                      src={img}
+                      alt={obj.label}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(min-width: 640px) 25vw, 50vw"
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: 'linear-gradient(135deg, #1C2B1E, #3A7D44)' }}
+                    />
+                  )}
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(15,20,16,0.88) 0%, rgba(15,20,16,0.3) 55%, transparent 100%)' }} />
+                  <div className="absolute bottom-0 left-0 right-0 px-3 pb-3">
+                    <span className="block text-sm font-bold text-white mb-0.5">{obj.label}</span>
+                    <span className="block text-xs leading-snug" style={{ color: 'rgba(255,255,255,0.65)' }}>{obj.descricao}</span>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         </section>
 
