@@ -5,6 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { getRecipeBySlugWithImage, getAllSlugs } from '@/lib/recipes'
 import { MacroTable } from '@/components/MacroTable'
+import { AdBanner } from '@/components/AdBanner'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -158,10 +159,16 @@ export default async function RecipePage({ params }: Props) {
           }}
         />
 
+        {/* Anúncio após tabela nutricional */}
+        <AdBanner slot="1111111111" format="auto" className="my-2" />
+
         {/* Conteúdo MDX */}
         <article className="recipe-content mt-8">
           <MDXRemote source={content} options={mdxOptions} />
         </article>
+
+        {/* Anúncio ao final da receita */}
+        <AdBanner slot="2222222222" format="auto" className="mt-8" />
 
       </div>
     </>

@@ -5,6 +5,7 @@ import { APARELHOS, OBJETIVOS } from '@/lib/categories'
 import { getImage } from '@/lib/images'
 import { RecipeCard } from '@/components/RecipeCard'
 import { Logo } from '@/components/Logo'
+import { AdBanner } from '@/components/AdBanner'
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -112,6 +113,9 @@ export default async function Home() {
             })}
           </div>
         </section>
+
+        {/* Anúncio entre aparelhos e receitas */}
+        <AdBanner slot="3333333333" format="auto" className="mb-10" />
 
         {/* Receitas com filtro por objetivo */}
         <section id="receitas">

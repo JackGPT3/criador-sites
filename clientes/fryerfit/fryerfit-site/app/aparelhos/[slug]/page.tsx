@@ -1,5 +1,6 @@
 import { getAllRecipesWithImages } from '@/lib/recipes'
 import { RecipeCard } from '@/components/RecipeCard'
+import { AdBanner } from '@/components/AdBanner'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 
@@ -48,6 +49,8 @@ export default async function AparelhosPage({ params }: Props) {
           Receitas fitness feitas no {nome}, com tabela nutricional completa.
         </p>
       </div>
+
+      <AdBanner slot="4444444444" format="auto" className="mb-8" />
 
       {recipes.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
