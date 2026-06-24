@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green:   #3A7D44;
+  --color-green2:  #5C9E67;
+  --color-forest:  #1C2B1E;
+  --color-fog:     #CBD8CC;
+  --color-ground:  #F0F4EF;
+  --color-moss:    #8BA98E;
+  --color-bone:    #F4F2ED;
+
+  --font-sans: var(--font-nunito), 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+}
+
+:root {
+  --bg:      #F0F4EF;
+  --fg:      #1C2B1E;
+  --subtle:  #8BA98E;
+  --surface: #FFFFFF;
+  --divider: #DDE5DE;
+  --accent:  #3A7D44;
+}
+
+.dark {
+  --bg:      #0F1410;
+  --fg:      #F4F2ED;
+  --subtle:  #4A6650;
+  --surface: #1A241C;
+  --divider: #243228;
+  --accent:  #5C9E67;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.15s, color 0.15s;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Prose para conteúdo MDX */
+.prose {
+  max-width: 68ch;
+  line-height: 1.75;
+}
+.prose h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+.prose h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+.prose p { margin-bottom: 1rem; opacity: 0.88; }
+.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+.prose li { margin-bottom: 0.3rem; opacity: 0.88; }
+.prose strong { font-weight: 600; opacity: 1; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--divider); border-radius: 3px; }
