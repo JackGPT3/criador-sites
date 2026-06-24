@@ -62,6 +62,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://fryerfit.com.br',
   },
+  verification: {
+    google: '0aExRk7Ila8bHDWUlrg61zC9dVqoNYgF625LzpOKrwU',
+  },
 }
 
 export default function RootLayout({
