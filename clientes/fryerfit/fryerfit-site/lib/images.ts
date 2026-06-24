@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-const CACHE_FILE = path.join(process.cwd(), '.cache/images.json')
+// Cache commitável — fica no repo para persistir entre builds no Vercel
+const CACHE_FILE = path.join(process.cwd(), 'image-cache.json')
 
 function loadCache(): Record<string, string> {
   try {
@@ -13,8 +14,6 @@ function loadCache(): Record<string, string> {
 }
 
 function saveCache(cache: Record<string, string>) {
-  const dir = path.dirname(CACHE_FILE)
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
   fs.writeFileSync(CACHE_FILE, JSON.stringify(cache, null, 2))
 }
 
@@ -22,21 +21,22 @@ export async function getImage(
   cacheKey: string,
   query: string
 ): Promise<string | null> {
-  const accessKey = process.env.UNSPLASH_ACCESS_KEY
-  if (!accessKey) return null
-
   const cache = loadCache()
   if (cache[cacheKey]) return cache[cacheKey]
 
+  const accessKey = process.env.UNSPLASH_ACCESS_KEY
+  if (!accessKey) return null
+
   try {
+    // Search endpoint com order_by=relevant — mais estável que random
     const res = await fetch(
-      `https://api.unsplash.com/photos/random?query=${encodeURIComponent(query)}&orientation=landscape&content_filter=high`,
+      `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=1&order_by=relevant&orientation=landscape&content_filter=high`,
       { headers: { Authorization: `Client-ID ${accessKey}` } }
     )
     if (!res.ok) return null
 
     const data = await res.json()
-    const imageUrl: string | null = data.urls?.regular ?? null
+    const imageUrl: string | null = data.results?.[0]?.urls?.regular ?? null
 
     if (imageUrl) {
       cache[cacheKey] = imageUrl

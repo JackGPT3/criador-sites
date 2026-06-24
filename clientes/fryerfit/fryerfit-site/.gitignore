@@ -36,7 +36,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-# image cache (gerado automaticamente no build)
+# pasta cache antiga
 .cache/
 
 # typescript
