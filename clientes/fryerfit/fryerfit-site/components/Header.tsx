@@ -42,7 +42,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className="text-sm font-medium no-underline hover:underline"
-              style={{ color: 'var(--subtle)' }}
+              style={{ color: 'var(--fg)' }}
             >
               {item.label}
             </Link>

@@ -1,4 +1,4 @@
-import { getAllRecipes } from '@/lib/recipes'
+import { getAllRecipesWithImages } from '@/lib/recipes'
 import { RecipeCard } from '@/components/RecipeCard'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -32,7 +32,7 @@ export default async function AparelhosPage({ params }: Props) {
   const nome = APARELHOS[slug]
   if (!nome) notFound()
 
-  const all = getAllRecipes()
+  const all = await getAllRecipesWithImages()
   const recipes = all.filter(
     (r) => r.aparelho.toLowerCase().includes(slug.replace(/-/g, ' ').split(' ')[0])
   )

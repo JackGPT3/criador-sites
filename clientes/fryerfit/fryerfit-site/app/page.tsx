@@ -53,7 +53,7 @@ export default async function Home() {
         />
         <div className="relative px-4 py-14 sm:py-20 text-center max-w-3xl mx-auto">
           <div className="flex justify-center mb-5">
-            <Logo size={48} />
+            <Logo size={48} color="white" boltColor="#7DC98A" />
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
             Receitas fitness{' '}
@@ -64,8 +64,8 @@ export default async function Home() {
           </p>
           <Link
             href="#receitas"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-opacity hover:opacity-80"
-            style={{ background: '#3A7D44' }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-opacity hover:opacity-90"
+            style={{ background: 'white', color: '#1C2B1E' }}
           >
             Ver receitas
           </Link>
