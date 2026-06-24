@@ -12,6 +12,9 @@ export type RecipeMeta = {
   gordura: number
   porcao?: string
   descricao: string
+  imagem?: string
+  dificuldade?: string
+  porcoes?: number
 }
 
 export function RecipeCard({ recipe }: { recipe: RecipeMeta }) {

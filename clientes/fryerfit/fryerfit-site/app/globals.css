@@ -63,19 +63,111 @@ a:hover { text-decoration: underline; }
 .prose h2 {
   font-size: 1.3rem;
   font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 0.6rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--fg);
 }
 .prose h3 {
   font-size: 1.05rem;
   font-weight: 600;
-  margin-top: 1.5rem;
-  margin-bottom: 0.4rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
 }
-.prose p { margin-bottom: 1rem; opacity: 0.88; }
-.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1rem; }
-.prose li { margin-bottom: 0.3rem; opacity: 0.88; }
-.prose strong { font-weight: 600; opacity: 1; }
+.prose p { margin-bottom: 1rem; color: var(--fg); opacity: 0.85; }
+.prose ul, .prose ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.prose li { margin-bottom: 0.4rem; color: var(--fg); opacity: 0.85; }
+.prose strong { font-weight: 700; color: var(--fg); opacity: 1; }
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.6rem 1rem;
+  margin: 1.5rem 0;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+.prose blockquote p { opacity: 1; margin: 0; }
+
+/* Receitas — numeração e listas estilizadas */
+.recipe-content { max-width: 68ch; }
+.recipe-content h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--divider);
+  color: var(--fg);
+}
+.recipe-content p { margin-bottom: 1rem; color: var(--fg); line-height: 1.75; }
+.recipe-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
+}
+.recipe-content ul li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: var(--fg);
+  border-bottom: 1px solid var(--divider);
+}
+.recipe-content ul li:last-child { border-bottom: none; }
+.recipe-content ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+.recipe-content ol {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
+  counter-reset: step;
+}
+.recipe-content ol li {
+  counter-increment: step;
+  padding: 0.75rem 0.75rem 0.75rem 3.5rem;
+  position: relative;
+  color: var(--fg);
+  background: var(--surface);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  line-height: 1.65;
+}
+.recipe-content ol li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.85rem;
+  top: 0.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+  padding-top: 0.05rem;
+}
+.recipe-content strong { font-weight: 700; color: var(--fg); }
+.recipe-content blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.6rem 1rem;
+  margin: 1.5rem 0;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.875rem;
+  color: var(--subtle);
+}
+.recipe-content blockquote p { margin: 0; color: var(--subtle); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
