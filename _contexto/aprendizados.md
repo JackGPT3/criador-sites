@@ -9,6 +9,16 @@ Formato de cada entrada:
 
 ## Erros a não repetir
 
+2026-06-24 — FryerFit (Next.js) — Unsplash `photos/random` retorna imagens irrelevantes para queries de comida. Usar `search/photos?query=...&per_page=1&order_by=relevant&orientation=landscape` — muito mais preciso.
+
+2026-06-24 — FryerFit (Next.js) — Cache de imagens em `.cache/` não sobrevive ao build do Vercel (filesystem efêmero). Mover cache para `image-cache.json` na raiz do projeto, commitar no git — ele persiste entre builds.
+
+2026-06-24 — FryerFit (Next.js) — Logo desapareceu no hero escuro porque o componente usava `currentColor` por padrão (herda cor do texto que era invisível). Solução: adicionar props `color` e `boltColor` no componente Logo e passar explicitamente `color="white"` no contexto escuro.
+
+2026-06-24 — FryerFit (Next.js) — `vercel` sem `--prod` cria preview, não atualiza produção. Sempre usar `vercel --prod` para atualizar o site no ar.
+
+
+
 2026-06-22 — Modo Fluxo (posts MDX) — Tabelas Markdown não renderizavam porque `remark-gfm` não estava configurado no `MDXRemote`. Solução: instalar `remark-gfm` e passar `options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}` no componente MDXRemote de `app/blog/[slug]/page.tsx`. Sempre verificar isso ao adicionar tabelas nos posts.
 
 2026-06-22 — Modo Fluxo (posts MDX) — Posts acumularam linguagem de IA e excesso de travessões (47 removidos em 11 arquivos). Regras editoriais completas salvas em `clientes/modo-fluxo/conteudo/processo.md` na seção "Qualidade do texto". Ler antes de escrever qualquer post. Checklist de revisão adicionado ao final do processo.
@@ -23,7 +33,11 @@ Formato de cada entrada:
 
 ## Caminhos que funcionam
 
-*(abordagens, fluxos ou padrões que já foram validados e podem ser repetidos com confiança)*
+2026-06-24 — FryerFit — Padrão de imagens automáticas validado: `lib/images.ts` com Unsplash search + cache committable em `image-cache.json`. Funciona em dev e no Vercel SSG. Replicável em próximos blogs/sites de conteúdo.
+
+2026-06-24 — FryerFit — Favicon programático via `app/icon.tsx` com `ImageResponse` (Next.js 16). Evita arquivo PNG manual. Replicável em qualquer projeto Next.js que precise de favicon personalizado.
+
+2026-06-24 — FryerFit — AdSense spaces sem texto visível: componente `AdBanner` retorna `null` quando `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` não está definido. Zero impacto visual em dev/staging, espaços ativos em prod após configurar a var.
 
 ---
 
