@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
-import { getRecipeBySlug, getAllSlugs } from '@/lib/recipes'
+import { getRecipeBySlugWithImage, getAllSlugs } from '@/lib/recipes'
 import { MacroTable } from '@/components/MacroTable'
 
 type Props = { params: Promise<{ slug: string }> }
@@ -13,7 +14,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const recipe = getRecipeBySlug(slug)
+  const recipe = await getRecipeBySlugWithImage(slug)
   if (!recipe) return {}
   return {
     title: recipe.meta.titulo,
@@ -34,7 +35,7 @@ const mdxOptions = {
 
 export default async function RecipePage({ params }: Props) {
   const { slug } = await params
-  const recipe = getRecipeBySlug(slug)
+  const recipe = await getRecipeBySlugWithImage(slug)
   if (!recipe) notFound()
 
   const { meta, content } = recipe
@@ -65,63 +66,60 @@ export default async function RecipePage({ params }: Props) {
       />
 
       {/* Hero */}
-      <div
-        className="w-full"
-        style={{
-          height: '320px',
-          background: meta.imagem
-            ? `url(${meta.imagem}) center/cover no-repeat`
-            : 'linear-gradient(135deg, #1C2B1E 0%, #3A7D44 60%, #5C9E67 100%)',
-          position: 'relative',
-        }}
-      >
-        {!meta.imagem && (
+      <div className="w-full relative" style={{ height: '360px' }}>
+        {meta.imagem ? (
+          <Image
+            src={meta.imagem}
+            alt={meta.titulo}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        ) : (
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-3"
-            style={{ background: 'rgba(15,20,16,0.45)' }}
-          >
-            <svg width="52" height="52" viewBox="0 0 90 90" fill="none" aria-hidden="true">
-              <path d="M18 62 Q45 72 72 62" stroke="white" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.7"/>
-              <line x1="18" y1="62" x2="72" y2="62" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.5"/>
-              <path d="M 51 44 L 40 22 L 48 22 L 36 4 L 56 26 L 47 26 Z" fill="#5C9E67"/>
-            </svg>
-            <p className="text-sm font-medium uppercase tracking-widest" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              Foto em breve
-            </p>
-          </div>
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(135deg, #1C2B1E 0%, #3A7D44 60%, #5C9E67 100%)' }}
+          />
         )}
-      </div>
-
-      <div className="max-w-3xl mx-auto px-4 py-10">
-
-        {/* Tags */}
-        <div className="flex gap-2 mb-5 flex-wrap">
-          <span
-            className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
-            style={{ background: 'color-mix(in srgb, var(--accent) 12%, transparent)', color: 'var(--accent)' }}
-          >
-            {meta.aparelho}
-          </span>
-          <span
-            className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
-            style={{ background: 'var(--divider)', color: 'var(--subtle)' }}
-          >
-            {meta.objetivo}
-          </span>
-          {meta.dificuldade && (
+        {/* Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to top, rgba(15,20,16,0.85) 0%, rgba(15,20,16,0.2) 60%, transparent 100%)' }}
+        />
+        {/* Título sobre hero */}
+        <div className="absolute bottom-0 left-0 right-0 max-w-3xl mx-auto px-4 pb-8">
+          <div className="flex gap-2 mb-3 flex-wrap">
             <span
               className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
-              style={{ background: 'var(--divider)', color: 'var(--subtle)' }}
+              style={{ background: 'rgba(90,180,100,0.25)', color: '#A8E0B0', backdropFilter: 'blur(4px)' }}
             >
-              {meta.dificuldade}
+              {meta.aparelho}
             </span>
-          )}
+            <span
+              className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
+              style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(4px)' }}
+            >
+              {meta.objetivo}
+            </span>
+            {meta.dificuldade && (
+              <span
+                className="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full"
+                style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(4px)' }}
+              >
+                {meta.dificuldade}
+              </span>
+            )}
+          </div>
+          <h1 className="text-3xl sm:text-4xl font-bold leading-tight text-white drop-shadow-sm">
+            {meta.titulo}
+          </h1>
         </div>
+      </div>
 
-        {/* Título */}
-        <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-3" style={{ color: 'var(--fg)' }}>
-          {meta.titulo}
-        </h1>
+      <div className="max-w-3xl mx-auto px-4 py-8">
+
+        {/* Descrição */}
         <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--subtle)' }}>
           {meta.descricao}
         </p>
@@ -161,7 +159,7 @@ export default async function RecipePage({ params }: Props) {
         />
 
         {/* Conteúdo MDX */}
-        <article className="recipe-content">
+        <article className="recipe-content mt-8">
           <MDXRemote source={content} options={mdxOptions} />
         </article>
 

@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import type { RecipeMeta } from '@/components/RecipeCard'
+import { getRecipeImage } from './images'
 
 const RECIPES_DIR = path.join(process.cwd(), 'content/receitas')
 
@@ -32,4 +33,19 @@ export function getAllSlugs(): string[] {
     .readdirSync(RECIPES_DIR)
     .filter((f) => f.endsWith('.mdx'))
     .map((f) => f.replace('.mdx', ''))
+}
+
+export async function getRecipeBySlugWithImage(
+  slug: string
+): Promise<{ meta: RecipeMeta; content: string } | null> {
+  const recipe = getRecipeBySlug(slug)
+  if (!recipe) return null
+  if (recipe.meta.imagem) return recipe
+
+  const query = `${recipe.meta.titulo} ${recipe.meta.aparelho} food recipe`
+  const imagem = await getRecipeImage(slug, query)
+  return {
+    ...recipe,
+    meta: { ...recipe.meta, imagem: imagem ?? undefined },
+  }
 }

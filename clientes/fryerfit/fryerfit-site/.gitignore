@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# image cache (gerado automaticamente no build)
+.cache/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
