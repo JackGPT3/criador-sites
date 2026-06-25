@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: 'Sobre o FryerFit',
   description: 'O FryerFit é um blog de receitas fitness para air fryer, micro-ondas e eletrodomésticos. Toda receita tem tabela nutricional completa com calorias, proteínas, carboidratos e gorduras.',
   keywords: ['sobre fryerfit', 'blog receitas fitness', 'receitas air fryer tabela nutricional', 'quem faz fryerfit'],
+  authors: [{ name: 'Jacqueline da Silva Paes', url: 'https://fryerfit.com.br/sobre' }],
   alternates: { canonical: 'https://fryerfit.com.br/sobre' },
   openGraph: {
     title: 'Sobre o FryerFit',
@@ -66,6 +67,11 @@ export default function SobrePage() {
           <li><strong>Snacks Rápidos</strong> — lanches e petiscos prontos em menos de 15 minutos</li>
           <li><strong>Meal Prep</strong> — receitas que rendem bem e guardam bem na geladeira</li>
         </ul>
+
+        <h2>Quem escreve</h2>
+        <p>
+          As receitas do FryerFit são criadas e testadas por <strong>Jacqueline da Silva Paes</strong>, Personal Trainer com foco em nutrição prática para o dia a dia. Cada receita passa por testes reais antes de entrar no site — tempo de preparo, textura, sabor e os valores nutricionais conferidos ingrediente a ingrediente.
+        </p>
 
         <h2>Contato</h2>
         <p>

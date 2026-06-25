@@ -18,6 +18,7 @@ export function Footer() {
 
         <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm" style={{ color: 'var(--subtle)' }}>
           <Link href="/sobre" className="hover:underline">Sobre</Link>
+          <Link href="/contato" className="hover:underline">Contato</Link>
           <Link href="/politica-de-privacidade" className="hover:underline">Privacidade</Link>
           <Link href="/aparelhos/air-fryer" className="hover:underline">Air Fryer</Link>
           <Link href="/objetivos/low-carb" className="hover:underline">Low Carb</Link>
