@@ -1,0 +1,44 @@
+name: Daily Recipe Publisher
+
+on:
+  schedule:
+    - cron: '0 15 * * *'  # 12h BRT (UTC-3)
+  workflow_dispatch:      # permite rodar manualmente a qualquer hora
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate 2 new recipes
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: node scripts/generate-daily-recipes.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "FryerFit Bot"
+          git config user.email "bot@fryerfit.com.br"
+          git add content/receitas/ image-cache.json
+          git diff --staged --quiet || git commit -m "chore: 2 novas receitas $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_JbigehJUeCEHoRHv4aMM9aY6
+          VERCEL_PROJECT_ID: prj_R4J8HsDUkBBkIgMx7OgPqmiheP7V
+        run: npx vercel --prod --token $VERCEL_TOKEN --yes
