@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Header } from '@/components/Header'
@@ -74,14 +73,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={nunito.variable} suppressHydrationWarning>
-      {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-      )}
+      <head>
+        {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
+          // eslint-disable-next-line @next/next/no-sync-scripts
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
+      </head>
       <body className="min-h-screen flex flex-col">
         <ThemeProvider>
           <Header />
